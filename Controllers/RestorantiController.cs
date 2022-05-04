@@ -29,17 +29,32 @@ namespace Food_delivery_app_LabCouse1.Controllers
         {
             return await _db.Restoranti.ToListAsync();
         }
-
-        /*
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(Restoranti obj)
+/*
+        [HttpGet("{id}")]
+        public JsonResult GetRestoranti()
         {
-            _db.Restoranti.Add(obj);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        */
+                    string query = @"
+                    select id, emri, qyteti, adresa,nr_kontaktues, data_regjistrimit from dbo.Restoranti
+                    where id = " + id + @" 
+                    ";
+            DataTable table = new DataTable();
+            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
+            SqlDataReader myReader;
+            using(SqlConnection myCon=new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader); ;
+
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+
+            return new JsonResult(table);
+        }*/
 
         [HttpPost]
         public JsonResult Post(Restoranti restoranti)
@@ -73,6 +88,61 @@ namespace Food_delivery_app_LabCouse1.Controllers
             }
 
             return new JsonResult("Added Successfully");
+        }
+
+        [HttpPut]
+        public JsonResult Put(Restoranti res)
+        {
+            string query = @"
+                    update dbo.Restoranti set 
+                    emri = '" + res.emri + @"'
+                    ,adresa = '" + res.adresa + @"'
+                    ,nr_kontaktues = '" + res.nr_kontaktues + @"'
+                    where Id = " + res.Id + @" 
+                    ";
+            DataTable table = new DataTable();
+            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+
+            return new JsonResult("Updated Successfully");
+        }
+
+        [HttpDelete("{id}")]
+        public JsonResult Delete(int id)
+        {
+            string query = @"
+                    delete from dbo.Restoranti
+                    where Id = " + id + @" 
+                    ";
+            DataTable table = new DataTable();
+            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+
+            return new JsonResult("Deleted Successfully");
         }
     }
 }
