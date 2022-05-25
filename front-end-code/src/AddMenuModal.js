@@ -1,23 +1,26 @@
+
 import React,{Component} from 'react';
 import {Modal,Button, Row, Col, Form} from 'react-bootstrap';
 
-export class EditQytetinModal extends Component{
+export class AddMenuModal extends Component{
     constructor(props){
         super(props);
-        this.handleSubmit=this.handleSubmit.bind(this);
+        this.handleSubmit=this.handleSubmit.bind();
     }
 
     handleSubmit(event){
+        //const dt = new Date();
+        //let date = dt.getFullYear()+'-'+(dt.getMonth()+1)+'-'+dt.getDate();
         event.preventDefault();
-        fetch(process.env.REACT_APP_API+'qyteti',{
-            method:'PUT',
+        fetch(process.env.REACT_APP_API+'menu',{
+            method:'POST',
             headers:{
                 'Accept':'application/json',
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({
-                id:event.target.id.value,
-                emri:event.target.emri.value
+                emertimi:event.target.emertimi.value,
+                nr_artikujve:event.target.nr_artikujve.value
             })
         })
         .then(res=>res.json())
@@ -28,10 +31,13 @@ export class EditQytetinModal extends Component{
             alert('Failed');
         })
     }
-    render(){
-        return (
-            <div className="container">
 
+   render(){
+       return(
+           
+
+           <div className="container">
+               
 <Modal
 {...this.props}
 size="lg"
@@ -40,7 +46,7 @@ centered
 >
     <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-            Edit Qyteti
+            Shto Menu
         </Modal.Title>
     </Modal.Header>
     <Modal.Body>
@@ -48,24 +54,20 @@ centered
         <Row>
             <Col sm={6}>
                 <Form onSubmit={this.handleSubmit}>
-                <Form.Group controlId="id">
-                        <Form.Label>Restoranti Id</Form.Label>
-                        <Form.Control type="text" name="id" required
-                        disabled
-                        defaultValue={this.props.id} 
-                        placeholder="id"/>
+                    <Form.Group controlId="emertimi">
+                        <Form.Label>Emri Menu-se</Form.Label>
+                        <Form.Control type="text" name="emertimi" required 
+                        placeholder="Emri Menu-se"/>
                     </Form.Group>
-
-                    <Form.Group controlId="emri">
-                        <Form.Label>Emri Restorantit</Form.Label>
-                        <Form.Control type="text" name="emri" required 
-                        defaultValue={this.props.emri}
-                        placeholder="emri"/>
+                    <Form.Group controlId="nr_artikujve">
+                        <Form.Label>Nr i Artikujve</Form.Label>
+                        <Form.Control type="text" name="nr_artikujve" required 
+                        placeholder="nr_artikujve"/>
                     </Form.Group>
 
                     <Form.Group>
                         <Button variant="primary" type="submit">
-                            Update
+                            Shto
                         </Button>
                     </Form.Group>
                 </Form>
@@ -79,8 +81,7 @@ centered
 
 </Modal>
 
-            </div>
-        )
-    }
-
+           </div>
+       )
+   }
 }

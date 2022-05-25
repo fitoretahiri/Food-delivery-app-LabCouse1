@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 import { Button, ButtonToolbar } from 'react-bootstrap';
-import { AddRestorantModal } from './AddRestorantModal';
-import { EditRestorantModal } from './EditRestorantModal';
+import { AddUserModal } from './AddUserModal';
+import { EditUserModal } from './EditUserModal';
 
 
-export class Restoranti extends Component {
+export class Useri extends Component {
     constructor(props) {
         super(props);
-        this.state = { restorantet: [], addModalShow: false, editModalShow: false }
+        this.state = {users: [], addModalShow: false }
     }
 
     //marrja e te dhenave nga API
     refreshList() {
-        fetch(process.env.REACT_APP_API + 'restoranti')
+        fetch(process.env.REACT_APP_API + 'user')
             .then(response => response.json())
             .then(data => {
-                this.setState({ restorantet: data });
+                this.setState({users: data });
             });
     }
 
@@ -29,9 +29,9 @@ export class Restoranti extends Component {
     }
 
     //delete a restaurant
-    deleteRestorant(id) {
-        if (window.confirm('A doni ta fshini restorantin?')) {
-            fetch(process.env.REACT_APP_API + 'restoranti/' + id, {
+    deleteUser(id) {
+        if (window.confirm('A doni ta fshini perdoruesin?')) {
+            fetch(process.env.REACT_APP_API + 'user/' + id, {
                 method: 'DELETE',
                 header: {
                     'Accept': 'application/json',
@@ -42,50 +42,50 @@ export class Restoranti extends Component {
     }
 
     render() {
-        const { restorantet, id, emri, qyteti, adresa, nr_kontaktues } = this.state;
+        const { users, userID, emri, mbiemri, photoProfile, roli } = this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
-            <div className="restoranti mt-5">
+            <div className="user mt-5">
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>
                             <th>Emri</th>
-                            <th>Qyteti</th>
-                            <th>Adresa</th>
-                            <th>Nr.Kontaktues</th>
+                            <th>Mbiemri</th>
+                            <th>Foto</th>
+                            <th>Roli</th>
                             <th>Options</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {restorantet.map(el =>
-                            <tr key={el.id}>
+                        {users.map(el =>
+                            <tr key={el.userID}>
                                 <td>{el.emri}</td>
-                                <td>{el.qyteti}</td>
-                                <td>{el.adresa}</td>
-                                <td>{el.nr_kontaktues}</td>
+                                <td>{el.mbiemri}</td>
+                                <td>{el.photoProfile}</td>
+                                <td>{el.roli}</td>
                                 <td>
                                     <ButtonToolbar>
                                         <Button className="mr-2" variant="info"
                                             onClick={() => this.setState({
                                                 editModalShow: true,
-                                                id: el.id, emri: el.emri, qyteti: el.qyteti, adresa: el.adresa, nr_kontaktues: el.nr_kontaktues
+                                                userID: el.userID, emri: el.emri, mbiemri: el.mbiemri, photoProfile: el.photoProfile, roli: el.roli
                                             })}>
                                             Edit
                                         </Button>
 
                                         <Button className="mr-2" variant="danger"
-                                            onClick={() => this.deleteRestorant(el.id)}>
+                                            onClick={() => this.deleteUser(el.userID)}>
                                             Delete
                                         </Button>
 
-                                        <EditRestorantModal show={this.state.editModalShow}
+                                        <EditUserModal show={this.state.editModalShow}
                                             onHide={editModalClose}
-                                            id={id}
+                                            userID={userID}
                                             emri={emri}
-                                            qyteti={qyteti}
-                                            adresa={adresa}
-                                            nr_kontaktues={nr_kontaktues} />
+                                            mbiemri={mbiemri}
+                                            photoProfile={photoProfile}
+                                            roli={roli} />
                                     </ButtonToolbar>
 
                                 </td>
@@ -98,10 +98,10 @@ export class Restoranti extends Component {
                     <div className="d-grid gap-2">
                         <Button variant='primary' size='lg'
                             onClick={() => { this.setState({ addModalShow: true }) }}>
-                            Shto Restorantin
+                            Shto Perdoruesin
                         </Button>
                     </div>
-                    <AddRestorantModal show={this.state.addModalShow}
+                    <AddUserModal show={this.state.addModalShow}
                         onHide={addModalClose}
                     />
                 </ButtonToolbar>

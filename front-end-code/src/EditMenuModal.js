@@ -1,16 +1,15 @@
 import React,{Component} from 'react';
 import {Modal,Button, Row, Col, Form} from 'react-bootstrap';
 
-export class EditRestorantModal extends Component{
+export class EditMenuModal extends Component{
     constructor(props){
         super(props);
         this.handleSubmit=this.handleSubmit.bind(this);
     }
 
     handleSubmit(event){
-        console.log(event.target.id.value)
         event.preventDefault();
-        fetch(process.env.REACT_APP_API+'restoranti' ,{
+        fetch(process.env.REACT_APP_API+'menu' ,{
             method:'PUT',
             headers:{
                 'Accept':'application/json',
@@ -18,10 +17,8 @@ export class EditRestorantModal extends Component{
             },
             body:JSON.stringify({
                 id:event.target.id.value,
-                emri:event.target.emri.value,
-                qyteti:event.target.emri.value,
-                adresa:event.target.adresa.value,
-                nr_kontaktues:event.target.nr.value
+                emertimi:event.target.emertimi.value,
+                nr_artikujve:event.target.nr_artikujve.value
             })
         })
         .then(res=>res.json())
@@ -44,7 +41,7 @@ centered
 >
     <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-            Edito Restorantin
+            Edito Menu-ne
         </Modal.Title>
     </Modal.Header>
     <Modal.Body>
@@ -53,38 +50,24 @@ centered
             <Col sm={6}>
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group controlId="id">
-                        <Form.Label>Emri Restorantit</Form.Label>
+                        <Form.Label>Id</Form.Label>
                         <Form.Control type="text" name="id" required disabled
                         defaultValue={this.props.id}
                         placeholder="id"/>
                     </Form.Group>
-                    <Form.Group controlId="emri">
-                        <Form.Label>Emri Restorantit</Form.Label>
-                        <Form.Control type="text" name="emri" required 
-                        defaultValue={this.props.emri}
-                        placeholder="emri"/>
+                    <Form.Group controlId="emertimi">
+                        <Form.Label>Emertimi</Form.Label>
+                        <Form.Control type="text" name="emertimi" required 
+                        defaultValue={this.props.emertimi}
+                        placeholder="emertimi"/>
+                    </Form.Group>
+                    <Form.Group controlId="nr_artikujve">
+                        <Form.Label>Nr i artikujve</Form.Label>
+                        <Form.Control type="text" name="nr_artikujve" required 
+                        defaultValue={this.props.nr_artikujve}
+                        placeholder="nr_artikujve"/>
                     </Form.Group>
 
-                    <Form.Group controlId="qyteti">
-                        <Form.Label>Qyteti Restorantit</Form.Label>
-                        <Form.Control type="text" name="qyteti" required 
-                        defaultValue={this.props.qyteti}
-                        placeholder="qyteti"/>
-                    </Form.Group>
-
-                    <Form.Group controlId="adresa">
-                        <Form.Label>Adresa Restorantit</Form.Label>
-                        <Form.Control type="text" name="adresa" required 
-                        defaultValue={this.props.adresa}
-                        placeholder="adresa"/>
-                    </Form.Group>
-
-                    <Form.Group controlId="nr_kontaktues">
-                        <Form.Label>Numri Restorantit</Form.Label>
-                        <Form.Control type="text" name="nr" required 
-                        defaultValue={this.props.nr_kontaktues}
-                        placeholder="Numri Telefonit"/>
-                    </Form.Group>
                     <Form.Group>
                         <Button variant="primary" type="submit">
                             Update

@@ -1,30 +1,33 @@
+import React from 'react';
 import './App.css';
 
-import {Home} from './Home';
-import {Restoranti} from './Restoranti';
-import {Navigation} from './Navigation';
-import {Qyteti} from './Qyteti';
+import { Home } from './Home';
+import { Restoranti } from './Restoranti';
+import { Navigation } from './Navigation';
+import { Qyteti } from './Qyteti';
+import { Useri } from './Useri';
+import { Menu } from './Menu';
 
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+
 
 function App() {
-  return (
-    <BrowserRouter>
-    <div className="container">
-     <h3 className="m-3 d-flex justify-content-center">
-       Admin Dashboard
-     </h3>
-
-     <Navigation/>
-
-     <Switch>
-       <Route path='/' component={Home} exact/>
-       <Route path='/Restoranti' component={Restoranti}/>
-       <Route path='/Qyteti' component={Qyteti}/>
-     </Switch>
-    </div>
-    </BrowserRouter>
-  );
+    return (
+        <Router>
+            <div className="App container">
+                <Navigation />
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/restoranti" component={Restoranti} />
+                        <Route path="/qyteti" component={Qyteti} />
+                        <Route path="/user" component={Useri} />
+                        <Route path="/menu" component={Menu}/>
+                    </Switch>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
+

@@ -13,40 +13,41 @@ namespace Food_delivery_app_LabCouse1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RestorantiController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
         private readonly IConfiguration _configuration;
 
-        public RestorantiController(IConfiguration configuration, ApplicationDbContext db)
+        public UserController(IConfiguration configuration, ApplicationDbContext db)
         {
             _configuration = configuration;
             _db = db;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Restoranti>>> GetRestorantet()
+        public async Task<ActionResult<List<Useri>>> GetUsers()
         {
-            return await _db.Restoranti.ToListAsync();
+            return await _db.Useri.ToListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Restoranti>> GetRestoranti(int id)
+        public async Task<ActionResult<Useri>> GetUser(int id)
         {
-            return await _db.Restoranti.FindAsync(id);
+            return await _db.Useri.FindAsync(id);
         }
-        
+
         [HttpPost]
-        public JsonResult Post(Restoranti restoranti)
+        public JsonResult Post(Useri user)
         {
             string query = @"
-                    insert into dbo.Restoranti 
-                    (emri,qyteti,adresa)
+                    insert into dbo.Useri 
+                    (emri,mbiemri,photoProfile,roli)
                     values 
                     (
-                    '" + restoranti.emri + @"'
-                    ,'" + restoranti.qyteti + @"'
-                    ,'" + restoranti.adresa + @"'
+                    '" + user.emri + @"'
+                    ,'" + user.mbiemri + @"'
+                    ,'" + user.photoProfile + @"'
+                    ,'" + user.roli + @"'
                     )
                     ";
             DataTable table = new DataTable();
@@ -58,25 +59,25 @@ namespace Food_delivery_app_LabCouse1.Controllers
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
                     myReader = myCommand.ExecuteReader();
-                    table.Load(myReader); 
+                    table.Load(myReader);
 
                     myReader.Close();
                     myCon.Close();
                 }
             }
 
-            return new JsonResult("Restoranti u shtua me sukses");
+            return new JsonResult("Added Successfully");
         }
 
         [HttpPut]
-        public JsonResult Put(Restoranti res)
+        public JsonResult Put(Useri user)
         {
             string query = @"
-                    update dbo.Restoranti set 
-                    emri = '" + res.emri + @"'
-                    ,adresa = '" + res.adresa + @"'
-                    ,nr_kontaktues = '" + res.nr_kontaktues + @"'
-                    where id = " + res.Id + @" 
+                    update dbo.Useri set 
+                    emri = '" + user.emri + @"'
+                    ,mbiemri = '" + user.mbiemri + @"'
+                    ,photoProfile = '" + user.photoProfile + @"'
+                    where userID = " + user.userID + @" 
                     ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
@@ -94,15 +95,15 @@ namespace Food_delivery_app_LabCouse1.Controllers
                 }
             }
 
-            return new JsonResult("Restoranti u perditesua me sukses");
+            return new JsonResult("Updated Successfully");
         }
 
         [HttpDelete("{id}")]
         public JsonResult Delete(int id)
         {
             string query = @"
-                    delete from dbo.Restoranti
-                    where Id = " + id + @" 
+                    delete from dbo.Useri
+                    where userID = " + id + @" 
                     ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
@@ -120,7 +121,8 @@ namespace Food_delivery_app_LabCouse1.Controllers
                 }
             }
 
-            return new JsonResult("Restoranti u fshi me sukses");
+            return new JsonResult("Deleted Successfully");
         }
     }
 }
+

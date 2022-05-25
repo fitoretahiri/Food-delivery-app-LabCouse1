@@ -11,5 +11,11 @@ namespace Food_delivery_app_LabCouse1.Data
         }
 
         public DbSet<Restoranti> Restoranti { get; set; }
+
+        public DbSet<Qyteti> Qyteti { get; set; }
+
+        public DbSet<Menu> Menu { get; set; }
+
+        public DbSet<Useri> Useri { get; set; }
     }
 }

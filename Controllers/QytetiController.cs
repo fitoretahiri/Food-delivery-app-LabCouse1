@@ -13,40 +13,38 @@ namespace Food_delivery_app_LabCouse1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RestorantiController : ControllerBase
+    public class QytetiController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
         private readonly IConfiguration _configuration;
 
-        public RestorantiController(IConfiguration configuration, ApplicationDbContext db)
+        public QytetiController(IConfiguration configuration, ApplicationDbContext db)
         {
             _configuration = configuration;
             _db = db;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Restoranti>>> GetRestorantet()
+        public async Task<ActionResult<List<Qyteti>>> GetQytetet()
         {
-            return await _db.Restoranti.ToListAsync();
+            return await _db.Qyteti.ToListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Restoranti>> GetRestoranti(int id)
+        public async Task<ActionResult<Qyteti>> GetQyteti(int id)
         {
-            return await _db.Restoranti.FindAsync(id);
+            return await _db.Qyteti.FindAsync(id);
         }
         
         [HttpPost]
-        public JsonResult Post(Restoranti restoranti)
+        public JsonResult PostQyteti(Qyteti qyteti)
         {
             string query = @"
-                    insert into dbo.Restoranti 
-                    (emri,qyteti,adresa)
+                    insert into dbo.Qyteti 
+                    (emri)
                     values 
                     (
-                    '" + restoranti.emri + @"'
-                    ,'" + restoranti.qyteti + @"'
-                    ,'" + restoranti.adresa + @"'
+                    '" + qyteti.emri + @"'
                     )
                     ";
             DataTable table = new DataTable();
@@ -65,18 +63,16 @@ namespace Food_delivery_app_LabCouse1.Controllers
                 }
             }
 
-            return new JsonResult("Restoranti u shtua me sukses");
+            return new JsonResult("Qyteti u shtua me sukses");
         }
 
         [HttpPut]
-        public JsonResult Put(Restoranti res)
+        public JsonResult PutQyteti(Qyteti qyteti)
         {
             string query = @"
-                    update dbo.Restoranti set 
-                    emri = '" + res.emri + @"'
-                    ,adresa = '" + res.adresa + @"'
-                    ,nr_kontaktues = '" + res.nr_kontaktues + @"'
-                    where id = " + res.Id + @" 
+                    update dbo.qyteti set 
+                    emri = '" + qyteti.emri + @"'
+                    where id = " + qyteti.Id + @" 
                     ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
@@ -94,14 +90,14 @@ namespace Food_delivery_app_LabCouse1.Controllers
                 }
             }
 
-            return new JsonResult("Restoranti u perditesua me sukses");
+            return new JsonResult("Qyteti u perditesua me sukses");
         }
 
         [HttpDelete("{id}")]
-        public JsonResult Delete(int id)
+        public JsonResult DeleteQyteti(int id)
         {
             string query = @"
-                    delete from dbo.Restoranti
+                    delete from dbo.Qyteti
                     where Id = " + id + @" 
                     ";
             DataTable table = new DataTable();
@@ -120,7 +116,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
                 }
             }
 
-            return new JsonResult("Restoranti u fshi me sukses");
+            return new JsonResult("Qyteti u fshi me sukses");
         }
     }
 }

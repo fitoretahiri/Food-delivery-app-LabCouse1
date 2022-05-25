@@ -9,7 +9,8 @@ export class AddRestorantModal extends Component{
     }
 
     handleSubmit(event){
-        console.log(event.target.emri.value)
+        //const dt = new Date();
+        //let date = dt.getFullYear()+'-'+(dt.getMonth()+1)+'-'+dt.getDate();
         event.preventDefault();
         fetch(process.env.REACT_APP_API+'restoranti',{
             method:'POST',
@@ -35,6 +36,8 @@ export class AddRestorantModal extends Component{
 
    render(){
        return(
+           
+
            <div className="container">
                
 <Modal
@@ -43,7 +46,7 @@ size="lg"
 aria-labelledby="contained-modal-title-vcenter"
 centered
 >
-    <Modal.Header clooseButton>
+    <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
             Shto Restorantin
         </Modal.Title>

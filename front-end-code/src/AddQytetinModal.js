@@ -9,7 +9,6 @@ export class AddQytetinModal extends Component{
     }
 
     handleSubmit(event){
-        console.log(event.target.emri.value)
         event.preventDefault();
         fetch(process.env.REACT_APP_API+'qyteti',{
             method:'POST',
@@ -40,7 +39,7 @@ size="lg"
 aria-labelledby="contained-modal-title-vcenter"
 centered
 >
-    <Modal.Header clooseButton>
+    <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
             Shto qytetin
         </Modal.Title>
