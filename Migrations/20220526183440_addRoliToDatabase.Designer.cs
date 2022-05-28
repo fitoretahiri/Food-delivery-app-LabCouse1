@@ -4,14 +4,16 @@ using Food_delivery_app_LabCouse1.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Food_delivery_app_LabCouse1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220526183440_addRoliToDatabase")]
+    partial class addRoliToDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -93,49 +95,6 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.HasKey("roliID");
 
                     b.ToTable("Roli");
-                });
-
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Useri", b =>
-                {
-                    b.Property<int>("userID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("confirmPsw")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("emri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("mbiemri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("photoProfile")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("roliID")
-                        .HasColumnType("int");
-
-                    b.HasKey("userID");
-
-                    b.HasIndex("roliID");
-
-                    b.ToTable("Useri");
-                });
-
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Useri", b =>
-                {
-                    b.HasOne("Food_delivery_app_LabCouse1.Models.Roli", "roli")
-                        .WithMany()
-                        .HasForeignKey("roliID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("roli");
                 });
 #pragma warning restore 612, 618
         }

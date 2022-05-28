@@ -13,43 +13,39 @@ namespace Food_delivery_app_LabCouse1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class RoleController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
         private readonly IConfiguration _configuration;
 
-        public UserController(IConfiguration configuration, ApplicationDbContext db)
+        public RoleController(IConfiguration configuration, ApplicationDbContext db)
         {
             _configuration = configuration;
             _db = db;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Useri>>> GetUsers()
+        public async Task<ActionResult<List<Roli>>> GetRoles()
         {
-            return await _db.Useri.Include("roli").ToListAsync();
+            return await _db.Roli.ToListAsync();
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Useri>> GetUser(int id)
+        [HttpGet("{roliID}")]
+        public async Task<ActionResult<Roli>> GetRole(int id)
         {
-            return await _db.Useri.FindAsync(id);
+            return await _db.Roli.FindAsync(id);
         }
 
         [HttpPost]
-        public JsonResult Post(Useri user)
+        public JsonResult PostRole(Roli roli)
         {
             string query = @"
-                    insert into dbo.Useri 
-                    (emri,mbiemri,photoProfile,password,confirmPsw,roliID)
+                    insert into dbo.Roli 
+                    (role)
                     values 
                     (
-                    '" + user.emri + @"'
-                    ,'" + user.mbiemri + @"'
-                    ,'" + user.photoProfile + @"'
-                    ,'" + user.password + @"'
-                    ,'" + user.confirmPsw +@"'
-                    ,'" + user.roliID +@"')
+                    '" + roli.role + @"'
+                    )
                     ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
@@ -67,21 +63,16 @@ namespace Food_delivery_app_LabCouse1.Controllers
                 }
             }
 
-            return new JsonResult("Added Successfully");
+            return new JsonResult("Roli u shtua me sukses");
         }
 
         [HttpPut]
-        public JsonResult Put(Useri user)
+        public JsonResult PutRole(Roli roli)
         {
             string query = @"
-                    update dbo.Useri set 
-                    emri = '" + user.emri + @"'
-                    ,mbiemri = '" + user.mbiemri + @"'
-                    ,photoProfile = '" + user.photoProfile + @"'
-                    ,password='"+ user.password +@"'
-                    ,confirmPsw= '"+ user.confirmPsw+@"'
-                    ,roliID= '"+ user.roli.role+ @"'
-                    where userID = " + user.userID + @" 
+                    update dbo.Roli set 
+                    role = '" + roli.role + @"'
+                    where roliID = " + roli.roliID + @" 
                     ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
@@ -99,15 +90,15 @@ namespace Food_delivery_app_LabCouse1.Controllers
                 }
             }
 
-            return new JsonResult("Updated Successfully");
+            return new JsonResult("Roli u perditsua me sukses");
         }
 
         [HttpDelete("{id}")]
-        public JsonResult Delete(int id)
+        public JsonResult DeleteRole(int id)
         {
             string query = @"
-                    delete from dbo.Useri
-                    where userID = " + id + @" 
+                    delete from dbo.Roli
+                    where roliID = " + id + @" 
                     ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
@@ -125,7 +116,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
                 }
             }
 
-            return new JsonResult("Deleted Successfully");
+            return new JsonResult("Roli u fshi me sukses!");
         }
     }
 }

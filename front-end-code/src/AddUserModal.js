@@ -19,7 +19,9 @@ export class AddUserModal extends Component {
                 emri: event.target.emri.value,
                 mbiemri: event.target.mbiemri.value,
                 photoProfile: event.target.photoProfile.value,
-                roli: event.target.roli.value
+                password: event.target.password.value,
+                confirmPsw: event.target.confirmPsw.value,
+                roliID: event.target.roliID.value
             })
         })
             .then(res => res.json())
@@ -68,9 +70,19 @@ export class AddUserModal extends Component {
                                         <Form.Control type="text" name="photoProfile" required
                                             placeholder="Foto" />
                                     </Form.Group>
-                                    <Form.Group controlId="roli">
-                                        <Form.Label>Roli</Form.Label>
-                                        <Form.Control type="text" name="roli" required
+                                    <Form.Group controlId="password">
+                                        <Form.Label>Password</Form.Label>
+                                        <Form.Control type="text" name="password" required
+                                            placeholder="Password" />
+                                    </Form.Group>
+                                    <Form.Group controlId="confirmPsw">
+                                        <Form.Label>Confirm Password</Form.Label>
+                                        <Form.Control type="text" name="confirmPsw" required
+                                            placeholder="Confirm Password" />
+                                    </Form.Group>
+                                    <Form.Group controlId="roliID">
+                                        <Form.Label>Roli id</Form.Label>
+                                        <Form.Control type="text" name="roliID" required
                                             placeholder="Role" />
                                     </Form.Group>
 

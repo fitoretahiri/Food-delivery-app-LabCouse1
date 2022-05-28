@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Food_delivery_app_LabCouse1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220516000352_addUseriToDatabase")]
+    [Migration("20220526184813_addUseriToDatabase")]
     partial class addUseriToDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -81,6 +81,22 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.ToTable("Restoranti");
                 });
 
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Roli", b =>
+                {
+                    b.Property<int>("roliID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("roliID");
+
+                    b.ToTable("Roli");
+                });
+
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Useri", b =>
                 {
                     b.Property<int>("userID")
@@ -88,21 +104,40 @@ namespace Food_delivery_app_LabCouse1.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<string>("confirmPsw")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("emri")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("mbiemri")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("password")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("photoProfile")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("roli")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("roliID")
+                        .HasColumnType("int");
 
                     b.HasKey("userID");
 
+                    b.HasIndex("roliID");
+
                     b.ToTable("Useri");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Useri", b =>
+                {
+                    b.HasOne("Food_delivery_app_LabCouse1.Models.Roli", "roli")
+                        .WithMany()
+                        .HasForeignKey("roliID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("roli");
                 });
 #pragma warning restore 612, 618
         }

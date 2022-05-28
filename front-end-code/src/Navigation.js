@@ -16,7 +16,8 @@ export class Navigation extends Component{
                 <Link to="/restoranti" className="d-inline p-2 bg-dark text-white">Restorantet</Link>
                     <Link to="/qyteti" className="d-inline p-2 bg-dark text-white">Qytetet</Link>
                     <Link to="/user" className="d-inline p-2 bg-dark text-white">Perdoruesit</Link>
-                    <Link to="/menu" className="d-inline p-2 bg-dark text-white">Menu</Link>
+                        <Link to="/menu" className="d-inline p-2 bg-dark text-white">Menu</Link>
+                        <Link to="/role" className="d-inline p-2 bg-dark text-white">Roli</Link>
 
                 </Nav>
                 </Navbar.Collapse>

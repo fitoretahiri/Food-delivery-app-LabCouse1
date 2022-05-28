@@ -21,7 +21,9 @@ export class EditUserModal extends Component {
                 emri: event.target.emri.value,
                 mbiemri: event.target.mbiemri.value,
                 photoProfile: event.target.photoProfile.value,
-                roli: event.target.roli.value
+                password: event.target.password.value,
+                confirmPsw: event.target.confirmPsw.value,
+                roliID: event.target.roliID.value
             })
         })
             .then(res => res.json())
@@ -79,11 +81,25 @@ export class EditUserModal extends Component {
                                             placeholder="Foto" />
                                     </Form.Group>
 
-                                    <Form.Group controlId="roli">
+                                    <Form.Group controlId="password">
+                                        <Form.Label>Password</Form.Label>
+                                        <Form.Control type="text" name="password" required
+                                            defaultValue={this.props.password}
+                                            placeholder="Password" />
+                                    </Form.Group>
+
+                                    <Form.Group controlId="confirmPsw">
+                                        <Form.Label>Confirm Password</Form.Label>
+                                        <Form.Control type="text" name="confrimPsw" required
+                                            defaultValue={this.props.confirmPsw}
+                                            placeholder="Confirm Password" />
+                                    </Form.Group>
+
+                                    <Form.Group controlId="roliID">
                                         <Form.Label>Roli i perdoruesit</Form.Label>
-                                        <Form.Control type="text" name="roli" required
+                                        <Form.Control type="text" name="roliID" required
                                             disabled
-                                            defaultValue={this.props.roli}
+                                            defaultValue={this.props.roliID}
                                             placeholder="User role" />
                                     </Form.Group>
                                     <Form.Group>
