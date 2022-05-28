@@ -44,7 +44,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
                     (role)
                     values 
                     (
-                    '" + roli.role + @"'
+                    '"+ roli.role + @"'
                     )
                     ";
             DataTable table = new DataTable();

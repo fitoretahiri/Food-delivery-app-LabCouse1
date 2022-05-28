@@ -59,6 +59,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
+                    //Duhet me handle ni exception qe nese sosht nja prej numrave me qit error
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
 

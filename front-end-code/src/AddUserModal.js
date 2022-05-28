@@ -5,7 +5,26 @@ export class AddUserModal extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind();
+        this.state = { roles: [], addModalShow: false }
     }
+
+//marrja e te dhenave nga API
+    refreshList() {
+        fetch(process.env.REACT_APP_API + 'role')
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ roles: data });
+            });
+    }
+
+    componentDidMount() {
+        this.refreshList();
+    }
+
+    componentDidUpdate() {
+        this.refreshList();
+    }
+
 
     handleSubmit(event) {
         event.preventDefault();
@@ -34,6 +53,8 @@ export class AddUserModal extends Component {
     }
 
     render() {
+        const { roles,roliID, role } = this.state;
+
         return (
 
 
@@ -62,12 +83,15 @@ export class AddUserModal extends Component {
                                     </Form.Group>
                                     <Form.Group controlId="mbiemri">
                                         <Form.Label>Mbiemri</Form.Label>
+                                        
                                         <Form.Control type="text" name="mbiemri" required
                                             placeholder="Mbiemri i Perdoruesit" />
                                     </Form.Group>
+
+
                                     <Form.Group controlId="photoProfile">
                                         <Form.Label>Foto</Form.Label>
-                                        <Form.Control type="text" name="photoProfile" required
+                                        <Form.Control type="file" name="photoProfile" required
                                             placeholder="Foto" />
                                     </Form.Group>
                                     <Form.Group controlId="password">
@@ -82,8 +106,13 @@ export class AddUserModal extends Component {
                                     </Form.Group>
                                     <Form.Group controlId="roliID">
                                         <Form.Label>Roli id</Form.Label>
-                                        <Form.Control type="text" name="roliID" required
-                                            placeholder="Role" />
+                                        <Form.Control as="select" name="roliID" required
+                                            placeholder="Role">
+                                            {roles.map(el =>
+                                
+                                                <option>{el.roliID}</option>)}
+                                        </Form.Control>
+                                        
                                     </Form.Group>
 
                                     <Form.Group>
