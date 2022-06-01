@@ -37,96 +37,29 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpPost]
-        public JsonResult Post(Useri user)
-        {
-            string query = @"
-                    insert into dbo.Useri 
-                    (emri,mbiemri,photoProfile,password,confirmPsw,roliID)
-                    values 
-                    (
-                    '" + user.emri + @"'
-                    ,'" + user.mbiemri + @"'
-                    ,'" + user.photoProfile + @"'
-                    ,'" + user.password + @"'
-                    ,'" + user.confirmPsw +@"'
-                    ,'" + user.roliID +@"')
-                    ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    //Duhet me handle ni exception qe nese sosht nja prej numrave me qit error
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
-
-                    myReader.Close();
-                    myCon.Close();
-                }
-            }
-
-            return new JsonResult("Added Successfully");
+        public JsonResult addUser(Useri user){
+                _db.Useri.Add(user);
+                _db.SaveChanges();
+                return new JsonResult("Perdoruesi u shtua me sukses");
         }
 
         [HttpPut]
-        public JsonResult Put(Useri user)
+        public JsonResult updateUser(Useri user)
         {
-            string query = @"
-                    update dbo.Useri set 
-                    emri = '" + user.emri + @"'
-                    ,mbiemri = '" + user.mbiemri + @"'
-                    ,photoProfile = '" + user.photoProfile + @"'
-                    ,password='"+ user.password +@"'
-                    ,confirmPsw= '"+ user.confirmPsw+@"'
-                    ,roliID= '"+ user.roli.role+ @"'
-                    where userID = " + user.userID + @" 
-                    ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
+            _db.Useri.Update(user);
+            _db.SaveChanges();
 
-                    myReader.Close();
-                    myCon.Close();
-                }
-            }
-
-            return new JsonResult("Updated Successfully");
+            return new JsonResult("Perdoruesi u perditesua me sukses");
         }
 
         [HttpDelete("{id}")]
-        public JsonResult Delete(int id)
+        public JsonResult deleteUser(int id)
         {
-            string query = @"
-                    delete from dbo.Useri
-                    where userID = " + id + @" 
-                    ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
+           var user = _db.Useri.Find(id);
+           _db.Remove(user);
+           _db.SaveChanges();
 
-                    myReader.Close();
-                    myCon.Close();
-                }
-            }
-
-            return new JsonResult("Deleted Successfully");
+            return new JsonResult("Perdoruesi u fshi me sukses");
         }
     }
 }

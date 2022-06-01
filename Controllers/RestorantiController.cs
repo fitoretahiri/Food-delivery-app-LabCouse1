@@ -37,14 +37,14 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpPost]
-        public JsonResult PostRestoranti(Restoranti restoranti){
+        public JsonResult addRestoranti(Restoranti restoranti){
                 _db.Restoranti.Add(restoranti);
                 _db.SaveChanges();
                 return new JsonResult("Restoranti u shtua me sukses");
         }
 
         [HttpPut]
-        public JsonResult Put(Restoranti restoranti)
+        public JsonResult updateRestoranti(Restoranti restoranti)
         {
             _db.Restoranti.Update(restoranti);
             _db.SaveChanges();
@@ -53,7 +53,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpDelete("{id}")]
-        public JsonResult Delete(int id)
+        public JsonResult deleteRestoranti(int id)
         {
            var restoranti = _db.Restoranti.Find(id);
            _db.Remove(restoranti);

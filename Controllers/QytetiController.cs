@@ -37,84 +37,27 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
         
         [HttpPost]
-        public JsonResult PostQyteti(Qyteti qyteti)
-        {
-            string query = @"
-                    insert into dbo.Qyteti 
-                    (emri)
-                    values 
-                    (
-                    '" + qyteti.emri + @"'
-                    )
-                    ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader); 
-
-                    myReader.Close();
-                    myCon.Close();
-                }
-            }
-
-            return new JsonResult("Qyteti u shtua me sukses");
+        public JsonResult addQytetin(Qyteti qyteti){
+                _db.Qyteti.Add(qyteti);
+                _db.SaveChanges();
+                return new JsonResult("Qyteti u shtua me sukses");
         }
 
         [HttpPut]
-        public JsonResult PutQyteti(Qyteti qyteti)
+        public JsonResult updateQytetin(Qyteti qyteti)
         {
-            string query = @"
-                    update dbo.qyteti set 
-                    emri = '" + qyteti.emri + @"'
-                    where id = " + qyteti.Id + @" 
-                    ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
-
-                    myReader.Close();
-                    myCon.Close();
-                }
-            }
+            _db.Qyteti.Update(qyteti);
+            _db.SaveChanges();
 
             return new JsonResult("Qyteti u perditesua me sukses");
         }
 
         [HttpDelete("{id}")]
-        public JsonResult DeleteQyteti(int id)
+        public JsonResult deleteQytetin(int id)
         {
-            string query = @"
-                    delete from dbo.Qyteti
-                    where Id = " + id + @" 
-                    ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
-
-                    myReader.Close();
-                    myCon.Close();
-                }
-            }
+           var qyteti = _db.Qyteti.Find(id);
+           _db.Remove(qyteti);
+           _db.SaveChanges();
 
             return new JsonResult("Qyteti u fshi me sukses");
         }
