@@ -16,7 +16,6 @@ export class AddRoleModal extends Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                roliID: event.target.roliID.value,
                 role: event.target.role.value
             })
         })
@@ -41,7 +40,7 @@ export class AddRoleModal extends Component {
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
                 >
-                    <Modal.Header clooseButton>
+                    <Modal.Header closeButton>
                         <Modal.Title id="contained-modal-title-vcenter">
                             Shto Rolin
                         </Modal.Title>
@@ -51,18 +50,11 @@ export class AddRoleModal extends Component {
                         <Row>
                             <Col sm={6}>
                                 <Form onSubmit={this.handleSubmit}>
-                                    <Form.Group controlId="roliID">
-                                        <Form.Label>ID e rolit</Form.Label>
-                                        <Form.Control type="text" name="roliID" disabled
-                                            placeholder="Id e rolit" />
-                                    </Form.Group>
-
                                     <Form.Group controlId="role">
                                         <Form.Label>Emri i Rolit</Form.Label>
                                         <Form.Control type="text" name="role" required
                                             placeholder="Emri Rolit" />
                                     </Form.Group>
-
 
                                     <Form.Group>
                                         <Button variant="primary" type="submit">

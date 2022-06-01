@@ -163,3 +163,4 @@ C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-Lab
 C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\obj\Debug\net5.0\ref\Food-delivery-app-LabCouse1.dll
 C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\obj\Debug\net5.0\Food-delivery-app-LabCouse1.pdb
 C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\obj\Debug\net5.0\Food-delivery-app-LabCouse1.genruntimeconfig.cache
+C:\Users\Arber\Documents\GitHub\Food-delivery-app-LabCouse1\Food-delivery-app-LabCouse1\bin\Debug\net5.0\Food-delivery-app-LabCouse1.StaticWebAssets.xml

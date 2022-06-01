@@ -42,7 +42,7 @@ export class Roli extends Component {
     }
 
     render() {
-        const { roles, roliID, role} = this.state;
+        const { roles, roliID, role } = this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
@@ -58,7 +58,7 @@ export class Roli extends Component {
                     <tbody>
                         {roles.map(el =>
                             <tr key={el.roliID}>
-                                <td>el.roliID</td>
+                                <td>{el.roliID}</td>
                                 <td>{el.role}</td>
                                 <td>
                                     <ButtonToolbar>

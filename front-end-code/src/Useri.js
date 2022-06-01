@@ -42,7 +42,7 @@ export class Useri extends Component {
     }
 
     render() {
-        const { users, userID, emri, mbiemri, photoProfile,password,confirmPsw, roliID } = this.state;
+        const { users, userID, emri, mbiemri, photoProfile, password, confirmPsw, roliID } = this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({ editModalShow: false });
         return (

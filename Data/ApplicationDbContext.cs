@@ -16,7 +16,6 @@ namespace Food_delivery_app_LabCouse1.Data
 
         public DbSet<Menu> Menu { get; set; }
 
-
         public DbSet<Roli> Roli { get; set; }
 
         public DbSet<Useri> Useri { get; set; }

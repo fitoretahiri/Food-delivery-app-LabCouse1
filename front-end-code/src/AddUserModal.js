@@ -4,11 +4,11 @@ import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 export class AddUserModal extends Component {
     constructor(props) {
         super(props);
-        this.handleSubmit = this.handleSubmit.bind();
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.state = { roles: [], addModalShow: false }
     }
 
-//marrja e te dhenave nga API
+    //marrja e te dhenave nga API
     refreshList() {
         fetch(process.env.REACT_APP_API + 'role')
             .then(response => response.json())
@@ -24,10 +24,17 @@ export class AddUserModal extends Component {
     componentDidUpdate() {
         this.refreshList();
     }
-
-
     handleSubmit(event) {
         event.preventDefault();
+        let rolet = this.state.roles;
+        let roli = event.target.role.value;
+        let roliID;
+        for(let i = 0; i<rolet.length; i++){
+            if(roli === rolet[i].role){
+                roliID = rolet[i].roliID
+            }
+        }
+
         fetch(process.env.REACT_APP_API + 'user', {
             method: 'POST',
             headers: {
@@ -37,10 +44,10 @@ export class AddUserModal extends Component {
             body: JSON.stringify({
                 emri: event.target.emri.value,
                 mbiemri: event.target.mbiemri.value,
-                photoProfile: event.target.photoProfile.value,
+                photoProfile: 'fakepath',
                 password: event.target.password.value,
                 confirmPsw: event.target.confirmPsw.value,
-                roliID: event.target.roliID.value
+                roliID: roliID
             })
         })
             .then(res => res.json())
@@ -53,8 +60,8 @@ export class AddUserModal extends Component {
     }
 
     render() {
-        const { roles,roliID, role } = this.state;
-
+        const { roles, roliID, role } = this.state;
+        
         return (
 
 
@@ -83,17 +90,13 @@ export class AddUserModal extends Component {
                                     </Form.Group>
                                     <Form.Group controlId="mbiemri">
                                         <Form.Label>Mbiemri</Form.Label>
-                                        
+
                                         <Form.Control type="text" name="mbiemri" required
                                             placeholder="Mbiemri i Perdoruesit" />
                                     </Form.Group>
 
 
-                                    <Form.Group controlId="photoProfile">
-                                        <Form.Label>Foto</Form.Label>
-                                        <Form.Control type="file" name="photoProfile" required
-                                            placeholder="Foto" />
-                                    </Form.Group>
+                                    
                                     <Form.Group controlId="password">
                                         <Form.Label>Password</Form.Label>
                                         <Form.Control type="text" name="password" required
@@ -104,19 +107,19 @@ export class AddUserModal extends Component {
                                         <Form.Control type="text" name="confirmPsw" required
                                             placeholder="Confirm Password" />
                                     </Form.Group>
-                                    <Form.Group controlId="roliID">
+                                    <Form.Group controlId="role">
                                         <Form.Label>Roli id</Form.Label>
-                                        <Form.Control as="select" name="roliID" required
+                                        <Form.Control as="select" name="role" className='mb-3' required
                                             placeholder="Role">
                                             {roles.map(el =>
-                                
-                                                <option>{el.roliID}</option>)}
+                                                <option>{el.role}</option>)
+                                            }
                                         </Form.Control>
-                                        
+
                                     </Form.Group>
 
                                     <Form.Group>
-                                        <Button variant="primary" type="submit">
+                                        <Button variant="primary mt-5" type="submit">
                                             Shto
                                         </Button>
                                     </Form.Group>
@@ -124,7 +127,7 @@ export class AddUserModal extends Component {
                             </Col>
                         </Row>
                     </Modal.Body>
-
+                                            
                     <Modal.Footer>
                         <Button variant="danger" onClick={this.props.onHide}>Close</Button>
                     </Modal.Footer>
