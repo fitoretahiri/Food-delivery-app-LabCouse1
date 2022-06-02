@@ -6,13 +6,21 @@ namespace Food_delivery_app_LabCouse1.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AlterColumn<string>(
+                name: "role",
+                table: "Roli",
+                type: "nvarchar(max)",
+                nullable: true,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)");
+
             migrationBuilder.CreateTable(
                 name: "Perdoruesi",
                 columns: table => new
                 {
                     perdoruesiID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    email = table.Column<int>(type: "int", nullable: false),
+                    email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     emri = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     adresa = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -41,6 +49,16 @@ namespace Food_delivery_app_LabCouse1.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Perdoruesi");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "role",
+                table: "Roli",
+                type: "nvarchar(max)",
+                nullable: false,
+                defaultValue: "",
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)",
+                oldNullable: true);
         }
     }
 }

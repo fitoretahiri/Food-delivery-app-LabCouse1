@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Food_delivery_app_LabCouse1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220602100735_addPerdoruesiToDatabase")]
-    partial class addPerdoruesiToDatabase
+    [Migration("20220602120912_addKlientiToDatabase")]
+    partial class addKlientiToDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,29 @@ namespace Food_delivery_app_LabCouse1.Migrations
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Klienti", b =>
+                {
+                    b.Property<int>("klientID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("dataLindjes")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("nrPorosive")
+                        .HasColumnType("int");
+
+                    b.Property<int>("perdoruesiID")
+                        .HasColumnType("int");
+
+                    b.HasKey("klientID");
+
+                    b.HasIndex("perdoruesiID");
+
+                    b.ToTable("Klienti");
+                });
 
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Menu", b =>
                 {
@@ -49,8 +72,8 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.Property<string>("adresa")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("email")
-                        .HasColumnType("int");
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("emri")
                         .HasColumnType("nvarchar(max)");
@@ -131,50 +154,18 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.ToTable("Roli");
                 });
 
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Useri", b =>
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Klienti", b =>
                 {
-                    b.Property<int>("userID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("confirmPsw")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("emri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("mbiemri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("photoProfile")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("roliID")
-                        .HasColumnType("int");
-
-                    b.HasKey("userID");
-
-                    b.HasIndex("roliID");
-
-                    b.ToTable("Useri");
-                });
-
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Perdoruesi", b =>
-                {
-                    b.HasOne("Food_delivery_app_LabCouse1.Models.Roli", "roli")
+                    b.HasOne("Food_delivery_app_LabCouse1.Models.Perdoruesi", "perdoruesi")
                         .WithMany()
-                        .HasForeignKey("roliID")
+                        .HasForeignKey("perdoruesiID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("roli");
+                    b.Navigation("perdoruesi");
                 });
 
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Useri", b =>
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Perdoruesi", b =>
                 {
                     b.HasOne("Food_delivery_app_LabCouse1.Models.Roli", "roli")
                         .WithMany()

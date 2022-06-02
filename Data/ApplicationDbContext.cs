@@ -18,8 +18,7 @@ namespace Food_delivery_app_LabCouse1.Data
 
         public DbSet<Roli> Roli { get; set; }
 
-        public DbSet<Useri> Useri { get; set; }
-
         public DbSet<Perdoruesi> Perdoruesi { get; set; }
+        public DbSet<Klienti> Klienti { get; set; }
     }
 }

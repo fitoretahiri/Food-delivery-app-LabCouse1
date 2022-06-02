@@ -7,7 +7,7 @@ namespace Food_delivery_app_LabCouse1.Models
     {
         [Key]
         public int perdoruesiID { get; set; }
-        public int email { get; set; }
+        public string email { get; set; }
         public string emri { get; set; }
         public string password { get; set; }
         public string adresa { get; set; }
