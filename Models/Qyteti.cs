@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Food_delivery_app_LabCouse1.Models
 {
     public class Qyteti
@@ -6,5 +8,7 @@ namespace Food_delivery_app_LabCouse1.Models
         public int Id { get; set; }
 
         public string emri { get; set; }
+
+        public List<Restaurant_Qyteti> restaurant_Qyteti { get; set; }
     }
 }

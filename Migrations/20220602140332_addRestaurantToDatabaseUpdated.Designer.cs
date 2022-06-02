@@ -4,14 +4,16 @@ using Food_delivery_app_LabCouse1.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Food_delivery_app_LabCouse1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220602140332_addRestaurantToDatabaseUpdated")]
+    partial class addRestaurantToDatabaseUpdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -125,12 +127,7 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.Property<DateTime>("data_regjistrimit")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("perdoruesiID")
-                        .HasColumnType("int");
-
                     b.HasKey("restaurantID");
-
-                    b.HasIndex("perdoruesiID");
 
                     b.ToTable("Restaurant");
                 });
@@ -203,17 +200,6 @@ namespace Food_delivery_app_LabCouse1.Migrations
                         .IsRequired();
 
                     b.Navigation("roli");
-                });
-
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restaurant", b =>
-                {
-                    b.HasOne("Food_delivery_app_LabCouse1.Models.Perdoruesi", "perdoruesi")
-                        .WithMany()
-                        .HasForeignKey("perdoruesiID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("perdoruesi");
                 });
 
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restaurant_Qyteti", b =>
