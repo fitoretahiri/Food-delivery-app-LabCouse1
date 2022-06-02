@@ -3,6 +3,7 @@ import { Table } from 'react-bootstrap';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import { AddUserModal } from './AddUserModal';
 import { EditUserModal } from './EditUserModal';
+import { Navigation } from './Navigation';
 
 
 export class Useri extends Component {
@@ -47,6 +48,7 @@ export class Useri extends Component {
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
             <div className="user mt-5">
+                <Navigation />
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>
