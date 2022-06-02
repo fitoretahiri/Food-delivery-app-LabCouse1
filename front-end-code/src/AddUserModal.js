@@ -112,8 +112,13 @@ export class AddUserModal extends Component {
                                         <Form.Control as="select" name="role" className='mb-3' required
                                             placeholder="Role">
                                             {roles.map(el =>
+<<<<<<< Updated upstream
                                                 <option>{el.role}</option>)
                                             }
+=======
+                                
+                                                <option>{el.role}</option>)}
+>>>>>>> Stashed changes
                                         </Form.Control>
 
                                     </Form.Group>

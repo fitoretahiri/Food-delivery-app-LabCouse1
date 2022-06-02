@@ -3,6 +3,7 @@ import { Table } from 'react-bootstrap';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import { AddRestorantModal } from './AddRestorantModal';
 import { EditRestorantModal } from './EditRestorantModal';
+import { Navigation } from './Navigation';
 
 
 export class Restoranti extends Component {
@@ -47,6 +48,7 @@ export class Restoranti extends Component {
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
             <div className="restoranti mt-5">
+                <Navigation/>
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>

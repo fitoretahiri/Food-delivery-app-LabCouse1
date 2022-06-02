@@ -3,6 +3,7 @@ import { Table } from 'react-bootstrap';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import { AddRoleModal } from './AddRoleModal';
 import { EditRoleModal } from './EditRoleModal';
+import { Navigation } from './Navigation';
 
 
 export class Roli extends Component {
@@ -47,6 +48,7 @@ export class Roli extends Component {
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
             <div className="role mt-5">
+                <Navigation/>
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>

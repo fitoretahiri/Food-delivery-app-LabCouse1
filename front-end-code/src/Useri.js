@@ -48,7 +48,11 @@ export class Useri extends Component {
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
             <div className="user mt-5">
+<<<<<<< Updated upstream
                 <Navigation />
+=======
+                <Navigation/>
+>>>>>>> Stashed changes
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>
