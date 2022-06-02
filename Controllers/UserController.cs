@@ -46,30 +46,8 @@ namespace Food_delivery_app_LabCouse1.Controllers
         [HttpPut]
         public JsonResult updateUser(Useri user)
         {
-<<<<<<< Updated upstream
             _db.Useri.Update(user);
             _db.SaveChanges();
-=======
-            string query = @"
-                    update dbo.Useri set 
-                    emri = '" + user.emri + @"'
-                    ,mbiemri = '" + user.mbiemri + @"'
-                    ,photoProfile = '" + user.photoProfile + @"'
-                    ,password='"+ user.password +@"'
-                    ,confirmPsw= '"+ user.confirmPsw+@"'
-                    where userID = " + user.userID + @" 
-                    ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
->>>>>>> Stashed changes
 
             return new JsonResult("Perdoruesi u perditesua me sukses");
         }
