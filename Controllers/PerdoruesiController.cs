@@ -27,7 +27,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Perdoruesi>>> GetPerdoruesit()
         {
-            return await _db.Perdoruesi.ToListAsync();
+            return await _db.Perdoruesi.Include("roli").ToListAsync();
         }
 
         [HttpGet("{id}")]
@@ -37,10 +37,10 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
         
         [HttpPost]
-        public JsonResult addPerdoruesin(Perdoruesi perdoruesi){
+        public Perdoruesi addPerdoruesin(Perdoruesi perdoruesi){
                 _db.Perdoruesi.Add(perdoruesi);
                 _db.SaveChanges();
-                return new JsonResult("Perdoruesi u shtua me sukses");
+                return perdoruesi;
         }
 
         [HttpPut]

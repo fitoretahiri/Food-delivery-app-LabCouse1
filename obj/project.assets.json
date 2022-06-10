@@ -5710,19 +5710,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fitor\\.nuget\\packages\\": {}
+    "C:\\Users\\Arber\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
+      "projectUniqueName": "C:\\Users\\Arber\\Documents\\GitHub\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
       "projectName": "Food-delivery-app-LabCouse1",
-      "projectPath": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
-      "packagesPath": "C:\\Users\\fitor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\obj\\",
+      "projectPath": "C:\\Users\\Arber\\Documents\\GitHub\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
+      "packagesPath": "C:\\Users\\Arber\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Arber\\Documents\\GitHub\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\fitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Arber\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5785,7 +5785,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
