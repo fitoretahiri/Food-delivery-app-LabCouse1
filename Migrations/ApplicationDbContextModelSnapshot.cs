@@ -85,9 +85,6 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.Property<string>("photoProfile")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("qyteti")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("roliID")
                         .HasColumnType("int");
 
@@ -155,32 +152,6 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.ToTable("Roli");
                 });
 
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Transportuesi", b =>
-                {
-                    b.Property<int>("transportuesiID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<DateTime>("dataLindjes")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("nrPorosive")
-                        .HasColumnType("int");
-
-                    b.Property<int>("perdoruesiID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("statusi_aktivitetit")
-                        .HasColumnType("int");
-
-                    b.HasKey("transportuesiID");
-
-                    b.HasIndex("perdoruesiID");
-
-                    b.ToTable("Transportuesi");
-                });
-
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Klienti", b =>
                 {
                     b.HasOne("Food_delivery_app_LabCouse1.Models.Perdoruesi", "perdoruesi")
@@ -201,17 +172,6 @@ namespace Food_delivery_app_LabCouse1.Migrations
                         .IsRequired();
 
                     b.Navigation("roli");
-                });
-
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Transportuesi", b =>
-                {
-                    b.HasOne("Food_delivery_app_LabCouse1.Models.Perdoruesi", "perdoruesi")
-                        .WithMany()
-                        .HasForeignKey("perdoruesiID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("perdoruesi");
                 });
 #pragma warning restore 612, 618
         }

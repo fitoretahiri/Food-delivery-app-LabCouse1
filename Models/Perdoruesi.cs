@@ -10,7 +10,6 @@ namespace Food_delivery_app_LabCouse1.Models
         public string email { get; set; }
         public string emri { get; set; }
         public string password { get; set; }
-        public string qyteti { get; set; }
         public string adresa { get; set; }
         public string nr_telefonit { get; set; }
         public string photoProfile { get; set; }
