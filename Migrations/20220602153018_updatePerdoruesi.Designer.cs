@@ -4,14 +4,16 @@ using Food_delivery_app_LabCouse1.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Food_delivery_app_LabCouse1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220602153018_updatePerdoruesi")]
+    partial class updatePerdoruesi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -168,7 +170,7 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.Property<int>("nrPorosive")
                         .HasColumnType("int");
 
-                    b.Property<int>("perdoruesiID")
+                    b.Property<int?>("perdoruesiID")
                         .HasColumnType("int");
 
                     b.Property<int>("statusi_aktivitetit")
@@ -207,9 +209,7 @@ namespace Food_delivery_app_LabCouse1.Migrations
                 {
                     b.HasOne("Food_delivery_app_LabCouse1.Models.Perdoruesi", "perdoruesi")
                         .WithMany()
-                        .HasForeignKey("perdoruesiID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("perdoruesiID");
 
                     b.Navigation("perdoruesi");
                 });
