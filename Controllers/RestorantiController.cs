@@ -1,52 +1,49 @@
 ﻿using Food_delivery_app_LabCouse1.Data;
 using Food_delivery_app_LabCouse1.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Data;
-using Microsoft.Data.SqlClient;
 
 namespace Food_delivery_app_LabCouse1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RestorantiController : ControllerBase
+    public class RestaurantController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
         private readonly IConfiguration _configuration;
 
-        public RestorantiController(IConfiguration configuration, ApplicationDbContext db)
+        public RestaurantController(IConfiguration configuration, ApplicationDbContext db)
         {
             _configuration = configuration;
             _db = db;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Restoranti>>> GetRestorantet()
+        public async Task<ActionResult<List<Restaurant>>> GetRestorantet()
         {
-            return await _db.Restoranti.ToListAsync();
+            return await _db.Restaurant.ToListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Restoranti>> GetRestoranti(int id)
+        public async Task<ActionResult<Restaurant>> GetRestoranti(int id)
         {
-            return await _db.Restoranti.FindAsync(id);
+            return await _db.Restaurant.FindAsync(id);
         }
 
         [HttpPost]
-        public JsonResult addRestoranti(Restoranti restoranti){
-                _db.Restoranti.Add(restoranti);
+        public JsonResult addRestoranti(Restaurant restoranti){
+                _db.Restaurant.Add(restoranti);
                 _db.SaveChanges();
                 return new JsonResult("Restoranti u shtua me sukses");
         }
 
         [HttpPut]
-        public JsonResult updateRestoranti(Restoranti restoranti)
+        public JsonResult updateRestoranti(Restaurant restoranti)
         {
-            _db.Restoranti.Update(restoranti);
+            _db.Restaurant.Update(restoranti);
             _db.SaveChanges();
 
             return new JsonResult("Restoranti u perditesua me sukses");
@@ -55,7 +52,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         [HttpDelete("{id}")]
         public JsonResult deleteRestoranti(int id)
         {
-           var restoranti = _db.Restoranti.Find(id);
+           var restoranti = _db.Restaurant.Find(id);
            _db.Remove(restoranti);
            _db.SaveChanges();
 
