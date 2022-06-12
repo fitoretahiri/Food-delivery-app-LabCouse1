@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Food_delivery_app_LabCouse1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220602201204_addPerdoruesiIDToDatabase")]
-    partial class addPerdoruesiIDToDatabase
+    [Migration("20220611130325_updateDatabase")]
+    partial class updateDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -57,7 +57,12 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.Property<int>("nr_artikujve")
                         .HasColumnType("int");
 
+                    b.Property<int>("restaurantID")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("restaurantID");
 
                     b.ToTable("Menu");
                 });
@@ -115,31 +120,46 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.ToTable("Qyteti");
                 });
 
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restoranti", b =>
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restaurant", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("restaurantID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("adresa")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("data_regjistrimit")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("emri")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("perdoruesiID")
+                        .HasColumnType("int");
 
-                    b.Property<string>("nr_kontaktues")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("restaurantID");
 
-                    b.Property<string>("qyteti")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasIndex("perdoruesiID");
 
-                    b.HasKey("Id");
+                    b.ToTable("Restaurant");
+                });
 
-                    b.ToTable("Restoranti");
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restaurant_Qyteti", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("qytetiID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("restaurantID")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("qytetiID");
+
+                    b.HasIndex("restaurantID");
+
+                    b.ToTable("restaurant_Qyteti");
                 });
 
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Roli", b =>
@@ -194,6 +214,17 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.Navigation("perdoruesi");
                 });
 
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Menu", b =>
+                {
+                    b.HasOne("Food_delivery_app_LabCouse1.Models.Restaurant", "restaurant")
+                        .WithMany()
+                        .HasForeignKey("restaurantID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("restaurant");
+                });
+
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Perdoruesi", b =>
                 {
                     b.HasOne("Food_delivery_app_LabCouse1.Models.Roli", "roli")
@@ -205,6 +236,36 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.Navigation("roli");
                 });
 
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restaurant", b =>
+                {
+                    b.HasOne("Food_delivery_app_LabCouse1.Models.Perdoruesi", "perdoruesi")
+                        .WithMany()
+                        .HasForeignKey("perdoruesiID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("perdoruesi");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restaurant_Qyteti", b =>
+                {
+                    b.HasOne("Food_delivery_app_LabCouse1.Models.Qyteti", "qyteti")
+                        .WithMany("Restaurant_Qyteti")
+                        .HasForeignKey("qytetiID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Food_delivery_app_LabCouse1.Models.Restaurant", "restaurant")
+                        .WithMany("Restaurant_Qyteti")
+                        .HasForeignKey("restaurantID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("qyteti");
+
+                    b.Navigation("restaurant");
+                });
+
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Transportuesi", b =>
                 {
                     b.HasOne("Food_delivery_app_LabCouse1.Models.Perdoruesi", "perdoruesi")
@@ -214,6 +275,16 @@ namespace Food_delivery_app_LabCouse1.Migrations
                         .IsRequired();
 
                     b.Navigation("perdoruesi");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Qyteti", b =>
+                {
+                    b.Navigation("Restaurant_Qyteti");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restaurant", b =>
+                {
+                    b.Navigation("Restaurant_Qyteti");
                 });
 #pragma warning restore 612, 618
         }

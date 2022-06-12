@@ -24,7 +24,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Restaurant>>> GetRestorantet()
         {
-            return await _db.Restaurant.ToListAsync();
+            return await _db.Restaurant.Include("perdoruesi").ToListAsync();
         }
 
         [HttpGet("{id}")]

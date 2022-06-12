@@ -48,11 +48,11 @@ const KlientiRegister = () => {
                 </div>
                 <div class="col-sm-12">
                     <label for="foto" class="form-label">Foto Profilit</label>
-                    <input type="file" class="form-control" id="fotos" />
+                    <input type="file" className="form-control" id="fotos" />
                 </div>
 
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Regjistrohu</button>
+                    <button type="submit" className="btn btn-primary">Regjistrohu</button>
                 </div>
             </form>
         </div>

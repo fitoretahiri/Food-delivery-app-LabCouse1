@@ -16,6 +16,6 @@ namespace Food_delivery_app_LabCouse1.Models
         [ForeignKey("perdoruesiID")]
         public Perdoruesi perdoruesi { get; set; }
         //tash lidhja me tabelen e lidhjeve
-        public List<Restaurant_Qyteti> restaurant_Qyteti { get; set; }
+        public List<Restaurant_Qyteti> Restaurant_Qyteti { get; set; }
     }
 }

@@ -14,6 +14,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Food_delivery_app_LabCouse1.Models;
 using Newtonsoft.Json;
+using Configuration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Identity;
 
 namespace Food_delivery_app_LabCouse1
 {
@@ -29,6 +34,9 @@ namespace Food_delivery_app_LabCouse1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Link JwtConfig class with secret string for token added in appsetting.json file
+            services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
+
             //Enable CORS
             services.AddCors(opt =>
             {   
@@ -42,6 +50,30 @@ namespace Food_delivery_app_LabCouse1
             options.UseSqlServer(
                Configuration.GetConnectionString("DefaultConnection")
            ));
+
+           services.AddAuthentication(options=> {
+               options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+               //nese e para fails, e perdorum te dyten
+               options.DefaultScheme= JwtBearerDefaults.AuthenticationScheme;
+               options.DefaultChallengeScheme=JwtBearerDefaults.AuthenticationScheme;
+           })
+           .AddJwtBearer(jwt => {
+               var key= Encoding.ASCII.GetBytes(Configuration["JwtConfig:Secret"]);
+
+               jwt.SaveToken = true;
+               jwt.TokenValidationParameters = new TokenValidationParameters {
+                   ValidateIssuerSigningKey = true,
+                   IssuerSigningKey = new SymmetricSecurityKey(key),
+                   ValidateIssuer = false,
+                   ValidateAudience =false,
+                   ValidateLifetime = true,
+                   //Qitu duhet mu bo true per me expire ni token per 6 ore qe e kena lan te controlleri
+                   RequireExpirationTime = false
+               };
+           });
+
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddControllersWithViews();
 
@@ -63,8 +95,10 @@ namespace Food_delivery_app_LabCouse1
             }
             //app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseCors("CorsPolicy");
 

@@ -7,7 +7,7 @@ export class TransportuesiRegister extends Component {
         this.handleSubmit = this.handleSubmit.bind();
     }
 
-    addTransportuesi(){
+    addTransportuesi() {
         console.log("hello")
     }
 
@@ -26,13 +26,13 @@ export class TransportuesiRegister extends Component {
                 adresa: event.target.adresa.value,
                 nr_telefonit: event.target.nr_telefonit.value,
                 photoProfile: "C:\\fakepath\\use-case-diag.jpg",
-                roliID: 2
+                roliID: 7
             })
-            
+
         })
             .then(res => res.json())
             .then((result) => {
-                console.log("id e perdoruesit: "+result.perdoruesiID)
+                console.log("id e perdoruesit: " + result.perdoruesiID)
                 alert(result.status);
                 fetch(process.env.REACT_APP_API + 'transportuesi', {
                     method: 'POST',
@@ -45,7 +45,7 @@ export class TransportuesiRegister extends Component {
                         dataLindjes: "2004-05-23T00:00:00",
                         statusi_aktivitetit: 1,
                         perdoruesiID: result.perdoruesiID
-        
+
                     })
                 })
                     .then(res => res.json())
@@ -53,11 +53,11 @@ export class TransportuesiRegister extends Component {
                         alert(result);
                     },
                         (error) => {
-                            alert('Failed');
+                            alert('Failed Transportuesi');
                         })
             },
                 (error) => {
-                    alert('Failed');
+                    alert('Failed Perdoruesi');
                 })
     }
     render() {
@@ -107,7 +107,7 @@ export class TransportuesiRegister extends Component {
                         <input id="data_lindjes" className="form-control" type="date" name="data_lindjes" />
                     </div>
                     <div class="col-sm-12">
-                        <label  className="form-label">Foto Profilit</label>
+                        <label className="form-label">Foto Profilit</label>
                         <input type="file" className="form-control" id="foto" name="foto_profilit" />
                     </div>
 
