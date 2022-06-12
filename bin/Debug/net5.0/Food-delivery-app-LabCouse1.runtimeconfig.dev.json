@@ -2,7 +2,8 @@
   "runtimeOptions": {
     "additionalProbingPaths": [
       "C:\\Users\\fitor\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\fitor\\.nuget\\packages"
+      "C:\\Users\\fitor\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
     ]
   }
 }

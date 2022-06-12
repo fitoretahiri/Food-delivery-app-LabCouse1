@@ -1,22 +1,22 @@
 ﻿import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 import { Button, ButtonToolbar } from 'react-bootstrap';
-import { AddUserModal } from './AddUserModal';
-import { EditUserModal } from './EditUserModal';
+import { EditPerdoruesiModal } from './EditPerdoruesiModal';
+import { Navigation } from './Navigation';
 
 
-export class Useri extends Component {
+export class Perdoruesi extends Component {
     constructor(props) {
         super(props);
-        this.state = {users: [], addModalShow: false }
+        this.state = { perdoruesit: [], addModalShow: false, editModalShow: false }
     }
 
     //marrja e te dhenave nga API
     refreshList() {
-        fetch(process.env.REACT_APP_API + 'user')
+        fetch(process.env.REACT_APP_API + 'perdoruesi')
             .then(response => response.json())
             .then(data => {
-                this.setState({users: data });
+                this.setState({ perdoruesit: data });
             });
     }
 
@@ -28,10 +28,10 @@ export class Useri extends Component {
         this.refreshList();
     }
 
-    //delete a user
-    deleteUser(id) {
+    //delete a restaurant
+    deletePerdoruesin(id) {
         if (window.confirm('A doni ta fshini perdoruesin?')) {
-            fetch(process.env.REACT_APP_API + 'user/' + id, {
+            fetch(process.env.REACT_APP_API + 'perdoruesi/' + id, {
                 method: 'DELETE',
                 header: {
                     'Accept': 'application/json',
@@ -42,56 +42,62 @@ export class Useri extends Component {
     }
 
     render() {
-        const { users, userID, emri, mbiemri, photoProfile,password,confirmPsw, roliID } = this.state;
+        const { perdoruesit, perdoruesiID, email, emri,password,adresa,nr_telefonit,photoProfile,roliID} = this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
-            <div className="user mt-5">
+            <div className="perdoruesi mt-5">
+                <Navigation />
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>
-                            <th>Emri</th>
-                            <th>Mbiemri</th>
-                            <th>Foto</th>
+                            <th>ID e perdoruesit</th>
+                            <th>Email</th>
+                            <th>Emri i plote</th>
                             <th>Password</th>
-                            <th>Confirm Password</th>
+                            <th>Adresa</th>
+                            <th>Numri i telefonit</th>
+                            <th>Foto e profilit</th>
                             <th>Roli</th>
                             <th>Options</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map(el =>
-                            <tr key={el.userID}>
+                        {perdoruesit.map(el =>
+                            <tr key={el.perdoruesiID}>
+                                <td>{el.perdoruesiID}</td>
+                                <td>{el.email}</td>
                                 <td>{el.emri}</td>
-                                <td>{el.mbiemri}</td>
-                                <td>{el.photoProfile}</td>
                                 <td>{el.password}</td>
-                                <td>{el.confirmPsw}</td>
+                                <td>{el.adresa}</td>
+                                <td>{el.nr_telefonit}</td>
+                                <td>{el.photoProfile}</td>
                                 <td>{el.roli.role}</td>
                                 <td>
                                     <ButtonToolbar>
                                         <Button className="mr-2" variant="info"
                                             onClick={() => this.setState({
                                                 editModalShow: true,
-                                                userID: el.userID, emri: el.emri, mbiemri: el.mbiemri, photoProfile: el.photoProfile, password: el.password, confirmPsw: el.confirmPsw, roliID: el.roliID
+                                                perdoruesiID: el.perdoruesiID, email: el.email, emri: el.emri, password: el.password, adresa: el.adresa, nr_telefonit: el.nr_telefonit, photoProfile: el.photoProfile
                                             })}>
                                             Edit
                                         </Button>
 
                                         <Button className="mr-2" variant="danger"
-                                            onClick={() => this.deleteUser(el.userID)}>
+                                            onClick={() => this.deletePerdoruesin(el.perdoruesiID)}>
                                             Delete
                                         </Button>
 
-                                        <EditUserModal show={this.state.editModalShow}
+                                        <EditPerdoruesiModal show={this.state.editModalShow}
                                             onHide={editModalClose}
-                                            userID={userID}
+                                            perdoruesiID={perdoruesiID}
+                                            email={email}
                                             emri={emri}
-                                            mbiemri={mbiemri}
-                                            photoProfile={photoProfile}
                                             password={password}
-                                            confirmPsw={confirmPsw}
-                                            roliID={roliID} />
+                                            adresa={adresa}
+                                            nr_telefonit={nr_telefonit}
+                                            photoProfile={photoProfile}
+                                        />
                                     </ButtonToolbar>
 
                                 </td>
@@ -100,17 +106,6 @@ export class Useri extends Component {
                     </tbody>
 
                 </Table>
-                <ButtonToolbar>
-                    <div className="d-grid gap-2">
-                        <Button variant='primary' size='lg'
-                            onClick={() => { this.setState({ addModalShow: true }) }}>
-                            Shto Perdoruesin
-                        </Button>
-                    </div>
-                    <AddUserModal show={this.state.addModalShow}
-                        onHide={addModalClose}
-                    />
-                </ButtonToolbar>
             </div>
         )
     }

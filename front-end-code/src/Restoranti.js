@@ -3,6 +3,7 @@ import { Table } from 'react-bootstrap';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import { AddRestorantModal } from './AddRestorantModal';
 import { EditRestorantModal } from './EditRestorantModal';
+import { Navigation } from './Navigation';
 
 
 export class Restoranti extends Component {
@@ -13,7 +14,7 @@ export class Restoranti extends Component {
 
     //marrja e te dhenave nga API
     refreshList() {
-        fetch(process.env.REACT_APP_API + 'restoranti')
+        fetch(process.env.REACT_APP_API + 'restaurant')
             .then(response => response.json())
             .then(data => {
                 this.setState({ restorantet: data });
@@ -31,7 +32,7 @@ export class Restoranti extends Component {
     //delete a restaurant
     deleteRestorant(id) {
         if (window.confirm('A doni ta fshini restorantin?')) {
-            fetch(process.env.REACT_APP_API + 'restoranti/' + id, {
+            fetch(process.env.REACT_APP_API + 'restaurant/' + id, {
                 method: 'DELETE',
                 header: {
                     'Accept': 'application/json',
@@ -46,7 +47,8 @@ export class Restoranti extends Component {
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
-            <div className="restoranti mt-5">
+            <div className="restaurant mt-5">
+                <Navigation/>
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>

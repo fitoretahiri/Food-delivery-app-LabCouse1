@@ -3,6 +3,7 @@ import { Table } from 'react-bootstrap';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import { AddQytetinModal } from './AddQytetinModal';
 import { EditQytetinModal } from './EditQytetinModal';
+import { Navigation } from './Navigation';
 
 
 export class Qyteti extends Component {
@@ -46,6 +47,7 @@ export class Qyteti extends Component {
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
             <div className="mt-5">
+                <Navigation/>
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>

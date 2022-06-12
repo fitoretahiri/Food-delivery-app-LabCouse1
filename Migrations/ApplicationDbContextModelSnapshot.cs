@@ -17,7 +17,30 @@ namespace Food_delivery_app_LabCouse1.Migrations
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.1");
+                .HasAnnotation("ProductVersion", "5.0.10");
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Klienti", b =>
+                {
+                    b.Property<int>("klientID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("dataLindjes")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("nrPorosive")
+                        .HasColumnType("int");
+
+                    b.Property<int>("perdoruesiID")
+                        .HasColumnType("int");
+
+                    b.HasKey("klientID");
+
+                    b.HasIndex("perdoruesiID");
+
+                    b.ToTable("Klienti");
+                });
 
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Menu", b =>
                 {
@@ -32,9 +55,52 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.Property<int>("nr_artikujve")
                         .HasColumnType("int");
 
+                    b.Property<int>("restaurantID")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("restaurantID");
+
                     b.ToTable("Menu");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Perdoruesi", b =>
+                {
+                    b.Property<int>("perdoruesiID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("adresa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("emri")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("nr_telefonit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("photoProfile")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("qyteti")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("roliID")
+                        .HasColumnType("int");
+
+                    b.HasKey("perdoruesiID");
+
+                    b.HasIndex("roliID");
+
+                    b.ToTable("Perdoruesi");
                 });
 
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Qyteti", b =>
@@ -52,31 +118,46 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.ToTable("Qyteti");
                 });
 
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restoranti", b =>
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restaurant", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("restaurantID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("adresa")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("data_regjistrimit")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("emri")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("perdoruesiID")
+                        .HasColumnType("int");
 
-                    b.Property<string>("nr_kontaktues")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("restaurantID");
 
-                    b.Property<string>("qyteti")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasIndex("perdoruesiID");
 
-                    b.HasKey("Id");
+                    b.ToTable("Restaurant");
+                });
 
-                    b.ToTable("Restoranti");
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restaurant_Qyteti", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("qytetiID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("restaurantID")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("qytetiID");
+
+                    b.HasIndex("restaurantID");
+
+                    b.ToTable("restaurant_Qyteti");
                 });
 
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Roli", b =>
@@ -87,7 +168,6 @@ namespace Food_delivery_app_LabCouse1.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("role")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("roliID");
@@ -95,39 +175,255 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.ToTable("Roli");
                 });
 
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Useri", b =>
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Transportuesi", b =>
                 {
-                    b.Property<int>("userID")
+                    b.Property<int>("transportuesiID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("confirmPsw")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("dataLindjes")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("emri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("mbiemri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("photoProfile")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("roliID")
+                    b.Property<int>("nrPorosive")
                         .HasColumnType("int");
 
-                    b.HasKey("userID");
+                    b.Property<int>("perdoruesiID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("roliID");
+                    b.Property<int>("statusi_aktivitetit")
+                        .HasColumnType("int");
 
-                    b.ToTable("Useri");
+                    b.HasKey("transportuesiID");
+
+                    b.HasIndex("perdoruesiID");
+
+                    b.ToTable("Transportuesi");
                 });
 
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Useri", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Klienti", b =>
+                {
+                    b.HasOne("Food_delivery_app_LabCouse1.Models.Perdoruesi", "perdoruesi")
+                        .WithMany()
+                        .HasForeignKey("perdoruesiID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("perdoruesi");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Menu", b =>
+                {
+                    b.HasOne("Food_delivery_app_LabCouse1.Models.Restaurant", "restaurant")
+                        .WithMany()
+                        .HasForeignKey("restaurantID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("restaurant");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Perdoruesi", b =>
                 {
                     b.HasOne("Food_delivery_app_LabCouse1.Models.Roli", "roli")
                         .WithMany()
@@ -136,6 +432,108 @@ namespace Food_delivery_app_LabCouse1.Migrations
                         .IsRequired();
 
                     b.Navigation("roli");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restaurant", b =>
+                {
+                    b.HasOne("Food_delivery_app_LabCouse1.Models.Perdoruesi", "perdoruesi")
+                        .WithMany()
+                        .HasForeignKey("perdoruesiID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("perdoruesi");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restaurant_Qyteti", b =>
+                {
+                    b.HasOne("Food_delivery_app_LabCouse1.Models.Qyteti", "qyteti")
+                        .WithMany("Restaurant_Qyteti")
+                        .HasForeignKey("qytetiID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Food_delivery_app_LabCouse1.Models.Restaurant", "restaurant")
+                        .WithMany("Restaurant_Qyteti")
+                        .HasForeignKey("restaurantID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("qyteti");
+
+                    b.Navigation("restaurant");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Transportuesi", b =>
+                {
+                    b.HasOne("Food_delivery_app_LabCouse1.Models.Perdoruesi", "perdoruesi")
+                        .WithMany()
+                        .HasForeignKey("perdoruesiID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("perdoruesi");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Qyteti", b =>
+                {
+                    b.Navigation("Restaurant_Qyteti");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restaurant", b =>
+                {
+                    b.Navigation("Restaurant_Qyteti");
                 });
 #pragma warning restore 612, 618
         }

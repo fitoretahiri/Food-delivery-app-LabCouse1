@@ -37,86 +37,27 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
         
         [HttpPost]
-        public JsonResult PostMenu(Menu menu)
-        {
-            string query = @"
-                    insert into dbo.Menu 
-                    (emertimi, nr_artikujve)
-                    values 
-                    (
-                    '" + menu.emertimi + @"'
-                    ,'" + menu.nr_artikujve + @"'
-                    )
-                    ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader); 
-
-                    myReader.Close();
-                    myCon.Close();
-                }
-            }
-
-            return new JsonResult("Menu-ja u shtua me sukses");
+        public JsonResult addMenu(Menu menu){
+                _db.Menu.Add(menu);
+                _db.SaveChanges();
+                return new JsonResult("Menu-ja u shtua me sukses");
         }
 
         [HttpPut]
-        public JsonResult PutMenu(Menu menu)
+        public JsonResult updateMenu(Menu menu)
         {
-            string query = @"
-                    update dbo.Menu set 
-                    emertimi = '" + menu.emertimi + @"'
-                    ,nr_artikujve = '" + menu.nr_artikujve + @"'
-                    where id = " + menu.Id + @" 
-                    ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
-
-                    myReader.Close();
-                    myCon.Close();
-                }
-            }
+            _db.Menu.Update(menu);
+            _db.SaveChanges();
 
             return new JsonResult("Menu-ja u perditesua me sukses");
         }
 
         [HttpDelete("{id}")]
-        public JsonResult DeleteMenu(int id)
+        public JsonResult deleteMenu(int id)
         {
-            string query = @"
-                    delete from dbo.Menu
-                    where Id = " + id + @" 
-                    ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
-
-                    myReader.Close();
-                    myCon.Close();
-                }
-            }
+           var menu = _db.Menu.Find(id);
+           _db.Remove(menu);
+           _db.SaveChanges();
 
             return new JsonResult("Menu-ja u fshi me sukses");
         }

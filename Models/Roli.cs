@@ -10,7 +10,7 @@ namespace Food_delivery_app_LabCouse1.Models
     {
         [Key]
         public int roliID { get; set; }
-        [Required(ErrorMessage ="Role is required!!")]
+
         public String role { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react';
 import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 
-export class EditUserModal extends Component {
+export class EditPerdoruesiModal extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -10,20 +10,21 @@ export class EditUserModal extends Component {
     handleSubmit(event) {
         console.log(event.target.id.value)
         event.preventDefault();
-        fetch(process.env.REACT_APP_API + 'user', {
+        fetch(process.env.REACT_APP_API + 'perdoruesi', {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                userID: event.target.userID.value,
+                perdoruesiID: event.target.perdoruesiID.value,
+                email: event.target.email.value,
                 emri: event.target.emri.value,
-                mbiemri: event.target.mbiemri.value,
-                photoProfile: event.target.photoProfile.value,
                 password: event.target.password.value,
-                confirmPsw: event.target.confirmPsw.value,
-                roliID: event.target.roliID.value
+                adresa: event.target.adresa.value,
+                nr_telefonit: event.target.nr_telefonit.value,
+                photoProfile: event.target.photoProfile.value,
+                roli: event.target.roli.value
             })
         })
             .then(res => res.json())
@@ -46,7 +47,7 @@ export class EditUserModal extends Component {
                 >
                     <Modal.Header closeButton>
                         <Modal.Title id="contained-modal-title-vcenter">
-                            Edit Perdoruesin
+                            Edito Perdoruesin
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
@@ -54,53 +55,45 @@ export class EditUserModal extends Component {
                         <Row>
                             <Col sm={6}>
                                 <Form onSubmit={this.handleSubmit}>
-                                    <Form.Group controlId="userID">
-                                        <Form.Label>Id e perdoruesit</Form.Label>
-                                        <Form.Control type="text" name="userID" required disabled
-                                            defaultValue={this.props.userID}
-                                            placeholder="id" />
+                                    <Form.Group controlId="perdoruesiID">
+                                        <Form.Label>Email i perdoruesit</Form.Label>
+                                        <Form.Control type="text" name="email" required
+                                            defaultValue={this.props.email}
+                                            placeholder="email" />
                                     </Form.Group>
                                     <Form.Group controlId="emri">
-                                        <Form.Label>Emri i perdoruesit</Form.Label>
+                                        <Form.Label>Emri Perdoruesit</Form.Label>
                                         <Form.Control type="text" name="emri" required
                                             defaultValue={this.props.emri}
                                             placeholder="emri" />
                                     </Form.Group>
 
-                                    <Form.Group controlId="mbiemri">
-                                        <Form.Label>Mbimeri i perdoruesit</Form.Label>
-                                        <Form.Control type="text" name="mbiemri" required
-                                            defaultValue={this.props.mbiemri}
-                                            placeholder="mbiemri" />
+                                    <Form.Group controlId="password">
+                                        <Form.Label>Password</Form.Label>
+                                        <Form.Control type="text" name="password" required disabled
+                                            defaultValue={this.props.password}
+                                            placeholder="password" />
+                                    </Form.Group>
+
+                                    <Form.Group controlId="adresa">
+                                        <Form.Label>Adresa</Form.Label>
+                                        <Form.Control type="text" name="adresa" required
+                                            defaultValue={this.props.adresa}
+                                            placeholder="adresa" />
+                                    </Form.Group>
+
+                                    <Form.Group controlId="nr_telefonit">
+                                        <Form.Label>Numri i tel</Form.Label>
+                                        <Form.Control type="text" name="nr_telefonit" required
+                                            defaultValue={this.props.nr_telefonit}
+                                            placeholder="Numri Telefonit" />
                                     </Form.Group>
 
                                     <Form.Group controlId="photoProfile">
-                                        <Form.Label>Foto e perdoruesit</Form.Label>
+                                        <Form.Label>Fotografia e profilit</Form.Label>
                                         <Form.Control type="text" name="photoProfile" required
                                             defaultValue={this.props.photoProfile}
-                                            placeholder="Foto" />
-                                    </Form.Group>
-
-                                    <Form.Group controlId="password">
-                                        <Form.Label>Password</Form.Label>
-                                        <Form.Control type="text" name="password" required
-                                            defaultValue={this.props.password}
-                                            placeholder="Password" />
-                                    </Form.Group>
-
-                                    <Form.Group controlId="confirmPsw">
-                                        <Form.Label>Confirm Password</Form.Label>
-                                        <Form.Control type="text" name="confrimPsw" required
-                                            defaultValue={this.props.confirmPsw}
-                                            placeholder="Confirm Password" />
-                                    </Form.Group>
-
-                                    <Form.Group controlId="roliID">
-                                        <Form.Label>Roli i perdoruesit</Form.Label>
-                                        <Form.Control type="text" name="roliID" required
-                                            disabled
-                                            defaultValue={this.props.roliID}
-                                            placeholder="User role" />
+                                            placeholder="Foto e profilit" />
                                     </Form.Group>
                                     <Form.Group>
                                         <Button variant="primary" type="submit">

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Food_delivery_app_LabCouse1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220526184813_addUseriToDatabase")]
-    partial class addUseriToDatabase
+    [Migration("20220602153018_updatePerdoruesi")]
+    partial class updatePerdoruesi
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,29 @@ namespace Food_delivery_app_LabCouse1.Migrations
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Klienti", b =>
+                {
+                    b.Property<int>("klientID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("dataLindjes")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("nrPorosive")
+                        .HasColumnType("int");
+
+                    b.Property<int>("perdoruesiID")
+                        .HasColumnType("int");
+
+                    b.HasKey("klientID");
+
+                    b.HasIndex("perdoruesiID");
+
+                    b.ToTable("Klienti");
+                });
 
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Menu", b =>
                 {
@@ -37,6 +60,44 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Menu");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Perdoruesi", b =>
+                {
+                    b.Property<int>("perdoruesiID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("adresa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("emri")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("nr_telefonit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("photoProfile")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("qyteti")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("roliID")
+                        .HasColumnType("int");
+
+                    b.HasKey("perdoruesiID");
+
+                    b.HasIndex("roliID");
+
+                    b.ToTable("Perdoruesi");
                 });
 
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Qyteti", b =>
@@ -89,7 +150,6 @@ namespace Food_delivery_app_LabCouse1.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("role")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("roliID");
@@ -97,39 +157,44 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.ToTable("Roli");
                 });
 
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Useri", b =>
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Transportuesi", b =>
                 {
-                    b.Property<int>("userID")
+                    b.Property<int>("transportuesiID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("confirmPsw")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("dataLindjes")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("emri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("mbiemri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("photoProfile")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("roliID")
+                    b.Property<int>("nrPorosive")
                         .HasColumnType("int");
 
-                    b.HasKey("userID");
+                    b.Property<int?>("perdoruesiID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("roliID");
+                    b.Property<int>("statusi_aktivitetit")
+                        .HasColumnType("int");
 
-                    b.ToTable("Useri");
+                    b.HasKey("transportuesiID");
+
+                    b.HasIndex("perdoruesiID");
+
+                    b.ToTable("Transportuesi");
                 });
 
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Useri", b =>
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Klienti", b =>
+                {
+                    b.HasOne("Food_delivery_app_LabCouse1.Models.Perdoruesi", "perdoruesi")
+                        .WithMany()
+                        .HasForeignKey("perdoruesiID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("perdoruesi");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Perdoruesi", b =>
                 {
                     b.HasOne("Food_delivery_app_LabCouse1.Models.Roli", "roli")
                         .WithMany()
@@ -138,6 +203,15 @@ namespace Food_delivery_app_LabCouse1.Migrations
                         .IsRequired();
 
                     b.Navigation("roli");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Transportuesi", b =>
+                {
+                    b.HasOne("Food_delivery_app_LabCouse1.Models.Perdoruesi", "perdoruesi")
+                        .WithMany()
+                        .HasForeignKey("perdoruesiID");
+
+                    b.Navigation("perdoruesi");
                 });
 #pragma warning restore 612, 618
         }

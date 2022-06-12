@@ -37,86 +37,29 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpPost]
-        public JsonResult PostRole(Roli roli)
-        {
-            string query = @"
-                    insert into dbo.Roli 
-                    (role)
-                    values 
-                    (
-                    '"+ roli.role + @"'
-                    )
-                    ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
-
-                    myReader.Close();
-                    myCon.Close();
-                }
-            }
-
-            return new JsonResult("Roli u shtua me sukses");
+        public JsonResult addRolin(Roli roli){
+                _db.Roli.Add(roli);
+                _db.SaveChanges();
+                return new JsonResult("Roli u shtua me sukses");
         }
 
         [HttpPut]
-        public JsonResult PutRole(Roli roli)
+        public JsonResult updateRolin(Roli roli)
         {
-            string query = @"
-                    update dbo.Roli set 
-                    role = '" + roli.role + @"'
-                    where roliID = " + roli.roliID + @" 
-                    ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
+            _db.Roli.Update(roli);
+            _db.SaveChanges();
 
-                    myReader.Close();
-                    myCon.Close();
-                }
-            }
-
-            return new JsonResult("Roli u perditsua me sukses");
+            return new JsonResult("Roli u perditesua me sukses");
         }
 
         [HttpDelete("{id}")]
-        public JsonResult DeleteRole(int id)
+        public JsonResult deleteRolin(int id)
         {
-            string query = @"
-                    delete from dbo.Roli
-                    where roliID = " + id + @" 
-                    ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
+           var roli = _db.Roli.Find(id);
+           _db.Remove(roli);
+           _db.SaveChanges();
 
-                    myReader.Close();
-                    myCon.Close();
-                }
-            }
-
-            return new JsonResult("Roli u fshi me sukses!");
+            return new JsonResult("Roli u fshi me sukses");
         }
     }
 }
