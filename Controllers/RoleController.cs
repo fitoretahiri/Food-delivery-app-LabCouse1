@@ -8,11 +8,15 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Data;
 using Microsoft.Data.SqlClient;
+using System.Net;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Food_delivery_app_LabCouse1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "AppUser")]
     public class RoleController : ControllerBase
     {
         private readonly ApplicationDbContext _db;

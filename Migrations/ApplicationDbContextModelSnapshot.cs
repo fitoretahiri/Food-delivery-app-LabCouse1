@@ -17,7 +17,7 @@ namespace Food_delivery_app_LabCouse1.Migrations
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.10");
+                .HasAnnotation("ProductVersion", "5.0.1");
 
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Klienti", b =>
                 {
