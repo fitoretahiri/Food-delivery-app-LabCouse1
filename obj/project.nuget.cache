@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QCfZVo3jirAVAdcSq8eyLR2iXTEE8/O9e8sLe9ewEh+RCbu3Bur44rkz/FeNC4A0PzfxRLX0CdvxVHpGIZU6Zg==",
+  "dgSpecHash": "ZbvJKw43XMr5pXmonCO/PmDTRcjf228wPsacg6px5eLV86o6tRwXf7P4xu/YneoHLUBZOF1Doo3ftfllvLPEfQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
   "expectedPackageFiles": [
@@ -18,10 +18,10 @@
     "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.10\\microsoft.entityframeworkcore.5.0.10.nupkg.sha512",
     "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.10\\microsoft.entityframeworkcore.abstractions.5.0.10.nupkg.sha512",
     "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.10\\microsoft.entityframeworkcore.analyzers.5.0.10.nupkg.sha512",
-    "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.1\\microsoft.entityframeworkcore.design.5.0.1.nupkg.sha512",
+    "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.10\\microsoft.entityframeworkcore.design.5.0.10.nupkg.sha512",
     "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.10\\microsoft.entityframeworkcore.relational.5.0.10.nupkg.sha512",
     "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.1\\microsoft.entityframeworkcore.sqlserver.5.0.1.nupkg.sha512",
-    "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.1\\microsoft.entityframeworkcore.tools.5.0.1.nupkg.sha512",
+    "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.10\\microsoft.entityframeworkcore.tools.5.0.10.nupkg.sha512",
     "C:\\Users\\fitor\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\fitor\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
     "C:\\Users\\fitor\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",

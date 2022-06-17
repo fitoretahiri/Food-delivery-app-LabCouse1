@@ -16,8 +16,10 @@ export class EditMenuModal extends Component{
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({
-                id:event.target.id.value,
+                menuID:event.target.menuID.value,
                 emertimi:event.target.emertimi.value,
+                cmimi:event.target.cmimi.value,
+                pershkrimi:event.target.pershkrimi.value,
                 nr_artikujve:event.target.nr_artikujve.value
             })
         })
@@ -49,10 +51,10 @@ centered
         <Row>
             <Col sm={6}>
                 <Form onSubmit={this.handleSubmit}>
-                    <Form.Group controlId="id">
+                    <Form.Group controlId="menuID">
                         <Form.Label>Id</Form.Label>
-                        <Form.Control type="text" name="id" required disabled
-                        defaultValue={this.props.id}
+                        <Form.Control type="text" name="menuID" required disabled
+                        defaultValue={this.props.menuID}
                         placeholder="id"/>
                     </Form.Group>
                     <Form.Group controlId="emertimi">
@@ -61,11 +63,23 @@ centered
                         defaultValue={this.props.emertimi}
                         placeholder="emertimi"/>
                     </Form.Group>
+                    <Form.Group controlId="cmimi">
+                        <Form.Label>Cmimi</Form.Label>
+                        <Form.Control type="number" name="cmimi" required 
+                        defaultValue={this.props.cmimi}
+                        placeholder="Cmimi"/>
+                    </Form.Group>
                     <Form.Group controlId="nr_artikujve">
                         <Form.Label>Nr i artikujve</Form.Label>
-                        <Form.Control type="text" name="nr_artikujve" required 
+                        <Form.Control type="number" name="nr_artikujve" required 
                         defaultValue={this.props.nr_artikujve}
                         placeholder="nr_artikujve"/>
+                    </Form.Group>
+                    <Form.Group controlId="pershkrimi">
+                        <Form.Label>Pershkrimi i menu-se</Form.Label>
+                        <Form.Control type="text" name="pershkrimi" required 
+                        defaultValue={this.props.pershkrimi}
+                        placeholder="Pershkrimi"/>
                     </Form.Group>
 
                     <Form.Group>
