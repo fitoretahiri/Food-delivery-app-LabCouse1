@@ -553,6 +553,7 @@
       },
       "Microsoft.EntityFrameworkCore.Analyzers/5.0.10": {},
       "Microsoft.EntityFrameworkCore.Design/5.0.10": {
+>>>>>>> login_functionality_branch
         "dependencies": {
           "Humanizer.Core": "2.8.26",
           "Microsoft.CSharp": "4.7.0",

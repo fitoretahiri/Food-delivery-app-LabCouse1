@@ -18,6 +18,7 @@ namespace Food_delivery_app_LabCouse1.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+>>>>>>> login_functionality_branch
 
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Klienti", b =>
                 {
@@ -25,6 +26,7 @@ namespace Food_delivery_app_LabCouse1.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+>>>>>>> login_functionality_branch
 
                     b.Property<DateTime>("dataLindjes")
                         .HasColumnType("datetime2");
@@ -85,6 +87,8 @@ namespace Food_delivery_app_LabCouse1.Migrations
                 });
 
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Perdoruesi", b =>
+<<<<<<< HEAD
+=======
                 {
                     b.Property<int>("perdoruesiID")
                         .ValueGeneratedOnAdd()
@@ -130,6 +134,18 @@ namespace Food_delivery_app_LabCouse1.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Emri")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("nr_telefonit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("photoProfile")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("qyteti")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SasiaPijeve")
@@ -214,6 +230,7 @@ namespace Food_delivery_app_LabCouse1.Migrations
 
                     b.Property<DateTime>("dataLindjes")
                         .HasColumnType("datetime2");
+<<<<<<< HEAD
 
                     b.Property<int>("nrPorosive")
                         .HasColumnType("int");
@@ -345,6 +362,7 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+>>>>>>> login_functionality_branch
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -354,6 +372,7 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+<<<<<<< HEAD
 
                     b.HasKey("Id");
 
@@ -387,6 +406,7 @@ namespace Food_delivery_app_LabCouse1.Migrations
 
                     b.HasKey("Id");
 
+>>>>>>> login_functionality_branch
                     b.HasIndex("UserId");
 
                     b.ToTable("AspNetUserClaims");
@@ -414,6 +434,7 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("AspNetUserLogins");
+<<<<<<< HEAD
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
@@ -431,6 +452,25 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.ToTable("AspNetUserRoles");
                 });
 
+=======
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles");
+                });
+
+>>>>>>> login_functionality_branch
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")

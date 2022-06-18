@@ -20,6 +20,7 @@ namespace Food_delivery_app_LabCouse1.Data
             //builder.Entity<Restaurant_Qyteti>().HasKey(x => new { x.QytetiID, x.RestaurantID });
         }
         public DbSet<Restauranti> Restauranti { get; set; }
+>>>>>>> login_functionality_branch
 
         public DbSet<Qyteti> Qyteti { get; set; }
 

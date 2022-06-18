@@ -43,6 +43,7 @@ export class Restaurant_Qyteti extends Component {
 
     render() {
         const { lidhjet, restaurantID, qytetiID } = this.state;
+>>>>>>> login_functionality_branch
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
@@ -51,6 +52,7 @@ export class Restaurant_Qyteti extends Component {
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>
+>>>>>>> login_functionality_branch
                             <th>Restauranti</th>
                             <th>Qyteti</th>
                         </tr>
