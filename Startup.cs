@@ -42,7 +42,7 @@ namespace Food_delivery_app_LabCouse1
             {   
                 opt.AddPolicy("CorsPolicy", policy => 
                 {
-                    policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000");
+                    policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000").AllowCredentials();
                 });
             });
 
@@ -72,11 +72,12 @@ namespace Food_delivery_app_LabCouse1
                };
            });
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddControllersWithViews();
 
+            services.AddControllers().AddNewtonsoftJson();
 
         }
 

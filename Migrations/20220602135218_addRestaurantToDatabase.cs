@@ -7,8 +7,6 @@ namespace Food_delivery_app_LabCouse1.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Restoranti");
 
             migrationBuilder.CreateTable(
                 name: "Restaurant",
