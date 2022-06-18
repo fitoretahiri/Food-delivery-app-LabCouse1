@@ -37,6 +37,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         {
             return await _db.Menu.FindAsync(id);
         }
+<<<<<<< HEAD
        */
 
         //Kjo metode kthen krejt menute qe i takojne ni restaurantit
@@ -59,6 +60,9 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
 
+=======
+        
+>>>>>>> login_functionality_branch
         [HttpPost]
         public JsonResult addMenu(Menu menu){
                 _db.Menu.Add(menu);

@@ -1,5 +1,8 @@
 using System;
+<<<<<<< HEAD
 using System.ComponentModel.DataAnnotations;
+=======
+>>>>>>> login_functionality_branch
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Food_delivery_app_LabCouse1.Models
@@ -26,5 +29,13 @@ namespace Food_delivery_app_LabCouse1.Models
         [ForeignKey("UshqimiID")]
         public Ushqimi Ushqimi { get; set; }
 
+<<<<<<< HEAD
+=======
+        public int nr_artikujve { get; set; }
+        //lidhja e tabeles menu me tabelen restaurant
+        public int restaurantID { get; set; }
+        [ForeignKey("restaurantID")]
+        public Restaurant restaurant { get; set; }
+>>>>>>> login_functionality_branch
     }
 }

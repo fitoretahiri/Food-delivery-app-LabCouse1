@@ -47,7 +47,11 @@ export class Menu extends Component {
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
+<<<<<<< HEAD
             <div className="restaurant mt-5">
+=======
+            <div className="restoranti mt-5">
+>>>>>>> login_functionality_branch
                 <Navigation />
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
