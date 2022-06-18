@@ -15,8 +15,8 @@ export class EditQytetinModal extends Component{
                 'Accept':'application/json',
                 'Content-Type':'application/json'
             },
-            body: JSON.stringify({
-                qytetiID: event.target.qytetiID.value,
+            body:JSON.stringify({
+                id:event.target.id.value,
                 emri:event.target.emri.value
             })
         })
@@ -32,52 +32,52 @@ export class EditQytetinModal extends Component{
         return (
             <div className="container">
 
-                <Modal
-                {...this.props}
-                size="lg"
-                aria-labelledby="contained-modal-title-vcenter"
-                centered
-                >
-                    <Modal.Header closeButton>
-                        <Modal.Title id="contained-modal-title-vcenter">
-                            Edit Qyteti
-                        </Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
+<Modal
+{...this.props}
+size="lg"
+aria-labelledby="contained-modal-title-vcenter"
+centered
+>
+    <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+            Edit Qyteti
+        </Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
 
-                        <Row>
-                            <Col sm={6}>
-                                <Form onSubmit={this.handleSubmit}>
-                                <Form.Group controlId="id">
-                                        <Form.Label>Qyteti Id</Form.Label>
-                                        <Form.Control type="text" name="qytetiID" required
-                                        disabled
-                                        defaultValue={this.props.qytetiID} 
-                                        placeholder="Id e qytetit"/>
-                                    </Form.Group>
+        <Row>
+            <Col sm={6}>
+                <Form onSubmit={this.handleSubmit}>
+                <Form.Group controlId="id">
+                        <Form.Label>Restoranti Id</Form.Label>
+                        <Form.Control type="text" name="id" required
+                        disabled
+                        defaultValue={this.props.id} 
+                        placeholder="id"/>
+                    </Form.Group>
 
-                                    <Form.Group controlId="emri">
-                                        <Form.Label>Emri Qytetit</Form.Label>
-                                        <Form.Control type="text" name="emri" required 
-                                        defaultValue={this.props.emri}
-                                        placeholder="emri"/>
-                                    </Form.Group>
+                    <Form.Group controlId="emri">
+                        <Form.Label>Emri Restorantit</Form.Label>
+                        <Form.Control type="text" name="emri" required 
+                        defaultValue={this.props.emri}
+                        placeholder="emri"/>
+                    </Form.Group>
 
-                                    <Form.Group>
-                                        <Button variant="primary" type="submit">
-                                            Update
-                                        </Button>
-                                    </Form.Group>
-                                </Form>
-                            </Col>
-                        </Row>
-                    </Modal.Body>
+                    <Form.Group>
+                        <Button variant="primary" type="submit">
+                            Update
+                        </Button>
+                    </Form.Group>
+                </Form>
+            </Col>
+        </Row>
+    </Modal.Body>
     
-                    <Modal.Footer>
-                        <Button variant="danger" onClick={this.props.onHide}>Close</Button>
-                    </Modal.Footer>
+    <Modal.Footer>
+        <Button variant="danger" onClick={this.props.onHide}>Close</Button>
+    </Modal.Footer>
 
-                </Modal>
+</Modal>
 
             </div>
         )

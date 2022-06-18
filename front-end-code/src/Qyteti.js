@@ -42,7 +42,7 @@ export class Qyteti extends Component {
     }
 
     render() {
-        const { qytetet, qytetiID, emri } = this.state;
+        const { qytetet, id, emri } = this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
@@ -57,27 +57,27 @@ export class Qyteti extends Component {
                     </thead>
                     <tbody>
                         {qytetet.map(el =>
-                            <tr key={el.qytetiID}>
-                                <td>{el.qytetiID}</td>
+                            <tr key={el.id}>
+                                <td>{el.id}</td>
                                 <td>{el.emri}</td>
                                 <td>
                                     <ButtonToolbar>
                                         <Button className="mr-2" variant="info"
                                             onClick={() => this.setState({
                                                 editModalShow: true,
-                                                qytetiID: el.qytetiID, emri: el.emri
+                                                id: el.id, emri: el.emri
                                             })}>
                                             Edit
                                         </Button>
 
                                         <Button className="mr-2" variant="danger"
-                                            onClick={() => this.deleteQytetin(el.qytetiID)}>
+                                            onClick={() => this.deleteQytetin(el.id)}>
                                             Delete
                                         </Button>
 
                                         <EditQytetinModal show={this.state.editModalShow}
                                             onHide={editModalClose}
-                                            qytetiID={qytetiID}
+                                            id={id}
                                             emri={emri} />
                                     </ButtonToolbar>
                                 </td>
