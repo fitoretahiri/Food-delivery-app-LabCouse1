@@ -12,7 +12,7 @@ import TransportuesiRegister from './TransportuesiRegister';
 import RestorantiRegister from './RestorantiRegister';
 import KlientiRegister from './KlientiRegister';
 import { Restaurant_Qyteti } from './Restaurant_Qyteti';
-import { Perdoruesi } from './Perdoruesi';
+//import { Perdoruesi } from './Perdoruesi';
 import DashboardRestoranti from './DashboardRestoranti';
 import AppNavbar from './AppNavbar';
 
@@ -49,7 +49,7 @@ function App() {
                     <Route path="/role" component={Roli} />
                     <Route path="/restaurant_qyteti" component={Restaurant_Qyteti} />
                     <Route exact path="/" component={() => <LoginForm setName={setName}/>} />
-                    <Route exact path="perdoruesi" component={Perdoruesi} />
+                    {/*<Route exact path="perdoruesi" component={Perdoruesi} />*/}
                     <Route path="/klientiregister" component={KlientiRegister} />
                     <Route path="/transportuesiregister" component={TransportuesiRegister} />
                     <Route path="/restorantiregister" component={RestorantiRegister} />
