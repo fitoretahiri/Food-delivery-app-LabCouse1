@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Food_delivery_app_LabCouse1.Models
 {
     public class Qyteti
+
     {
-        public int Id { get; set; }
+        [Key]
+        public int QytetiID { get; set; }
 
-        public string emri { get; set; }
-
-        public List<Restaurant_Qyteti> restaurant_Qyteti { get; set; }
+        public string Emri { get; set; }
     }
 }

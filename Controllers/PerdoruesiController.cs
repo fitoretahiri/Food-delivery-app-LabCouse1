@@ -61,5 +61,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
 
             return new JsonResult("Perdoruesi u fshi me sukses");
         }
+
+
     }
 }

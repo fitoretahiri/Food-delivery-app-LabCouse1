@@ -14,7 +14,7 @@ export class Restoranti extends Component {
 
     //marrja e te dhenave nga API
     refreshList() {
-        fetch(process.env.REACT_APP_API + 'restoranti')
+        fetch(process.env.REACT_APP_API + 'restaurant')
             .then(response => response.json())
             .then(data => {
                 this.setState({ restorantet: data });
@@ -32,7 +32,7 @@ export class Restoranti extends Component {
     //delete a restaurant
     deleteRestorant(id) {
         if (window.confirm('A doni ta fshini restorantin?')) {
-            fetch(process.env.REACT_APP_API + 'restoranti/' + id, {
+            fetch(process.env.REACT_APP_API + 'restaurant/' + id, {
                 method: 'DELETE',
                 header: {
                     'Accept': 'application/json',
@@ -43,51 +43,56 @@ export class Restoranti extends Component {
     }
 
     render() {
-        const { restorantet, id, emri, qyteti, adresa, nr_kontaktues } = this.state;
+        const { restorantet, restaurantID, emri, data_regjistrimit, nrYjeve, foto, pershkrimi } = this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
-            <div className="restoranti mt-5">
+            <div className="restaurant mt-5">
                 <Navigation/>
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>
                             <th>Emri</th>
+                            <th>Data Regjistrimit</th>
+                            <th>Nr yjeve</th>
+                            <th>Foto</th>
+                            <th>Pershkrimi</th>
                             <th>Qyteti</th>
-                            <th>Adresa</th>
-                            <th>Nr.Kontaktues</th>
                             <th>Options</th>
                         </tr>
                     </thead>
                     <tbody>
                         {restorantet.map(el =>
-                            <tr key={el.id}>
+                            <tr key={el.restaurantID}>
                                 <td>{el.emri}</td>
-                                <td>{el.qyteti}</td>
-                                <td>{el.adresa}</td>
-                                <td>{el.nr_kontaktues}</td>
+                                <td>{el.data_regjistrimit}</td>
+                                <td>{el.nrYjeve}</td>
+                                <td>{el.foto}</td>
+                                <td>{el.pershkrimi}</td>
+                                <td>{el.qyteti.emri}</td>
                                 <td>
                                     <ButtonToolbar>
                                         <Button className="mr-2" variant="info"
                                             onClick={() => this.setState({
                                                 editModalShow: true,
-                                                id: el.id, emri: el.emri, qyteti: el.qyteti, adresa: el.adresa, nr_kontaktues: el.nr_kontaktues
+                                                restaurantID: el.restaurantID, emri: el.emri, data_regjistrimit: el.data_regjistrimit, nrYjeve: el.nrYjeve, foto: el.foto, pershkrimi: el.pershkrimi
                                             })}>
                                             Edit
                                         </Button>
 
                                         <Button className="mr-2" variant="danger"
-                                            onClick={() => this.deleteRestorant(el.id)}>
+                                            onClick={() => this.deleteRestorant(el.restaurantID)}>
                                             Delete
                                         </Button>
 
                                         <EditRestorantModal show={this.state.editModalShow}
                                             onHide={editModalClose}
-                                            id={id}
+                                            restaurantID={restaurantID}
                                             emri={emri}
-                                            qyteti={qyteti}
-                                            adresa={adresa}
-                                            nr_kontaktues={nr_kontaktues} />
+                                            data_regjistrimit={data_regjistrimit}
+                                            nrYjeve={nrYjeve}
+                                            foto={foto} 
+                                            pershkrimi={pershkrimi} />
                                     </ButtonToolbar>
 
                                 </td>
