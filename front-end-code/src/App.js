@@ -11,10 +11,12 @@ import LoginForm from './LoginForm';
 import TransportuesiRegister from './TransportuesiRegister';
 import RestorantiRegister from './RestorantiRegister';
 import KlientiRegister from './KlientiRegister';
-import { Restaurant_Qyteti } from './Restaurant_Qyteti';
+//import { Restaurant_Qyteti } from './Restaurant_Qyteti';
 //import { Perdoruesi } from './Perdoruesi';
 import DashboardRestoranti from './DashboardRestoranti';
 import AppNavbar from './AppNavbar';
+import { ShfletoRestaurantet } from './ShfletoRestaurantet';
+import { OrderFood } from './OrderFood';
 
 
 
@@ -47,7 +49,9 @@ function App() {
                     <Route path="/qyteti" component={Qyteti} />
                     <Route path="/menu" component={Menu} />
                     <Route path="/role" component={Roli} />
-                    <Route path="/restaurant_qyteti" component={Restaurant_Qyteti} />
+                    <Route path="/shfletorestorantet" component={ShfletoRestaurantet} />
+                    <Route path="/order" component={OrderFood} />
+                    {/*<Route path="/restaurant_qyteti" component={Restaurant_Qyteti} />*/}
                     <Route exact path="/" component={() => <LoginForm setName={setName}/>} />
                     {/*<Route exact path="perdoruesi" component={Perdoruesi} />*/}
                     <Route path="/klientiregister" component={KlientiRegister} />

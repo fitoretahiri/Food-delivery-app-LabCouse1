@@ -28,12 +28,12 @@ namespace Food_delivery_app_LabCouse1.Controllers
             _db = db;
 
         }
-
+/*
         [HttpGet]
         public async Task<ActionResult<List<Restauranti>>> GetRestorantet2()
         {
             return await _db.Restauranti.Include("perdoruesi").ToListAsync();
-        }
+        }*/
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Restauranti>> GetRestoranti(int id)
