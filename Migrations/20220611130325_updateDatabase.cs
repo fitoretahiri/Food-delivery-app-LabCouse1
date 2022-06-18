@@ -3,32 +3,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Food_delivery_app_LabCouse1.Migrations
 {
-    public partial class addRestaurantToDatabase : Migration
+    public partial class updateDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Restoranti");
-
-            migrationBuilder.CreateTable(
-                name: "Restaurant",
-                columns: table => new
-                {
-                    restaurantID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    data_regjistrimit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    menuID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Restaurant", x => x.restaurantID);
-                    table.ForeignKey(
-                        name: "FK_Restaurant_Menu_menuID",
-                        column: x => x.menuID,
-                        principalTable: "Menu",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
+          
 
             migrationBuilder.CreateTable(
                 name: "restaurant_Qyteti",
@@ -57,11 +36,6 @@ namespace Food_delivery_app_LabCouse1.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Restaurant_menuID",
-                table: "Restaurant",
-                column: "menuID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_restaurant_Qyteti_qytetiID",
                 table: "restaurant_Qyteti",
                 column: "qytetiID");
@@ -70,15 +44,40 @@ namespace Food_delivery_app_LabCouse1.Migrations
                 name: "IX_restaurant_Qyteti_restaurantID",
                 table: "restaurant_Qyteti",
                 column: "restaurantID");
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Menu_Restaurant_restaurantID",
+                table: "Menu");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Transportuesi_Perdoruesi_perdoruesiID",
+                table: "Transportuesi");
+
             migrationBuilder.DropTable(
                 name: "restaurant_Qyteti");
 
             migrationBuilder.DropTable(
                 name: "Restaurant");
+
+            migrationBuilder.DropIndex(
+                name: "IX_Menu_restaurantID",
+                table: "Menu");
+
+            migrationBuilder.DropColumn(
+                name: "restaurantID",
+                table: "Menu");
+
+            migrationBuilder.AlterColumn<int>(
+                name: "perdoruesiID",
+                table: "Transportuesi",
+                type: "int",
+                nullable: true,
+                oldClrType: typeof(int),
+                oldType: "int");
 
             migrationBuilder.CreateTable(
                 name: "Restoranti",
@@ -96,6 +95,14 @@ namespace Food_delivery_app_LabCouse1.Migrations
                 {
                     table.PrimaryKey("PK_Restoranti", x => x.Id);
                 });
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Transportuesi_Perdoruesi_perdoruesiID",
+                table: "Transportuesi",
+                column: "perdoruesiID",
+                principalTable: "Perdoruesi",
+                principalColumn: "perdoruesiID",
+                onDelete: ReferentialAction.Restrict);
         }
     }
 }

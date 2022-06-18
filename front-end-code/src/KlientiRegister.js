@@ -1,93 +1,57 @@
-import { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const KlientiRegister = () => {
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [redirect, setRedirect] = useState(false); 
-
-    const submit = async (event) => {
-        event.preventDefault();
-        let firstAndLastName =  event.target.emri.value+''+event.target.mbiemri.value;
-        
-        await fetch(process.env.REACT_APP_API+'authmanagement/register',{
-            method:'POST',
-            headers:{
-                'Accept':'application/json',
-                'Content-Type':'application/json'
-            },
-            body:JSON.stringify({
-                username: firstAndLastName,
-                email,
-                password,
-                roli: 'Klient'
-            })
-        })
-        .then(res=>res.json())
-        .then((result)=>{
-            console.log(result);
-            if(!result.success){
-                alert(result.errors[0]);
-            }else{
-                alert('jeni regjistruar me sukses');
-                setRedirect(true);
-            }
-        },
-        (error)=>{
-            alert('Failed');
-        })
-        
-    }
-
-    if(redirect){
-        return <Redirect to="/"/>
-    }
-
     return (
         <div className="d-flex justify-content-center align-content-center">
 
-            <form className="row g-3 d-flex w-50 mt-4 mb-3" onSubmit={submit}>
-                <nav className="navbar bg-light">
-                    <button className="btn btn-sm btn-outline-secondary" type="button"><Link to="/klientiregister" >Klient</Link></button>
-                    <button className="btn btn-sm btn-outline-secondary" type="button"><Link to="/restorantiregister" >Restorant</Link></button>
-                    <button className="btn btn-sm btn-outline-secondary" type="button"><Link to="/transportuesiregister" >Transportues</Link></button>
+            <form class="row g-3 d-flex w-50 mt-4 mb-3">
+                <nav class="navbar bg-light">
+                    <button class="btn btn-sm btn-outline-secondary" type="button"><Link to="/klientiregister" >Klient</Link></button>
+                    <button class="btn btn-sm btn-outline-secondary" type="button"><Link to="/restorantiregister" >Restorant</Link></button>
+                    <button class="btn btn-sm btn-outline-secondary" type="button"><Link to="/transportuesiregister" >Transportues</Link></button>
                 </nav>
                 <h1>Regjistrohu Si Klient!</h1>
-                <div className="col-sm-12 align-self">
-                    <label for="inputEmail4" className="form-label">Email</label>
-                    <input type="email" className="form-control" id="inputEmail4" onChange={e => setEmail(e.target.value)} />
+                <div class="col-sm-12 align-self">
+                    <label for="inputEmail4" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" />
                 </div>
-                <div className="col-sm-12">
-                    <label for="inputPassword4" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="inputPassword4" onChange={e => setPassword(e.target.value)} />
+                <div class="col-sm-12">
+                    <label for="inputPassword4" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPassword4" />
                 </div>
-                <div className="col-sm-12">
-                    <label for="emri" className="form-label">Emri</label>
-                    <input type="text" className="form-control" id="emri" name="emri" />
+                <div class="col-sm-12">
+                    <label for="emri" class="form-label">Emri</label>
+                    <input type="text" class="form-control" id="emri" />
                 </div>
-                <div className="col-sm-12">
-                    <label for="mbiemri" className="form-label">Mbiemri</label>
-                    <input type="text" className="form-control" id="mbiemri" name="mbiemri" />
+                <div class="col-sm-12">
+                    <label for="emri" class="form-label">Mbiemri</label>
+                    <input type="text" class="form-control" id="emri" />
                 </div>
-
-                <div className="col-sm-12">
-                    <label for="inputState" className="form-label">Qyteti</label>
-                    <select id="inputState" className="form-select">
+                <div class="col-sm-12">
+                    <label for="inputState" class="form-label">Qyteti</label>
+                    <select id="inputState" class="form-select">
                         <option selected>Choose...</option>
                         <option>...</option>
                     </select>
                 </div>
-                <div className="col-sm-12">
-                    <label for="nr_telefonit" className="form-label">Nr. Telefonit</label>
-                    <input type="text" className="form-control" id="nr_telefonit" />
+                <div class="col-sm-12">
+                    <label for="adresa" class="form-label">Adresa</label>
+                    <input type="text" class="form-control" id="adresa" />
                 </div>
-                <div className="col-sm-12">
-                    <label for="foto" className="form-label">Foto Profilit</label>
+                <div class="col-sm-12">
+                    <label for="nr_telefonit" class="form-label">Nr. Telefonit</label>
+                    <input type="text" class="form-control" id="nr_telefonit" />
+                </div>
+                <div class="col-sm-12">
+                    <label for="data_lindjes">Data Lindjes</label>
+                    <input id="data_lindjes" class="form-control" type="date" />
+                </div>
+                <div class="col-sm-12">
+                    <label for="foto" class="form-label">Foto Profilit</label>
                     <input type="file" className="form-control" id="fotos" />
                 </div>
 
-                <div className="col-12">
+                <div class="col-12">
                     <button type="submit" className="btn btn-primary">Regjistrohu</button>
                 </div>
             </form>

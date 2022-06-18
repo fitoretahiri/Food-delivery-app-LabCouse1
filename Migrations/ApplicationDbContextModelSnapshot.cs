@@ -17,7 +17,30 @@ namespace Food_delivery_app_LabCouse1.Migrations
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.1");
+                .HasAnnotation("ProductVersion", "5.0.10");
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Klienti", b =>
+                {
+                    b.Property<int>("klientID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("dataLindjes")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("nrPorosive")
+                        .HasColumnType("int");
+
+                    b.Property<int>("perdoruesiID")
+                        .HasColumnType("int");
+
+                    b.HasKey("klientID");
+
+                    b.HasIndex("perdoruesiID");
+
+                    b.ToTable("Klienti");
+                });
 
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Klienti", b =>
                 {

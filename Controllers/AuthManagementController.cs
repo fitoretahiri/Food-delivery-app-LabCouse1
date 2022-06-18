@@ -1,11 +1,8 @@
 ﻿using Configuration;
 using Food_delivery_app_LabCouse1.Models.DTOs.Requests;
 using Food_delivery_app_LabCouse1.Models.DTOs.Responses;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -24,20 +21,12 @@ namespace Food_delivery_app_LabCouse1.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly JwtConfig _jwtConfig;
-        private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly ILogger<AuthManagementController> _logger;
-        public AuthManagementController(UserManager<IdentityUser> userManager,
-        IOptionsMonitor<JwtConfig> optionsMonitor,
-        RoleManager<IdentityRole> roleManager,
-        ILogger<AuthManagementController> logger
-        )
+        
+        public AuthManagementController(UserManager<IdentityUser> userManager, IOptionsMonitor<JwtConfig> optionsMonitor)
         {
             _userManager = userManager;
             //e mer vleren aktuale te appsettings edhe e inject ne controller
             _jwtConfig = optionsMonitor.CurrentValue;
-            _roleManager = roleManager;
-            _logger = logger;
-
         }
 
         [HttpPost]
@@ -64,10 +53,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
                 var isCreated = await _userManager.CreateAsync(newUser, user.Password);
                 if (isCreated.Succeeded)
                 {
-                    //caktimi i rolit kur nje perdorues regjistrohet ne sistem
-                    await _userManager.AddToRoleAsync(newUser, user.Roli);
-
-                    var jwtToken = await GenerateJwtTokenAsync(newUser);
+                    var jwtToken = GenerateJwtToken(newUser);
 
                     return Ok(new RegsitrationResponse()
                     {
@@ -129,14 +115,13 @@ namespace Food_delivery_app_LabCouse1.Controllers
                     });
                 }
 
-                var jwtToken = await GenerateJwtTokenAsync(existingUser);
+                var jwtToken = GenerateJwtToken(existingUser);
 
-                Response.Cookies.Append(key: "jwt", value: jwtToken, new CookieOptions
+                return Ok(new RegsitrationResponse()
                 {
-                    HttpOnly = true
+                    Success = true,
+                    Token = jwtToken
                 });
-
-                return Ok(existingUser);
             }
 
             return BadRequest(new RegsitrationResponse()
@@ -148,17 +133,26 @@ namespace Food_delivery_app_LabCouse1.Controllers
             });
         }
 
-        private async Task<string> GenerateJwtTokenAsync(IdentityUser user)
+
+
+
+
+
+        private string GenerateJwtToken(IdentityUser user)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
 
             var key = Encoding.ASCII.GetBytes(_jwtConfig.Secret);
 
-            var claims = await GetAllValidClaims(user);
-
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(claims),
+                Subject = new ClaimsIdentity(new[]
+                {
+                    new Claim("Id", user.Id),
+                    new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                    new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                }),
                 //Ni tokeni i del afati 6 ore pas regjistrimit
                 Expires = DateTime.UtcNow.AddHours(6),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -168,87 +162,6 @@ namespace Food_delivery_app_LabCouse1.Controllers
             var jwtToken = jwtTokenHandler.WriteToken(token);
 
             return jwtToken;
-        }
-
-        private async Task<List<Claim>> GetAllValidClaims(IdentityUser user)
-        {
-            var claims = new List<Claim>
-            {
-                new Claim("Id", user.Id),
-                new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            };
-
-            // Getting the claims that we have assigned to the user
-            var userClaims = await _userManager.GetClaimsAsync(user);
-            claims.AddRange(userClaims);
-
-            // Get the user role and add it to the claims
-            var userRoles = await _userManager.GetRolesAsync(user);
-
-            foreach (var userRole in userRoles)
-            {
-                var role = await _roleManager.FindByNameAsync(userRole);
-
-                if (role != null)
-                {
-                    claims.Add(new Claim(ClaimTypes.Role, userRole));
-
-                    var roleClaims = await _roleManager.GetClaimsAsync(role);
-                    foreach (var roleClaim in roleClaims)
-                    {
-                        claims.Add(roleClaim);
-                    }
-                }
-            }
-
-            return claims;
-        }
-        /*
-            var handler = new JwtSecurityTokenHandler();
-            var restoken = handler.ReadJwtToken(jwt);
-        */
-        [HttpGet("user")]
-        public async Task<IActionResult> GetUser(){
-            try{
-                var jwt = Request.Cookies["jwt"];
-            
-                var token = Verify(jwt);
-
-                string userEmail = token.Subject;
-
-                var user = await _userManager.FindByEmailAsync(userEmail);
-
-                return Ok(user);
-            }catch(Exception ){
-                return Unauthorized();
-            }
-        }
-
-        public JwtSecurityToken Verify(string jwt)
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_jwtConfig.Secret);
-            tokenHandler.ValidateToken(jwt, new TokenValidationParameters
-            {
-                IssuerSigningKey = new SymmetricSecurityKey(key),
-                ValidateIssuerSigningKey = true,
-                ValidateIssuer = false,
-                ValidateAudience = false
-            }, out SecurityToken validatedToken);
-
-            return (JwtSecurityToken)validatedToken;
-        }
-
-        [HttpPost("logout")]
-        public IActionResult Logout()
-        {
-            Response.Cookies.Delete(key: "jwt");
-            return Ok(new
-            {
-                message = "success"
-            });
         }
     }
 }

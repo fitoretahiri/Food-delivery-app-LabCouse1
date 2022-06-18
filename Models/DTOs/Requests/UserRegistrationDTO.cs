@@ -15,7 +15,5 @@ namespace Food_delivery_app_LabCouse1.Models.DTOs.Requests
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
-
-        public string Roli { get; set; }
     }
 }
