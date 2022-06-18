@@ -29,9 +29,9 @@ export class Restaurant_Qyteti extends Component {
         this.refreshList();
     }
 
-    deleteLidhja(id) {
+    deleteLidhja(id1, id2) {
         if (window.confirm('A doni ta fshini kete lokacion?')) {
-            fetch(process.env.REACT_APP_API + 'restaurant_qyteti/' + id, {
+            fetch((process.env.REACT_APP_API + 'restaurant_qyteti/' + id1) + (process.env.REACT_APP_API + 'restaurant_qyteti/' + id2), {
                 method: 'DELETE',
                 header: {
                     'Accept': 'application/json',
@@ -42,7 +42,7 @@ export class Restaurant_Qyteti extends Component {
     }
 
     render() {
-        const { lidhjet, id, restaurantID, qytetiID } = this.state;
+        const { lidhjet, restaurantID, qytetiID } = this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
@@ -51,19 +51,23 @@ export class Restaurant_Qyteti extends Component {
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>
-                            <th>Id</th>
                             <th>Restauranti</th>
                             <th>Qyteti</th>
                         </tr>
                     </thead>
                     <tbody>
                         {lidhjet.map(el =>
-                            <tr key={el.id}>
-                                <td>{el.id}</td>
+                            <tr key={el.restaurantID}>
                                 <td>{el.restaurantID}</td>
                                 <td>{el.qytetiID}</td>
                                 <td>
+                                    <ButtonToolbar>
 
+                                        <Button className="mr-2" variant="danger"
+                                            onClick={() => this.deleteLidhja(el.restaurantID, el.qytetiID)}>
+                                            Delete
+                                        </Button>
+                                    </ButtonToolbar>
                                 </td>
                             </tr>)}
                     </tbody>
