@@ -175,3 +175,4 @@ C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-Lab
 C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\obj\Debug\net5.0\Food-delivery-app-LabCouse1.MvcApplicationPartsAssemblyInfo.cs
