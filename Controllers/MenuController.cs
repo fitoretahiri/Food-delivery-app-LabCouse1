@@ -8,17 +8,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Data;
 using Microsoft.Data.SqlClient;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System;
 using System.Linq;
-
 
 namespace Food_delivery_app_LabCouse1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "AppUser")]
     public class MenuController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
@@ -33,14 +29,15 @@ namespace Food_delivery_app_LabCouse1.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Menu>>> GetMenute()
         {
-            return await _db.Menu.ToListAsync();
+            return await _db.Menu.Include("Restauranti").ToListAsync();
         }
 
-        [HttpGet("{id}")]
+       /* [HttpGet("{id}")]
         public async Task<ActionResult<Menu>> GetMenu(int id)
         {
             return await _db.Menu.FindAsync(id);
         }
+       */
 
         //Kjo metode kthen krejt menute qe i takojne ni restaurantit
         [HttpGet("{id}")]
