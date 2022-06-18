@@ -29,9 +29,15 @@ export class Restaurant_Qyteti extends Component {
         this.refreshList();
     }
 
+<<<<<<< HEAD
+    deleteLidhja(id1, id2) {
+        if (window.confirm('A doni ta fshini kete lokacion?')) {
+            fetch((process.env.REACT_APP_API + 'restaurant_qyteti/' + id1) + (process.env.REACT_APP_API + 'restaurant_qyteti/' + id2), {
+=======
     deleteLidhja(id) {
         if (window.confirm('A doni ta fshini kete lokacion?')) {
             fetch(process.env.REACT_APP_API + 'restaurant_qyteti/' + id, {
+>>>>>>> login_functionality_branch
                 method: 'DELETE',
                 header: {
                     'Accept': 'application/json',
@@ -42,7 +48,11 @@ export class Restaurant_Qyteti extends Component {
     }
 
     render() {
+<<<<<<< HEAD
+        const { lidhjet, restaurantID, qytetiID } = this.state;
+=======
         const { lidhjet, id, restaurantID, qytetiID } = this.state;
+>>>>>>> login_functionality_branch
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
@@ -51,19 +61,36 @@ export class Restaurant_Qyteti extends Component {
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>
+<<<<<<< HEAD
+=======
                             <th>Id</th>
+>>>>>>> login_functionality_branch
                             <th>Restauranti</th>
                             <th>Qyteti</th>
                         </tr>
                     </thead>
                     <tbody>
                         {lidhjet.map(el =>
+<<<<<<< HEAD
+                            <tr key={el.restaurantID}>
+                                <td>{el.restaurantID}</td>
+                                <td>{el.qytetiID}</td>
+                                <td>
+                                    <ButtonToolbar>
+
+                                        <Button className="mr-2" variant="danger"
+                                            onClick={() => this.deleteLidhja(el.restaurantID, el.qytetiID)}>
+                                            Delete
+                                        </Button>
+                                    </ButtonToolbar>
+=======
                             <tr key={el.id}>
                                 <td>{el.id}</td>
                                 <td>{el.restaurantID}</td>
                                 <td>{el.qytetiID}</td>
                                 <td>
 
+>>>>>>> login_functionality_branch
                                 </td>
                             </tr>)}
                     </tbody>

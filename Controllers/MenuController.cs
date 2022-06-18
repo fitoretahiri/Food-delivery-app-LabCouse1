@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Data;
 using Microsoft.Data.SqlClient;
+using System;
+using System.Linq;
 
 namespace Food_delivery_app_LabCouse1.Controllers
 {
@@ -27,15 +29,40 @@ namespace Food_delivery_app_LabCouse1.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Menu>>> GetMenute()
         {
-            return await _db.Menu.ToListAsync();
+            return await _db.Menu.Include("Restauranti").ToListAsync();
         }
 
-        [HttpGet("{id}")]
+       /* [HttpGet("{id}")]
         public async Task<ActionResult<Menu>> GetMenu(int id)
         {
             return await _db.Menu.FindAsync(id);
         }
+<<<<<<< HEAD
+       */
+
+        //Kjo metode kthen krejt menute qe i takojne ni restaurantit
+        [HttpGet("{id}")]
+        public async Task<ActionResult<List<Menu>>> GetMenuAsync(int id)
+        {
+            var menu = await _db.Menu.Include("Restauranti")
+            .Include("Pija")
+            .Include("Ushqimi")
+            .Where(x => x.RestaurantID == id).ToListAsync();
+            return menu;
+        }
+
+        //kjo metod do te perdoret per te kerkuar menu-te
+        [HttpGet("search/{str}")]
+        public async Task<ActionResult<List<Menu>>> GetSearchAsync(string str)
+        {
+            var result = await _db.Menu.FromSqlRaw("SELECT * FROM dbo.Menu where emertimi like '"+ str+"%'").ToListAsync();
+            return result;
+        }
+
+
+=======
         
+>>>>>>> login_functionality_branch
         [HttpPost]
         public JsonResult addMenu(Menu menu){
                 _db.Menu.Add(menu);

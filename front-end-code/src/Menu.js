@@ -43,46 +43,63 @@ export class Menu extends Component {
     }
 
     render() {
-        const { menute, id, emertimi, nr_artikujve} = this.state;
+        const { menute, menuID, emertimi,cmimi, pershkrimi, nr_artikujve, restaurantID, pijaID, ushqimiID } = this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({ editModalShow: false });
         return (
+<<<<<<< HEAD
+            <div className="restaurant mt-5">
+=======
             <div className="restoranti mt-5">
+>>>>>>> login_functionality_branch
                 <Navigation />
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>
                             <th>Id</th>
                             <th>Emertimi</th>
+                            <th>Cmimi</th>
+                            <th>Pershkrimi</th>
                             <th>Nr i Artikujve</th>
+                            <th>ID restaurantit</th>
+                            <th>ID pija</th>
+                            <th>ID ushqimi</th>
                         </tr>
                     </thead>
                     <tbody>
                         {menute.map(el =>
-                            <tr key={el.id}>
-                                <td>{el.id}</td>
+                            <tr key={el.menuID}>
+                                <td>{el.menuID}</td>
                                 <td>{el.emertimi}</td>
+                                <td>{el.cmimi}</td>
+                                <td>{el.pershkrimi}</td>
                                 <td>{el.nr_artikujve}</td>
+                                <td>{el.restaurantID}</td>
+                                <td>{el.pijaID}</td>
+                                <td>{el.ushqimiID}</td>
                                 <td>
                                     <ButtonToolbar>
                                         <Button className="mr-2" variant="info"
                                             onClick={() => this.setState({
                                                 editModalShow: true,
-                                                id: el.id, emertimi: el.emertimi, nr_artikujve: el.nr_artikujve
+                                                menuID: el.menuID, emertimi: el.emertimi, cmimi: el.cmimi, pershkkrimi: el.pershkrimi, nr_artikujve: el.nr_artikujve
                                             })}>
                                             Edit
                                         </Button>
 
                                         <Button className="mr-2" variant="danger"
-                                            onClick={() => this.deleteMenu(el.id)}>
+                                            onClick={() => this.deleteMenu(el.menuID)}>
                                             Delete
                                         </Button>
 
                                         <EditMenuModal show={this.state.editModalShow}
                                             onHide={editModalClose}
-                                            id={id}
+                                            menuID={menuID}
                                             emertimi={emertimi}
-                                            nr_artikujve={nr_artikujve} />
+                                            cmimi={cmimi}
+                                            pershkrimi={pershkrimi}
+                                            nr_artikujve={nr_artikujve}
+                                        />
                                     </ButtonToolbar>
 
                                 </td>

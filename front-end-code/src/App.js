@@ -11,6 +11,13 @@ import { TransportuesiRegister } from './TransportuesiRegister';
 import { Restaurant_Qyteti } from './Restaurant_Qyteti';
 import { Perdoruesi } from './Perdoruesi';
 import RestorantiRegister from './RestorantiRegister';
+<<<<<<< HEAD
+import { ShfletoRestaurantet } from './ShfletoRestaurantet';
+import { OrderFood } from './OrderFood';
+import { Ushqimi } from './Ushqimi';
+import { Pija } from './Pija';
+=======
+>>>>>>> login_functionality_branch
 
 
 
@@ -20,6 +27,11 @@ function App() {
             <div className="App container">
                     <Switch>
                     <Route path="/restaurant" component={Restoranti} />
+<<<<<<< HEAD
+                    <Route path="/pija" component={Pija} />
+                    <Route path="/ushqimi" component={Ushqimi} />
+=======
+>>>>>>> login_functionality_branch
                     <Route path="/qyteti" component={Qyteti} />
                     <Route path="/menu" component={Menu} />
                     <Route path="/role" component={Roli} />
@@ -28,6 +40,12 @@ function App() {
                     <Route exact path="perdoruesi" component={Perdoruesi} />
                     <Route path="/transportuesiregister" component={TransportuesiRegister} />
                     <Route path="/restorantiregister" component={RestorantiRegister} />
+<<<<<<< HEAD
+                    <Route path="/shfletorestorantet" component={ShfletoRestaurantet} />
+                    <Route path="/order" component={OrderFood} />
+
+=======
+>>>>>>> login_functionality_branch
                     </Switch>
             </div>
         </Router>
