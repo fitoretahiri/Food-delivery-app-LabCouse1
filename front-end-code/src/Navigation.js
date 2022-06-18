@@ -18,12 +18,7 @@ export class Navigation extends Component {
                         <Link to="/menu" className="d-inline p-2 bg-dark text-white">Menu</Link>
                         <Link to="/role" className="d-inline p-2 bg-dark text-white">Roli</Link>
                         <Link to="/perdoruesi" className="d-inline p-2 bg-dark text-white">Perdoruesit</Link>
-<<<<<<< HEAD
                         <Link to="/restaurant_qyteti" className="d-inline p-2 bg-dark text-white">Lidhjet</Link>                        
-=======
-                        <Link to="/restaurant_qyteti" className="d-inline p-2 bg-dark text-white">Lidhjet</Link>
-                        
->>>>>>> login_functionality_branch
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

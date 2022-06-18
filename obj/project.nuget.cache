@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "ZbvJKw43XMr5pXmonCO/PmDTRcjf228wPsacg6px5eLV86o6tRwXf7P4xu/YneoHLUBZOF1Doo3ftfllvLPEfQ==",
-=======
-  "dgSpecHash": "QCfZVo3jirAVAdcSq8eyLR2iXTEE8/O9e8sLe9ewEh+RCbu3Bur44rkz/FeNC4A0PzfxRLX0CdvxVHpGIZU6Zg==",
->>>>>>> login_functionality_branch
   "success": true,
   "projectFilePath": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
   "expectedPackageFiles": [
@@ -22,11 +18,7 @@
     "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.10\\microsoft.entityframeworkcore.5.0.10.nupkg.sha512",
     "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.10\\microsoft.entityframeworkcore.abstractions.5.0.10.nupkg.sha512",
     "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.10\\microsoft.entityframeworkcore.analyzers.5.0.10.nupkg.sha512",
-<<<<<<< HEAD
     "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.10\\microsoft.entityframeworkcore.design.5.0.10.nupkg.sha512",
-=======
-    "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.1\\microsoft.entityframeworkcore.design.5.0.1.nupkg.sha512",
->>>>>>> login_functionality_branch
     "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.10\\microsoft.entityframeworkcore.relational.5.0.10.nupkg.sha512",
     "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.1\\microsoft.entityframeworkcore.sqlserver.5.0.1.nupkg.sha512",
     "C:\\Users\\fitor\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.10\\microsoft.entityframeworkcore.tools.5.0.10.nupkg.sha512",
@@ -123,5 +115,12 @@
     "C:\\Users\\fitor\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\fitor\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\obj\\project.nuget.cache : Invalid property identifier character: >. Path 'dgSpecHash', line 4, position 0."
+    }
+  ]
 }
