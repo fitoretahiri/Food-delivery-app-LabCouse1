@@ -56,20 +56,50 @@ export class Restaurant_Qyteti extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {lidhjet.map(el =>
-                            <tr key={el.restaurantID}>
-                                <td>{el.restaurantID}</td>
-                                <td>{el.qytetiID}</td>
+
+                            <tr >
+                                <td>1</td>
+                                <td>2</td>
                                 <td>
                                     <ButtonToolbar>
-
-                                        <Button className="mr-2" variant="danger"
-                                            onClick={() => this.deleteLidhja(el.restaurantID, el.qytetiID)}>
+                                    <Button className="mr-2" variant="info">
+                                        Edit
+                                    </Button>
+                                        <Button className="mr-2" variant="danger">
                                             Delete
                                         </Button>
                                     </ButtonToolbar>
                                 </td>
-                            </tr>)}
+                        </tr>
+                        <tr >
+                            <td>3</td>
+                            <td>1</td>
+                            <td>
+                                <ButtonToolbar>
+                                    <Button className="mr-2" variant="info">
+                                        Edit
+                                    </Button>
+
+                                    <Button className="mr-2" variant="danger">
+                                        Delete
+                                    </Button>
+                                </ButtonToolbar>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>5</td>
+                            <td>2</td>
+                            <td>
+                                <ButtonToolbar>
+                                    <Button className="mr-2" variant="info">
+                                        Edit
+                                    </Button>
+                                    <Button className="mr-2" variant="danger">
+                                        Delete
+                                    </Button>
+                                </ButtonToolbar>
+                            </td>
+                        </tr>
                     </tbody>
 
                 </Table>

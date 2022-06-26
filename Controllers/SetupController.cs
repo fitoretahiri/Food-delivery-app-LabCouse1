@@ -31,12 +31,53 @@ namespace TodoApp.Controllers
             _roleManager = roleManager;
         }
 
+        //metoda qe kthen te gjitha rolet
         [HttpGet]
         public IActionResult GetAllRoles()
         {
             var roles = _roleManager.Roles.ToList();
             return Ok(roles);
         }
+
+
+        //metoda per me fshi nje rol ne baze te id
+        [HttpDelete("{id}")]
+        public async Task<JsonResult> deleteRolinAsync(string id)
+        {
+            var roli = await _roleManager.FindByIdAsync(id);
+            if(roli== null)
+            {
+                return new JsonResult("Roli me id="+  id +" nuk u gjend!");
+            }
+            else
+            {
+                var result = await _roleManager.DeleteAsync(roli);
+            }
+
+            return new JsonResult("Roli u fshi me sukses");
+        }
+/*
+        [HttpPut]
+        public async Task<JsonResult> editRolin(string id)
+        {
+            var roli = await _roleManager.FindByIdAsync(id);
+            if (roli == null)
+            {
+                return new JsonResult("Roli me id=" + id + " nuk u gjend!");
+            }
+            var model = new Role
+            {
+                name = roli.Name
+            };
+
+            foreach(var user in _userManager.Users)
+            {
+                if(await _userManager.IsInRoleAsync(user, roli.Name))
+                {
+                    model.Users.Add(user.UserName);
+                }
+            }
+        }*/
 
         [HttpPost]
         public async Task<IActionResult> CreateRole([FromBody] Role value)
@@ -50,7 +91,7 @@ namespace TodoApp.Controllers
                 var roleResult = await _roleManager.CreateAsync(new IdentityRole(value.name));
 
                 // We need to check if the role has been added successfully
-                if (roleResult.Succeeded)
+                if (!roleResult.Succeeded)
                 {
                     _logger.LogInformation($"The Role {value.name} has not been added");
                     return BadRequest(new
@@ -78,6 +119,23 @@ namespace TodoApp.Controllers
             var users = await  _userManager.Users.ToListAsync();
 
             return Ok(users);
+        }
+
+        //metoda per me i fshi te gjithe userat
+        [HttpDelete("deleteUser/{id}")]
+        public async Task<JsonResult> deleteUserAsync(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return new JsonResult("Perdoruesi me id=" + id + " nuk u gjend!");
+            }
+            else
+            {
+                var result = await _userManager.DeleteAsync(user);
+            }
+
+            return new JsonResult("Perdoruesi u fshi me sukses");
         }
 
         [HttpPost]
@@ -126,6 +184,7 @@ namespace TodoApp.Controllers
             
         }
 
+        //kthen rolin e userit ne baze te emailit te tij
         [HttpGet]
         [Route("GetUserRoles")]
         public async Task<IActionResult> GetUserRoles(string email)
@@ -143,7 +202,6 @@ namespace TodoApp.Controllers
 
             // return the roles
             var roles = await _userManager.GetRolesAsync(user);
-
             return Ok(roles);
         }
 
