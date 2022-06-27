@@ -25,20 +25,24 @@ function LoginForm(props) {
       .then((res) => res.json())
       .then(
         (result) => {
-          fetch(process.env.REACT_APP_API + 'setup/GetUserRoles?email='+email, {
-            method: 'GET',
-            headers: {
-              Accept: '*/*'
+          fetch(
+            process.env.REACT_APP_API + 'setup/GetUserRoles?email=' + email,
+            {
+              method: 'GET',
+              headers: {
+                Accept: '*/*',
+              },
+              credentials: 'include',
             },
-            credentials: 'include',
-          }).then(response => response.text())
-          .then(data => {
-            let role = data.slice(2,data.length-2);
-            setRole(role);
-
-            setRedirect(true)
-            props.setName(result.userName)
-          });
+          )
+            .then((response) => response.text())
+            .then((data) => {
+              let role = data.slice(2, data.length - 2)
+              setRole(role)
+              console.log(role)
+              setRedirect(true)
+              props.setName(result.userName)
+            })
         },
         (error) => {
           alert('Failed')
@@ -48,8 +52,8 @@ function LoginForm(props) {
 
   if (redirect && role === 'Restorant') {
     return <Redirect to="restorantidashboard" />
-  }else if(role === 'Administrator'){
-    console.log("admin")
+  } else if (redirect && role === 'Klient') {
+    return <Redirect to="shfletorestorantet" />
   }
   return (
     <div className="d-flex justify-content-center">
@@ -84,26 +88,6 @@ function LoginForm(props) {
               Password
             </label>
           </div>
-
-          <div className="row mb-4">
-            <div className="col d-flex justify-content-center">
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="checkbox"
-                  checked
-                />
-                <label className="form-check-label"> Remember me </label>
-              </div>
-            </div>
-
-            <div className="col">
-              <a href="#!">Forgot password?</a>
-            </div>
-          </div>
-
           <button
             type="submit"
             value="LOGIN"
@@ -111,28 +95,6 @@ function LoginForm(props) {
           >
             Sign in
           </button>
-
-          <div className="text-center">
-            <p>
-              Not a member? <a href="#!">Register</a>
-            </p>
-            <p>or sign up with:</p>
-            <button type="button" className="btn btn-link btn-floating mx-1">
-              <i className="fab fa-facebook-f"></i>
-            </button>
-
-            <button type="button" className="btn btn-link btn-floating mx-1">
-              <i className="fab fa-google"></i>
-            </button>
-
-            <button type="button" className="btn btn-link btn-floating mx-1">
-              <i className="fab fa-twitter"></i>
-            </button>
-
-            <button type="button" className="btn btn-link btn-floating mx-1">
-              <i className="fab fa-github"></i>
-            </button>
-          </div>
         </div>
       </form>
     </div>

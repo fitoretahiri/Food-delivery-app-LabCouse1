@@ -10,11 +10,14 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Food_delivery_app_LabCouse1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class MenuController : ControllerBase
     {
         private readonly ApplicationDbContext _db;

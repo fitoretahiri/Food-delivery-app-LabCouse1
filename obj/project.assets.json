@@ -26,6 +26,20 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "Microsoft.AspNetCore.Authorization/5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "5.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Options": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Authorization.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Authorization.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/5.0.1": {
         "type": "package",
         "compile": {
@@ -97,6 +111,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Metadata/5.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Metadata.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Metadata.dll": {}
         }
       },
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson/5.0.10": {
@@ -1673,6 +1696,25 @@
         "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
+    "Microsoft.AspNetCore.Authorization/5.0.1": {
+      "sha512": "uqElO13Qq+t9BNkJWqtja3uSkFhbQ5Rej1MiJw6FOF1r77w9szQzuo75u2ddUnZUWUS2shKW9LpuKOnGuMxHGA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authorization/5.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.Authorization.dll",
+        "lib/net461/Microsoft.AspNetCore.Authorization.xml",
+        "lib/net5.0/Microsoft.AspNetCore.Authorization.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Authorization.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.xml",
+        "microsoft.aspnetcore.authorization.5.0.1.nupkg.sha512",
+        "microsoft.aspnetcore.authorization.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/5.0.1": {
       "sha512": "VGfj77RBkyWpPxvX6oSghE3DPObvg171HRdwr/t3aJQ9Y5cgaZE8BUNLhHZ0yBFa218r7e9Qou+DLGfRtve4CQ==",
       "type": "package",
@@ -1801,6 +1843,25 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.xml",
         "microsoft.aspnetcore.jsonpatch.5.0.10.nupkg.sha512",
         "microsoft.aspnetcore.jsonpatch.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Metadata/5.0.1": {
+      "sha512": "7IQHvkskzVn3S7kzboT0CMptRuSep49+sWbvYcZ3u4fiVFvrZEsOxQPCCZ8Tt6RZqHQmtoS77h9GY76j3hkjCw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.metadata/5.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.Metadata.dll",
+        "lib/net461/Microsoft.AspNetCore.Metadata.xml",
+        "lib/net5.0/Microsoft.AspNetCore.Metadata.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Metadata.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.xml",
+        "microsoft.aspnetcore.metadata.5.0.1.nupkg.sha512",
+        "microsoft.aspnetcore.metadata.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Mvc.NewtonsoftJson/5.0.10": {
@@ -6019,6 +6080,7 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.0",
+      "Microsoft.AspNetCore.Authorization >= 5.0.1",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.1",
       "Microsoft.AspNetCore.Identity.UI >= 5.0.1",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 5.0.10",
@@ -6028,25 +6090,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fitor\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Arber\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
+      "projectUniqueName": "C:\\Users\\Arber\\Documents\\GitHub\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
       "projectName": "Food-delivery-app-LabCouse1",
-      "projectPath": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
-      "packagesPath": "C:\\Users\\fitor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\obj\\",
+      "projectPath": "C:\\Users\\Arber\\Documents\\GitHub\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
+      "packagesPath": "C:\\Users\\Arber\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Arber\\Documents\\GitHub\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\fitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Arber\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -6074,6 +6131,10 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[5.0.0, )"
+          },
+          "Microsoft.AspNetCore.Authorization": {
+            "target": "Package",
+            "version": "[5.0.1, )"
           },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
@@ -6120,7 +6181,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

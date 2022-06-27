@@ -7,7 +7,7 @@ export class OrderFood extends Component {
         //const { id } = useParams();
         const words = window.location.pathname.split("/");
         super(props);
-        this.state = { menus: [], addModalShow: false, editModalShow: false, id: words[2]}
+        this.state = { menus: [], addModalShow: false, editModalShow: false, id: words[2], cart: []}
     }
 
     //marrja e te dhenave nga API
@@ -29,8 +29,11 @@ export class OrderFood extends Component {
 
 
     render() {
+
+
         const { menus, menuID, emertimi,cmimi, pershkrimi} = this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
+        
         return (
             <>
                 <Navigation />
@@ -59,7 +62,7 @@ export class OrderFood extends Component {
                                     <h5 className="card-title">{el.cmimi} €</h5>
                                     <p className="card-text">{el.pershkrimi}</p>
                                 </div>
-                                <button type="button" value="LOGIN" class="btn btn-secondary btn-block">Porosit</button>
+                                <button type="button" value="LOGIN" class="btn btn-secondary btn-block" onClick={() => this.props.handleClick(el)}>Porosit</button>
                             </div>
                         </div>
                         )}

@@ -1,32 +1,33 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
+import './styles/AppNavbar.css'
 
 const AppNavbar = (props) => {
   const logout = async () => {
-    await fetch(process.env.REACT_APP_API+'authmanagement/logout',{
-        method:'POST',
-        headers:{
-            'Accept':'application/json',
-            'Content-Type':'application/json'
-        },
-        credentials: 'include'
-    });
+    await fetch(process.env.REACT_APP_API + 'authmanagement/logout', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+    })
 
-    props.setName('');
+    props.setName('')
   }
 
-    let menu;
+  let menu
 
   if (props.name === '' || props.name === undefined) {
     menu = (
       <div>
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
-            <Link to="/" className="nav-link" >
+            <Link to="/" className="nav-link">
               Login
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/klientiRegister" className="nav-link" >
+            <Link to="/klientiRegister" className="nav-link">
               Register
             </Link>
           </li>
@@ -38,9 +39,27 @@ const AppNavbar = (props) => {
       <div>
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
+            <Link to="/klientidashboard" className="nav-link">
+              Dashboard
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/kontakto" className="nav-link">
+              Kontakto
+            </Link>
+          </li>
+          <li className="nav-item">
             <Link to="/" className="nav-link" onClick={logout}>
               Logout
             </Link>
+          </li>
+          <li>
+            <div className="cart" onClick={() => {props.setShow(!props.show)}}>
+              <span>
+                <i className="fas fa-cart-plus"></i>
+              </span>
+              <span>{props.size}</span>
+            </div>
           </li>
         </ul>
       </div>
@@ -48,9 +67,10 @@ const AppNavbar = (props) => {
   }
 
   return (
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <Link to="/" class="navbar-brand text-primary" >
+        <Link to="/" class="navbar-brand text-primary">
           ckapohajna
         </Link>
         <button
