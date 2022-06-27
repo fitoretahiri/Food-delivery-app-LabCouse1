@@ -37,5 +37,6 @@ namespace Food_delivery_app_LabCouse1.Data
         public DbSet<Transportuesi> Transportuesi { get; set; }
         public DbSet<Ushqimi> Ushqimi { get; set; }
         public DbSet<Pija> Pija { get; set; }
+        public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
     }
 }
