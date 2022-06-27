@@ -36,7 +36,6 @@ export class OrderFood extends Component {
         
         return (
             <>
-                <Navigation />
 
                 <form className="d-flex w-100 mt-4" role="search">
                     <input className="form-control me-2 border-3" type="search" placeholder="Search" aria-label="Search" />
@@ -47,7 +46,22 @@ export class OrderFood extends Component {
                     <div className="w-25 p-3 g-5">
                         <ul className="list-group">
                             <li className="list-group-item">
-                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> emri
+                                Filtro sipas cmimi
+                            </li>
+                            <li className="list-group-item">
+                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> deri ne 10 €
+                            </li>
+                            <li className="list-group-item">
+                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> me shume se 10 €
+                            </li>
+                            <li className="list-group-item">
+                                Filtro sipas produkteve
+                            </li>
+                            <li className="list-group-item">
+                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> Pije
+                            </li>
+                            <li className="list-group-item">
+                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> Ushqim
                             </li>
 
                         </ul>
@@ -56,7 +70,7 @@ export class OrderFood extends Component {
 
                         {menus.map(el => <div className="col">
                             <div className="card h-40">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" className="card-img-top" alt="Skyscrapers" />
+                                <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80" className="card-img-top" alt="Skyscrapers" />
                                 <div className="card-body h-30">
                                     <h5 className="card-title">{el.emertimi}</h5>
                                     <h5 className="card-title">{el.cmimi} €</h5>

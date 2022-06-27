@@ -44,7 +44,6 @@ export class ShfletoRestaurantet extends Component {
         let addModalClose = () => this.setState({ addModalShow: false });
         return (
             <>
-                <Navigation />
 
                 <form className="d-flex w-100 mt-4" role="search">
                     <input className="form-control me-2 border-3" type="search" placeholder="Search" aria-label="Search" />
@@ -55,7 +54,34 @@ export class ShfletoRestaurantet extends Component {
                     <div className="w-25 p-3 g-5">
                         <ul className="list-group">
                             <li className="list-group-item">
-                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> emri
+                                Filtro sipas qytetit
+                            </li>
+                            <li className="list-group-item">
+                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> Prishtine
+                            </li>
+                            <li className="list-group-item">
+                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> Mitrovice
+                            </li>
+                            <li className="list-group-item">
+                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> Podujeve
+                            </li>
+                            <li className="list-group-item">
+                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> Gjakove
+                            </li>
+                            <li className="list-group-item">
+                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> Drenas
+                            </li>
+                            <li className="list-group-item">
+                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> Peje
+                            </li>
+                            <li className="list-group-item">
+                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> Gjilan
+                            </li>
+                            <li className="list-group-item">
+                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> Istog
+                            </li>
+                            <li className="list-group-item">
+                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> Vushtrri
                             </li>
 
                         </ul>

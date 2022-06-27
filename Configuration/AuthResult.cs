@@ -8,6 +8,7 @@ namespace Food_delivery_app_LabCouse1.Configuration
     public class AuthResult
     {
         public string Token { get; set; }
+        public string RefreshToken { get; set; }
         public bool Success { get; set; }
         public List<string> Errors { get; set; }
     }

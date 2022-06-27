@@ -51,6 +51,21 @@ namespace Food_delivery_app_LabCouse1
                Configuration.GetConnectionString("DefaultConnection")
            ));
 
+            var key = Encoding.ASCII.GetBytes(Configuration["JwtConfig:Secret"]);
+
+            var tokenValidationParams = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(key),
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                ValidateLifetime = true,
+                //Qitu duhet mu bo true per me expire ni token per 6 ore qe e kena lan te controlleri
+                RequireExpirationTime = false
+            };
+
+            services.AddSingleton(tokenValidationParams);
+
            services.AddAuthentication(options=> {
                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                //nese e para fails, e perdorum te dyten
@@ -58,18 +73,8 @@ namespace Food_delivery_app_LabCouse1
                options.DefaultChallengeScheme=JwtBearerDefaults.AuthenticationScheme;
            })
            .AddJwtBearer(jwt => {
-               var key= Encoding.ASCII.GetBytes(Configuration["JwtConfig:Secret"]);
-
                jwt.SaveToken = true;
-               jwt.TokenValidationParameters = new TokenValidationParameters {
-                   ValidateIssuerSigningKey = true,
-                   IssuerSigningKey = new SymmetricSecurityKey(key),
-                   ValidateIssuer = false,
-                   ValidateAudience =false,
-                   ValidateLifetime = true,
-                   //Qitu duhet mu bo true per me expire ni token per 6 ore qe e kena lan te controlleri
-                   RequireExpirationTime = false
-               };
+               jwt.TokenValidationParameters = tokenValidationParams;
            });
 
             services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
