@@ -10,13 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Food_delivery_app_LabCouse1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-<<<<<<<< HEAD:Migrations/20220618220442_createTables.Designer.cs
     [Migration("20220618220442_createTables")]
     partial class createTables
-========
-    [Migration("20220626134417_Add refresh token table")]
-    partial class Addrefreshtokentable
->>>>>>>> f33d43bfa31031c38ce9d65cc91573f6d3865c53:Migrations/20220626134417_Add refresh token table.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

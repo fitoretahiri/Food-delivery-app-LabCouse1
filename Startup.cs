@@ -61,7 +61,12 @@ namespace Food_delivery_app_LabCouse1
                 ValidateAudience = false,
                 ValidateLifetime = true,
                 //Qitu duhet mu bo true per me expire ni token per 6 ore qe e kena lan te controlleri
-                RequireExpirationTime = false
+                RequireExpirationTime = false,
+                
+                // Allow to use seconds for expiration of token
+                // Required only when token lifetime less than 5 minutes
+                // THIS ONE
+                ClockSkew = TimeSpan.Zero
             };
 
             services.AddSingleton(tokenValidationParams);

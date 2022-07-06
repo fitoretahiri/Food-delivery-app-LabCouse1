@@ -1,6 +1,7 @@
 ﻿import { Link, useParams } from "react-router-dom";
 import React, { Component } from "react";
 import { Navigation } from './Navigation';
+import AppNavbar from "./AppNavbar";
 
 export class OrderFood extends Component {
     constructor(props) {
@@ -36,7 +37,7 @@ export class OrderFood extends Component {
         
         return (
             <>
-
+                <AppNavbar />
                 <form className="d-flex w-100 mt-4" role="search">
                     <input className="form-control me-2 border-3" type="search" placeholder="Search" aria-label="Search" />
                     <button className="btn btn-outline-success" type="submit">Search</button>
@@ -76,7 +77,7 @@ export class OrderFood extends Component {
                                     <h5 className="card-title">{el.cmimi} €</h5>
                                     <p className="card-text">{el.pershkrimi}</p>
                                 </div>
-                                <button type="button" value="LOGIN" class="btn btn-secondary btn-block" onClick={() => this.props.handleClick(el)}>Porosit</button>
+                                <button type="button" class="btn btn-secondary btn-block" onClick={() => this.props.handleClick(el)}>Porosit</button>
                             </div>
                         </div>
                         )}

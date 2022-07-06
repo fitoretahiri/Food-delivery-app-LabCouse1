@@ -158,6 +158,41 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.ToTable("Qyteti");
                 });
 
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.RefreshToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("AddedDated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ExpiryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRevoked")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsUsed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("JwtId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Token")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RefreshTokens");
+                });
+
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restauranti", b =>
                 {
                     b.Property<int>("RestaurantID")
@@ -495,6 +530,15 @@ namespace Food_delivery_app_LabCouse1.Migrations
                         .IsRequired();
 
                     b.Navigation("roli");
+                });
+
+            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.RefreshToken", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Restauranti", b =>

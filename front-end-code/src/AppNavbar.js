@@ -17,24 +17,6 @@ const AppNavbar = (props) => {
 
   let menu
 
-  if (props.name === '' || props.name === undefined) {
-    menu = (
-      <div>
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          <li className="nav-item">
-            <Link to="/" className="nav-link">
-              Login
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/klientiRegister" className="nav-link">
-              Register
-            </Link>
-          </li>
-        </ul>
-      </div>
-    )
-  } else {
     menu = (
       <div>
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -64,7 +46,7 @@ const AppNavbar = (props) => {
         </ul>
       </div>
     )
-  }
+  
 
   return (
     

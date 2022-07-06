@@ -7,7 +7,6 @@ import { Qyteti } from './Qyteti';
 import { Menu } from './Menu';
 import { Roli } from './Roli/Roli';
 import { UserRole } from './User-Role/UserRole';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import TransportuesiRegister from './TransportuesiRegister';
 import RestorantiRegister from './RestorantiRegister';
@@ -23,59 +22,93 @@ import { Ushqimi } from './Ushqimi';
 import { User } from './Users/User';
 import Pagesa from './Pagesa';
 import { Pagesa2 } from './Pagesa/Pagesa2';
+//
+import Unauthorized from './Unauthorized'
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import RequireAuth from './RequireAuth';
+import Missing from './Missing';
+import Admin from './Admin';
+import PersistLogin from './components/PersistLogin';
 
 
+import DashboardKlienti from './DashboardKlienti';
+import RestorantetFavorite from './RestorantetFavorite';
+import Cart from './Cart';
 
 function App() {
-    const [name, setName] = useState('');
-    useEffect(()=>{
-        (
-            async () => {
-                const response = await fetch(process.env.REACT_APP_API+'authmanagement/user',{
-                    headers:{
-                        'Accept':'application/json',
-                        'Content-Type':'application/json'
-                    },
-                    credentials: 'include'
-                });
 
-                const content = await response.json();
-                setName(content.userName);
-            }
-        )()
-    }, [name]);
-    
-    
+    const [name, setName] = useState('');
+    const [show, setShow] = useState(true);
+    const [cart, setCart] = useState([]);
+
+    const handleClick = (item) => {
+        if(cart.indexOf(item) !== -1) return;
+        setCart([...cart, item]);
+    }
+
+    const handleChange = (item, d) => {
+        const ind = cart.indexOf(item);
+        const arr = cart;
+
+        arr[ind].amount += d;
+
+        if(arr[ind].amount === 0) arr[ind].amount = 1;
+        setCart([...arr]);
+    };
+
     return (
-        <Router>
-            <div className="App container">
-                <AppNavbar name={name} setName={setName}/>
-                    <Switch>
-                    <Route path="/restaurant" component={Restoranti} />
-                    <Route path="/qyteti" component={Qyteti} />
-                    <Route path="/menu" component={Menu} />
-                    <Route path="/role" component={Roli} />
-                    <Route path="/users" component={User} />
-                    <Route path="/userrole" component={UserRole} />
-                    <Route path="/roles" component={Roli} />
-                    <Route path="/shfletorestorantet" component={ShfletoRestaurantet} />
-                    <Route path="/order" component={OrderFood} />
-                    <Route path="/restaurant_qyteti" component={Restaurant_Qyteti} />
-                    <Route exact path="/" component={() => <LoginForm setName={setName}/>} />
-                    {/*<Route exact path="perdoruesi" component={Perdoruesi} />*/}
-                    <Route path="/klientiregister" component={KlientiRegister} />
-                    <Route path="/transportuesiregister" component={TransportuesiRegister} />
-                    <Route path="/restorantiregister" component={RestorantiRegister} />
-                    <Route path="/pija" component={Pija} />
-                    <Route path="/ushqimi" component={Ushqimi} />
-                    <Route path="/pagesa" component={Pagesa} />
-                    <Route path="/pagesaDashboard" component={Pagesa2} />
-                    <Route path="/restorantidashboard" component={() => <DashboardRestoranti name={name}/>} />
-                    </Switch>
-            </div>
-        </Router>
+        <Routes>
+            <Route path="/" element={<Layout />}>
+
+                {/*public routes */}
+                <Route path="shfletorestorantet" element={<ShfletoRestaurantet />} />
+                <Route path="/order" element={<OrderFood handleClick={handleClick} /> } />
+                <Route path='cart' element={<Cart cart={cart} handleChange={handleChange} setCart={setCart} />} />
+                <Route path="klientiregister" element={<KlientiRegister />} />
+                <Route exact path="/" element={<LoginForm />} />
+                <Route path="transportuesiregister" element={<TransportuesiRegister />} />
+                <Route path="restorantiregister" element={<RestorantiRegister />} />
+                <Route path="unauthorized" element={<Unauthorized />} />
+                <Route path="/klientidashboard" element={<DashboardKlienti />} />
+                <Route path="admin" element={<Admin />} />
+                <Route path="qyteti" element={<Qyteti />} />
+                <Route path="users" element={<User />} />
+                <Route path="userrole" element={<UserRole />} />
+                <Route path="roles" element={<Roli />} />
+                <Route path="restaurant_qyteti" element={<Restaurant_Qyteti />} />
+                <Route path="pija" element={<Pija />} />
+                <Route path="ushqimi" element={<Ushqimi />} />
+                <Route path="pagesa" elementt={<Pagesa />} />
+                <Route path="pagesaDashboard" element={<Pagesa2 />} />
+                <Route path="restaurant" element={<Restoranti />} />
+                <Route path="restorantidashboard" element={<DashboardRestoranti />} />
+                <Route path="menu" element={<Menu />} />
+
+
+
+                {/*we want to protext these routes */}
+                <Route element={<PersistLogin />}>
+                    <Route element={<RequireAuth allowedRoles={['Klient']} />}>
+
+                    </Route>
+
+                    <Route element={<RequireAuth allowedRoles={['Restorant']} />}>
+
+                    </Route>
+
+                    <Route element={<RequireAuth allowedRoles={['Administrator']} />}>
+
+                    </Route>
+                    <Route element={<RequireAuth allowedRoles={['Administrator', 'Klient', 'Restorant']} />}>
+                    </Route>
+                </Route>
+
+                {/*catch all */}
+                {/*<Route path="*" element={<Missing />} /> */}
+            </Route>
+        </Routes>
     );
 }
 
 export default App;
-

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom';
+import AppNavbar from './AppNavbar';
 
 const DashboardKlienti = (props) => {
   /*if(props.name === ''){
@@ -8,6 +9,7 @@ const DashboardKlienti = (props) => {
 
   return (
     <div>
+      <AppNavbar />
       <h4 className='mt-4'>Mirësevini {props.name}</h4>
       <ul className="nav nav-pills">
         <li className="nav-item bg-primary">
