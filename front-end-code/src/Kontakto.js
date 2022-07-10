@@ -1,8 +1,11 @@
+import AppNavbar from "./AppNavbar"
+
 const Kontakto = () => {
   return (
-    <div>
+    <div className="">
+      <AppNavbar />
       <h3 className="mt-5">Na Kontakto</h3>
-      <div className="mt-5">
+      <div className="mt-5 w-50 mx-auto">
         <form>
           <div class="mb-3">
             <div class="row g-3">

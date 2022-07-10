@@ -76,12 +76,14 @@ function LoginForm(props) {
 
       const accessToken = response?.data?.token;
       const refreshToken = response?.data?.refreshToken;
-      const roles = response?.data?.roles
+      const roles = response?.data?.roles;
+      const username = response.data.user.userName;
 
-      console.log(accessToken);
-      console.log(refreshToken);
+      localStorage.setItem('roles', roles);
+      localStorage.setItem('username', username);
+      localStorage.setItem('email', email);
 
-      setAuth({ email, password, roles, accessToken });
+      setAuth({ username, email, password, roles, accessToken });
       navigate(from, { replace: true });
       if (from === '/') {
         if (roles.includes('Administrator')) {
