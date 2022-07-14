@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Food_delivery_app_LabCouse1.Controllers
@@ -28,9 +29,10 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Porosia>> GetPorosia(int id)
+        public async Task<ActionResult<List<Porosia>>> GetPorositeEKlientit(string id)
         {
-            return await _db.Porosia.FindAsync(id);
+            var porosia = await _db.Porosia.Include("User").Where(x => x.UserId.Equals(id)).ToListAsync();
+            return porosia;
         }
 
         [HttpPost]

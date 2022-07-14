@@ -9,16 +9,24 @@ const DashboardKlienti = (props) => {
   const roles = localStorage.getItem('roles');
   const username = localStorage.getItem('username');
   const email = localStorage.getItem('email');
+  const [porosite, setPorosite] = useState();
+
+  useEffect(() => {
+    fetch(process.env.REACT_APP_API + 'porosia/' + localStorage.getItem("id"))
+      .then(response => response.json())
+      .then(data => {
+        setPorosite(data)
+      });
+  }, [])
 
   return (
     <div>
-      <AppNavbar />
       <Container className='py-4'>
         <h6>{username}</h6>
         <Row className='justify-content-center'>
           <Tabs justify variant='pills' defaultActiveKey="tab-1" className='mb-1 p-0 border'>
             <Tab eventKey="tab-1" title="Restorantet Favorite">
-              Tab 1 Content
+              tab1-content
             </Tab>
             <Tab eventKey="tab-2" title="Te dhenat e mia">
               <form className='w-50 mx-auto mt-5'>
@@ -33,7 +41,26 @@ const DashboardKlienti = (props) => {
               </form>
             </Tab>
             <Tab eventKey="tab-3" title="Porositë e mia">
-              Tab 3 Content
+            <table className="table">
+                <tbody>
+                    <tr>
+                        <th>#</th>
+                        <th>Adresa</th>
+                        <th>Data</th>
+                        <th>FormaPageses</th>
+                        <th>Totali</th>
+                    </tr>
+                    {porosite!==undefined? porosite.map((item) => (
+                        <tr key={item.porosiaId}>
+                            <th scope="row">{item.porosiaId}</th>
+                            <th scope="row">{item.adresa}</th>
+                            <td>{item.dataPorosise}</td>
+                            <td>{item.formaPageses}</td>
+                            <td>{item.cmimiTotal}</td>
+                        </tr>
+                    )): <div className='text-center'>Nuk keni porosi</div>}
+                </tbody>
+            </table>
             </Tab>
           </Tabs>
         </Row>
