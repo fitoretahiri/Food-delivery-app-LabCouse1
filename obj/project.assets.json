@@ -6130,32 +6130,18 @@
     ]
   },
   "packageFolders": {
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
     "/home/arber/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
+      "projectUniqueName": "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Food-delivery-app-LabCouse1.csproj",
       "projectName": "Food-delivery-app-LabCouse1",
-      "projectPath": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
-      "packagesPath": "C:\\Users\\fitor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\obj\\",
-      "projectUniqueName": "/home/arber/Food-delivery-app-LabCouse1/Food-delivery-app-LabCouse1.csproj",
-      "projectName": "Food-delivery-app-LabCouse1",
-      "projectPath": "/home/arber/Food-delivery-app-LabCouse1/Food-delivery-app-LabCouse1.csproj",
+      "projectPath": "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Food-delivery-app-LabCouse1.csproj",
       "packagesPath": "/home/arber/.nuget/packages/",
-      "outputPath": "/home/arber/Food-delivery-app-LabCouse1/obj/",
-
+      "outputPath": "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-
-        "C:\\Users\\fitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config",
         "/home/arber/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
