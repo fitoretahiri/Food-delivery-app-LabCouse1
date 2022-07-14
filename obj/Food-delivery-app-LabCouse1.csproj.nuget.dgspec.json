@@ -2,6 +2,7 @@
   "format": 1,
   "restore": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj": {}
   },
   "projects": {
@@ -13,6 +14,19 @@
         "projectPath": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
         "packagesPath": "C:\\Users\\fitor\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\obj\\",
+=======
+    "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Food-delivery-app-LabCouse1.csproj": {}
+  },
+  "projects": {
+    "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Food-delivery-app-LabCouse1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Food-delivery-app-LabCouse1.csproj",
+        "projectName": "Food-delivery-app-LabCouse1",
+        "projectPath": "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Food-delivery-app-LabCouse1.csproj",
+        "packagesPath": "/home/arber/.nuget/packages/",
+        "outputPath": "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/obj/",
+>>>>>>> Stashed changes
 =======
     "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Food-delivery-app-LabCouse1.csproj": {}
   },

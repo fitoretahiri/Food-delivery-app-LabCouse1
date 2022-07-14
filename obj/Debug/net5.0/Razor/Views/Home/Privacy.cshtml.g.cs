@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #pragma checksum "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\Home\Privacy.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "d8ddb6bffa5a9b264bf8f89038bf03c234083fd3"
+=======
+#pragma checksum "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/Home/Privacy.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "0aa07997cef09066f0c784721652eef4b38cfb35"
+>>>>>>> Stashed changes
 =======
 #pragma checksum "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/Home/Privacy.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "0aa07997cef09066f0c784721652eef4b38cfb35"
 >>>>>>> Stashed changes
@@ -18,7 +22,11 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 1 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\_ViewImports.cshtml"
+=======
+#line 1 "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 1 "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
 >>>>>>> Stashed changes
@@ -29,7 +37,11 @@ using Food_delivery_app_LabCouse1;
 #nullable disable
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 2 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\_ViewImports.cshtml"
+=======
+#line 2 "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 2 "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
 >>>>>>> Stashed changes
@@ -39,8 +51,13 @@ using Food_delivery_app_LabCouse1.Models;
 #line hidden
 #nullable disable
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d8ddb6bffa5a9b264bf8f89038bf03c234083fd3", @"/Views/Home/Privacy.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"55da12feac12b9879dfbb52ca5223f4ba6fc71f4", @"/Views/_ViewImports.cshtml")]
+=======
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0aa07997cef09066f0c784721652eef4b38cfb35", @"/Views/Home/Privacy.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"862ad942a2fed4236eceee8723d047eefff5f4b1", @"/Views/_ViewImports.cshtml")]
+>>>>>>> Stashed changes
 =======
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0aa07997cef09066f0c784721652eef4b38cfb35", @"/Views/Home/Privacy.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"862ad942a2fed4236eceee8723d047eefff5f4b1", @"/Views/_ViewImports.cshtml")]
@@ -52,7 +69,11 @@ using Food_delivery_app_LabCouse1.Models;
         {
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 1 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\Home\Privacy.cshtml"
+=======
+#line 1 "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/Home/Privacy.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 1 "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/Home/Privacy.cshtml"
 >>>>>>> Stashed changes
@@ -65,7 +86,11 @@ using Food_delivery_app_LabCouse1.Models;
             WriteLiteral("<h1>");
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 4 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\Home\Privacy.cshtml"
+=======
+#line 4 "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/Home/Privacy.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 4 "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/Home/Privacy.cshtml"
 >>>>>>> Stashed changes

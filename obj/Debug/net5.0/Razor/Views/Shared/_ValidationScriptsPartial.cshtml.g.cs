@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #pragma checksum "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\Shared\_ValidationScriptsPartial.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "4b5e5ef4ebf7354cc35c7dacddd6bc3068f19a47"
+=======
+#pragma checksum "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/Shared/_ValidationScriptsPartial.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "5a2a59b56ea0549b30f2b9bfacb92db68c75233d"
+>>>>>>> Stashed changes
 =======
 #pragma checksum "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/Shared/_ValidationScriptsPartial.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "5a2a59b56ea0549b30f2b9bfacb92db68c75233d"
 >>>>>>> Stashed changes
@@ -18,7 +22,11 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 1 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\_ViewImports.cshtml"
+=======
+#line 1 "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 1 "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
 >>>>>>> Stashed changes
@@ -29,7 +37,11 @@ using Food_delivery_app_LabCouse1;
 #nullable disable
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 2 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\_ViewImports.cshtml"
+=======
+#line 2 "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 2 "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
 >>>>>>> Stashed changes
@@ -39,8 +51,13 @@ using Food_delivery_app_LabCouse1.Models;
 #line hidden
 #nullable disable
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4b5e5ef4ebf7354cc35c7dacddd6bc3068f19a47", @"/Views/Shared/_ValidationScriptsPartial.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"55da12feac12b9879dfbb52ca5223f4ba6fc71f4", @"/Views/_ViewImports.cshtml")]
+=======
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5a2a59b56ea0549b30f2b9bfacb92db68c75233d", @"/Views/Shared/_ValidationScriptsPartial.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"862ad942a2fed4236eceee8723d047eefff5f4b1", @"/Views/_ViewImports.cshtml")]
+>>>>>>> Stashed changes
 =======
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5a2a59b56ea0549b30f2b9bfacb92db68c75233d", @"/Views/Shared/_ValidationScriptsPartial.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"862ad942a2fed4236eceee8723d047eefff5f4b1", @"/Views/_ViewImports.cshtml")]
@@ -74,7 +91,11 @@ using Food_delivery_app_LabCouse1.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4b5e5ef4ebf7354cc35c7dacddd6bc3068f19a474092", async() => {
+=======
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a2a59b56ea0549b30f2b9bfacb92db68c75233d3944", async() => {
+>>>>>>> Stashed changes
 =======
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a2a59b56ea0549b30f2b9bfacb92db68c75233d3944", async() => {
 >>>>>>> Stashed changes
@@ -91,8 +112,13 @@ using Food_delivery_app_LabCouse1.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             WriteLiteral("\r\n");
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4b5e5ef4ebf7354cc35c7dacddd6bc3068f19a475131", async() => {
+=======
+            WriteLiteral("\n");
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a2a59b56ea0549b30f2b9bfacb92db68c75233d4967", async() => {
+>>>>>>> Stashed changes
 =======
             WriteLiteral("\n");
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a2a59b56ea0549b30f2b9bfacb92db68c75233d4967", async() => {
