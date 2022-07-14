@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #pragma checksum "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\Shared\_Layout.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "93e49d674f0b35ef3b2b7988ffa04d029a9d6e04"
+=======
+#pragma checksum "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/_Layout.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "cf899e8795b400922ffc695b5133111bc518c2bc"
+>>>>>>> Stashed changes
 =======
 #pragma checksum "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/_Layout.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "cf899e8795b400922ffc695b5133111bc518c2bc"
 >>>>>>> Stashed changes
@@ -18,7 +22,11 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 1 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\_ViewImports.cshtml"
+=======
+#line 1 "/home/arber/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 1 "/home/arber/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
 >>>>>>> Stashed changes
@@ -29,7 +37,11 @@ using Food_delivery_app_LabCouse1;
 #nullable disable
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 2 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\_ViewImports.cshtml"
+=======
+#line 2 "/home/arber/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 2 "/home/arber/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
 >>>>>>> Stashed changes
@@ -39,8 +51,13 @@ using Food_delivery_app_LabCouse1.Models;
 #line hidden
 #nullable disable
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"93e49d674f0b35ef3b2b7988ffa04d029a9d6e04", @"/Views/Shared/_Layout.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"55da12feac12b9879dfbb52ca5223f4ba6fc71f4", @"/Views/_ViewImports.cshtml")]
+=======
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cf899e8795b400922ffc695b5133111bc518c2bc", @"/Views/Shared/_Layout.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"862ad942a2fed4236eceee8723d047eefff5f4b1", @"/Views/_ViewImports.cshtml")]
+>>>>>>> Stashed changes
 =======
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cf899e8795b400922ffc695b5133111bc518c2bc", @"/Views/Shared/_Layout.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"862ad942a2fed4236eceee8723d047eefff5f4b1", @"/Views/_ViewImports.cshtml")]
@@ -88,11 +105,19 @@ using Food_delivery_app_LabCouse1.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             WriteLiteral("<!DOCTYPE html>\r\n<html lang=\"en\">\r\n");
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93e49d674f0b35ef3b2b7988ffa04d029a9d6e047867", async() => {
                 WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <title>");
 #nullable restore
 #line 6 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\Shared\_Layout.cshtml"
+=======
+            WriteLiteral("<!DOCTYPE html>\n<html lang=\"en\">\n");
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc7649", async() => {
+                WriteLiteral("\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>");
+#nullable restore
+#line 6 "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/_Layout.cshtml"
+>>>>>>> Stashed changes
 =======
             WriteLiteral("<!DOCTYPE html>\n<html lang=\"en\">\n");
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc7649", async() => {
@@ -106,8 +131,13 @@ using Food_delivery_app_LabCouse1.Models;
 #line hidden
 #nullable disable
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 WriteLiteral(" - Food_delivery_app_LabCouse1</title>\r\n    ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "93e49d674f0b35ef3b2b7988ffa04d029a9d6e048563", async() => {
+=======
+                WriteLiteral(" - Food_delivery_app_LabCouse1</title>\n    ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cf899e8795b400922ffc695b5133111bc518c2bc8280", async() => {
+>>>>>>> Stashed changes
 =======
                 WriteLiteral(" - Food_delivery_app_LabCouse1</title>\n    ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cf899e8795b400922ffc695b5133111bc518c2bc8280", async() => {
@@ -126,8 +156,13 @@ using Food_delivery_app_LabCouse1.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 WriteLiteral("\r\n    ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "93e49d674f0b35ef3b2b7988ffa04d029a9d6e049741", async() => {
+=======
+                WriteLiteral("\n    ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cf899e8795b400922ffc695b5133111bc518c2bc9441", async() => {
+>>>>>>> Stashed changes
 =======
                 WriteLiteral("\n    ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cf899e8795b400922ffc695b5133111bc518c2bc9441", async() => {
@@ -158,15 +193,21 @@ using Food_delivery_app_LabCouse1.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             WriteLiteral("\r\n");
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93e49d674f0b35ef3b2b7988ffa04d029a9d6e0411623", async() => {
                 WriteLiteral("\r\n    <header>\r\n        <nav class=\"navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3\">\r\n            <div class=\"container\">\r\n                ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93e49d674f0b35ef3b2b7988ffa04d029a9d6e0412079", async() => {
 =======
+=======
+>>>>>>> Stashed changes
             WriteLiteral("\n");
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc11292", async() => {
                 WriteLiteral("\n    <header>\n        <nav class=\"navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3\">\n            <div class=\"container\">\n                ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc11738", async() => {
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                     WriteLiteral("Food_delivery_app_LabCouse1");
                 }
@@ -197,7 +238,11 @@ using Food_delivery_app_LabCouse1.Models;
                         <li class=""nav-item"">
                             ");
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93e49d674f0b35ef3b2b7988ffa04d029a9d6e0414403", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc14033", async() => {
+>>>>>>> Stashed changes
 =======
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc14033", async() => {
 >>>>>>> Stashed changes
@@ -221,8 +266,13 @@ using Food_delivery_app_LabCouse1.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 WriteLiteral("\r\n                        </li>\r\n                        <li class=\"nav-item\">\r\n                            ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93e49d674f0b35ef3b2b7988ffa04d029a9d6e0416242", async() => {
+=======
+                WriteLiteral("\n                        </li>\n                        <li class=\"nav-item\">\n                            ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc15845", async() => {
+>>>>>>> Stashed changes
 =======
                 WriteLiteral("\n                        </li>\n                        <li class=\"nav-item\">\n                            ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc15845", async() => {
@@ -249,7 +299,11 @@ using Food_delivery_app_LabCouse1.Models;
                 WriteLiteral("\n                        </li>\n                    </ul>\n                </div>\n            </div>\n        </nav>\n    </header>\n    <div class=\"container\">\n        <main role=\"main\" class=\"pb-3\">\n            ");
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 34 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\Shared\_Layout.cshtml"
+=======
+#line 34 "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/_Layout.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 34 "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/_Layout.cshtml"
 >>>>>>> Stashed changes
@@ -259,8 +313,13 @@ using Food_delivery_app_LabCouse1.Models;
 #line hidden
 #nullable disable
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 WriteLiteral("\r\n        </main>\r\n    </div>\r\n\r\n    <footer class=\"border-top footer text-muted\">\r\n        <div class=\"container\">\r\n            &copy; 2022 - Food_delivery_app_LabCouse1 - ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93e49d674f0b35ef3b2b7988ffa04d029a9d6e0418658", async() => {
+=======
+                WriteLiteral("\n        </main>\n    </div>\n\n    <footer class=\"border-top footer text-muted\">\n        <div class=\"container\">\n            &copy; 2022 - Food_delivery_app_LabCouse1 - ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc18155", async() => {
+>>>>>>> Stashed changes
 =======
                 WriteLiteral("\n        </main>\n    </div>\n\n    <footer class=\"border-top footer text-muted\">\n        <div class=\"container\">\n            &copy; 2022 - Food_delivery_app_LabCouse1 - ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc18155", async() => {
@@ -284,8 +343,13 @@ using Food_delivery_app_LabCouse1.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 WriteLiteral("\r\n        </div>\r\n    </footer>\r\n    ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93e49d674f0b35ef3b2b7988ffa04d029a9d6e0420340", async() => {
+=======
+                WriteLiteral("\n        </div>\n    </footer>\n    ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc19811", async() => {
+>>>>>>> Stashed changes
 =======
                 WriteLiteral("\n        </div>\n    </footer>\n    ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc19811", async() => {
@@ -303,8 +367,13 @@ using Food_delivery_app_LabCouse1.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 WriteLiteral("\r\n    ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93e49d674f0b35ef3b2b7988ffa04d029a9d6e0421440", async() => {
+=======
+                WriteLiteral("\n    ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc20895", async() => {
+>>>>>>> Stashed changes
 =======
                 WriteLiteral("\n    ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc20895", async() => {
@@ -322,8 +391,13 @@ using Food_delivery_app_LabCouse1.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 WriteLiteral("\r\n    ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93e49d674f0b35ef3b2b7988ffa04d029a9d6e0422541", async() => {
+=======
+                WriteLiteral("\n    ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc21980", async() => {
+>>>>>>> Stashed changes
 =======
                 WriteLiteral("\n    ");
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf899e8795b400922ffc695b5133111bc518c2bc21980", async() => {
@@ -338,7 +412,11 @@ using Food_delivery_app_LabCouse1.Models;
                 __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_11);
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 45 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\Shared\_Layout.cshtml"
+=======
+#line 45 "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/_Layout.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 45 "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/_Layout.cshtml"
 >>>>>>> Stashed changes
@@ -358,7 +436,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                 WriteLiteral("\n    ");
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 46 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\Shared\_Layout.cshtml"
+=======
+#line 46 "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/_Layout.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 46 "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/_Layout.cshtml"
 >>>>>>> Stashed changes

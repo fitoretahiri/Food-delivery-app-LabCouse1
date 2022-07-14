@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #pragma checksum "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\Shared\Error.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "d6a5625cc8fb4476f348b0fe9041c550465d8bf9"
+=======
+#pragma checksum "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/Error.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "4ecc4d2bcad30a6aee551879bc7e7094ebb4184d"
+>>>>>>> Stashed changes
 =======
 #pragma checksum "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/Error.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "4ecc4d2bcad30a6aee551879bc7e7094ebb4184d"
 >>>>>>> Stashed changes
@@ -18,7 +22,11 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 1 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\_ViewImports.cshtml"
+=======
+#line 1 "/home/arber/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 1 "/home/arber/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
 >>>>>>> Stashed changes
@@ -29,7 +37,11 @@ using Food_delivery_app_LabCouse1;
 #nullable disable
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 2 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\_ViewImports.cshtml"
+=======
+#line 2 "/home/arber/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 2 "/home/arber/Food-delivery-app-LabCouse1/Views/_ViewImports.cshtml"
 >>>>>>> Stashed changes
@@ -39,8 +51,13 @@ using Food_delivery_app_LabCouse1.Models;
 #line hidden
 #nullable disable
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d6a5625cc8fb4476f348b0fe9041c550465d8bf9", @"/Views/Shared/Error.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"55da12feac12b9879dfbb52ca5223f4ba6fc71f4", @"/Views/_ViewImports.cshtml")]
+=======
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4ecc4d2bcad30a6aee551879bc7e7094ebb4184d", @"/Views/Shared/Error.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"862ad942a2fed4236eceee8723d047eefff5f4b1", @"/Views/_ViewImports.cshtml")]
+>>>>>>> Stashed changes
 =======
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4ecc4d2bcad30a6aee551879bc7e7094ebb4184d", @"/Views/Shared/Error.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"862ad942a2fed4236eceee8723d047eefff5f4b1", @"/Views/_ViewImports.cshtml")]
@@ -52,7 +69,11 @@ using Food_delivery_app_LabCouse1.Models;
         {
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 2 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\Shared\Error.cshtml"
+=======
+#line 2 "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/Error.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 2 "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/Error.cshtml"
 >>>>>>> Stashed changes
@@ -65,7 +86,11 @@ using Food_delivery_app_LabCouse1.Models;
             WriteLiteral("\n<h1 class=\"text-danger\">Error.</h1>\n<h2 class=\"text-danger\">An error occurred while processing your request.</h2>\n\n");
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 9 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\Shared\Error.cshtml"
+=======
+#line 9 "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/Error.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 9 "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/Error.cshtml"
 >>>>>>> Stashed changes
@@ -78,7 +103,11 @@ using Food_delivery_app_LabCouse1.Models;
             WriteLiteral("    <p>\n        <strong>Request ID:</strong> <code>");
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 12 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\Shared\Error.cshtml"
+=======
+#line 12 "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/Error.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 12 "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/Error.cshtml"
 >>>>>>> Stashed changes
@@ -90,7 +119,11 @@ using Food_delivery_app_LabCouse1.Models;
             WriteLiteral("</code>\n    </p>\n");
 #nullable restore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #line 14 "C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\Views\Shared\Error.cshtml"
+=======
+#line 14 "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/Error.cshtml"
+>>>>>>> Stashed changes
 =======
 #line 14 "/home/arber/Food-delivery-app-LabCouse1/Views/Shared/Error.cshtml"
 >>>>>>> Stashed changes

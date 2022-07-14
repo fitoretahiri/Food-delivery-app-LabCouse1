@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 
 const Cart = ({ cart, setCart, handleChange }) => {
+<<<<<<< Updated upstream
     const [price, setPrice] = useState(0);
     console.log(cart)
     const handleRemove = (id) => {
@@ -15,6 +16,14 @@ const Cart = ({ cart, setCart, handleChange }) => {
         cart.map((item) => (ans += item.cmimi))
         setPrice(ans)
     }
+=======
+  const [price, setPrice] = useState(0);
+  const handleRemove = (id) => {
+    const arr = cart.filter((item) => item.menuID !== id)
+    setCart(arr)
+    handlePrice()
+  }
+>>>>>>> Stashed changes
 
     useEffect(() => {
         handlePrice()

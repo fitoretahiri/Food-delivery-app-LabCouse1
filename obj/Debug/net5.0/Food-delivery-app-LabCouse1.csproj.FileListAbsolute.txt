@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 C:\Users\Arber\Documents\GitHub\Food-delivery-app-LabCouse1\Food-delivery-app-LabCouse1\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\Arber\Documents\GitHub\Food-delivery-app-LabCouse1\Food-delivery-app-LabCouse1\bin\Debug\net5.0\appsettings.json
 C:\Users\Arber\Documents\GitHub\Food-delivery-app-LabCouse1\Food-delivery-app-LabCouse1\bin\Debug\net5.0\Food-delivery-app-LabCouse1.exe
@@ -192,6 +193,8 @@ C:\Users\Arber\Documents\GitHub\Food-delivery-app-LabCouse1\Food-delivery-app-La
 C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
 C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
 =======
+=======
+>>>>>>> Stashed changes
 C:/Users/Arber/Documents/GitHub/Food-delivery-app-LabCouse1/Food-delivery-app-LabCouse1/bin/Debug/net5.0/appsettings.Development.json
 C:/Users/Arber/Documents/GitHub/Food-delivery-app-LabCouse1/Food-delivery-app-LabCouse1/bin/Debug/net5.0/appsettings.json
 C:/Users/Arber/Documents/GitHub/Food-delivery-app-LabCouse1/Food-delivery-app-LabCouse1/bin/Debug/net5.0/Food-delivery-app-LabCouse1.exe
@@ -479,4 +482,7 @@ C:/Users/Arber/Documents/GitHub/Food-delivery-app-LabCouse1/Food-delivery-app-La
 /home/arber/Food-delivery-app-LabCouse1/obj/Debug/net5.0/Food-delivery-app-LabCouse1.pdb
 /home/arber/Food-delivery-app-LabCouse1/obj/Debug/net5.0/Food-delivery-app-LabCouse1.genruntimeconfig.cache
 /home/arber/Food-delivery-app-LabCouse1/bin/Debug/net5.0/EntityFramework.dll
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

@@ -6131,8 +6131,12 @@
   },
   "packageFolders": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "C:\\Users\\fitor\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+=======
+    "/home/arber/.nuget/packages/": {}
+>>>>>>> Stashed changes
 =======
     "/home/arber/.nuget/packages/": {}
 >>>>>>> Stashed changes
@@ -6141,17 +6145,23 @@
     "version": "1.0.0",
     "restore": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "projectUniqueName": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
       "projectName": "Food-delivery-app-LabCouse1",
       "projectPath": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
       "packagesPath": "C:\\Users\\fitor\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\obj\\",
 =======
+=======
+>>>>>>> Stashed changes
       "projectUniqueName": "/home/arber/Food-delivery-app-LabCouse1/Food-delivery-app-LabCouse1.csproj",
       "projectName": "Food-delivery-app-LabCouse1",
       "projectPath": "/home/arber/Food-delivery-app-LabCouse1/Food-delivery-app-LabCouse1.csproj",
       "packagesPath": "/home/arber/.nuget/packages/",
       "outputPath": "/home/arber/Food-delivery-app-LabCouse1/obj/",
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       "projectStyle": "PackageReference",
       "fallbackFolders": [
@@ -6159,9 +6169,13 @@
       ],
       "configFilePaths": [
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         "C:\\Users\\fitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+=======
+        "/home/arber/.nuget/NuGet/NuGet.Config"
+>>>>>>> Stashed changes
 =======
         "/home/arber/.nuget/NuGet/NuGet.Config"
 >>>>>>> Stashed changes
