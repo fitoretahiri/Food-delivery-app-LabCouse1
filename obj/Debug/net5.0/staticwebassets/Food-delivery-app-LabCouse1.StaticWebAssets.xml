@@ -1,3 +1,7 @@
 ﻿<StaticWebAssets Version="1.0">
+<<<<<<< Updated upstream
   <ContentRoot BasePath="/Identity" Path="C:\Users\fitor\.nuget\packages\microsoft.aspnetcore.identity.ui\5.0.1\staticwebassets\V4\" />
+=======
+  <ContentRoot BasePath="/Identity" Path="/home/arber/.nuget/packages/microsoft.aspnetcore.identity.ui/5.0.1/staticwebassets/V4/" />
+>>>>>>> Stashed changes
 </StaticWebAssets>

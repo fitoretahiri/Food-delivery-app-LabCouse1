@@ -48,8 +48,13 @@ namespace Food_delivery_app_LabCouse1
 
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(
+               Configuration.GetConnectionString("DBConnection")
+            ));
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(
                Configuration.GetConnectionString("DefaultConnection")
-           ));
+            ));
 
             var key = Encoding.ASCII.GetBytes(Configuration["JwtConfig:Secret"]);
 

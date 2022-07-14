@@ -47,8 +47,6 @@ export class ShfletoRestaurantet extends Component {
         let addModalClose = () => this.setState({ addModalShow: false });
         return (
             <>
-                <Navigation />
-
                 <form className="d-flex w-100 mt-4" role="search">
                     <input className="form-control me-2 border-3" type="search" placeholder="Search" aria-label="Search" />
                     <button className="btn btn-outline-success" type="submit">Search</button>

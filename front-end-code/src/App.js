@@ -42,8 +42,8 @@ function App() {
     const [show, setShow] = useState(true);
     const [cart, setCart] = useState([]);
 
-
-
+    
+    
     const [id, setId] = useState('')
 
     const handleClick = (item) => {
@@ -64,13 +64,13 @@ function App() {
 
     return (
         <Routes>
-
-            <Route path="/" element={<Layout show={show} setShow={setShow} cart={cart} />}>
+            
+            <Route path="/" element={<Layout show={show} setShow={setShow} cart={cart}/>}>
 
                 {/*public routes */}
                 <Route path="shfletorestorantet" element={<ShfletoRestaurantet setId={setId} />} />
-                <Route path="/order" element={<OrderFood handleClick={handleClick} id={id} show={show} cart={cart} handleChange={handleChange} setCart={setCart} />} />
-                <Route path='cart' element={<Cart cart={cart} handleChange={handleChange} setCart={setCart} show={show} />} />
+                <Route path="/order" element={<OrderFood handleClick={handleClick} id={id} show={show} cart={cart} handleChange={handleChange} setCart={setCart}/> } />
+                <Route path='cart' element={<Cart cart={cart} handleChange={handleChange} setCart={setCart} show={show}/>} />
                 <Route path="klientiregister" element={<KlientiRegister />} />
                 <Route exact path="/" element={<LoginForm />} />
                 <Route path="transportuesiregister" element={<TransportuesiRegister />} />

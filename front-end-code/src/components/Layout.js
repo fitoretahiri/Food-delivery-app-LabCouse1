@@ -1,7 +1,7 @@
 import AppNavbar from '../AppNavbar';
 import { Outlet } from "react-router-dom";
-import { Navbar } from "react-bootstrap";
- 
+import AppNavbar from "../AppNavbar";
+
 const Layout = (props) => {
     return (  
         <main className="App">
