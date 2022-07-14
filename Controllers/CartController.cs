@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Food_delivery_app_LabCouse1.Controllers
@@ -27,18 +28,29 @@ namespace Food_delivery_app_LabCouse1.Controllers
             return await _db.Cart.Include("Menu").ToListAsync();
         }
 
-        [HttpGet("{id}")]
+        /*[HttpGet("{id}")]
         public async Task<ActionResult<Cart>> GetCart(int id)
         {
             return await _db.Cart.FindAsync(id);
+        }*/
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<List<Cart>>> GetCartAsync(string id)
+        {
+            var cart = await _db.Cart
+                .Include("Menu")
+                .Include("User")
+            .Where(x => x.UserId.Equals(id)).ToListAsync();
+            return cart;
         }
+
 
         [HttpPost]
         public JsonResult addCart(Cart cart)
         {
             _db.Cart.Add(cart);
             _db.SaveChanges();
-            return new JsonResult("Porosia u shtua me sukses");
+            return new JsonResult("Menu u shtua ne shporte!");
         }
 
         [HttpPut]

@@ -83,6 +83,7 @@ function LoginForm(props) {
       localStorage.setItem('roles', roles);
       localStorage.setItem('username', username);
       localStorage.setItem('email', email);
+      localStorage.setItem('id', response.data.user.id);
 
       setAuth({ username, email, password, roles, accessToken });
       navigate(from, { replace: true });

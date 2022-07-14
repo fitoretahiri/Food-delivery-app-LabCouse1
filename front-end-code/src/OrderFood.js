@@ -73,7 +73,7 @@ export class OrderFood extends Component {
                                 <h5 className="card-title">{el.cmimi} €</h5>
                                 <p className="card-text">{el.pershkrimi}</p>
                             </div>
-                            <button type="button" className="btn btn-secondary btn-block" onClick={() => this.props.handleClick(el)}>Porosit</button>
+                            <button type="button" className="btn btn-secondary btn-block" onClick={() => this.props.handleClick(el)}>Shto ne shporte</button>
                         </div>
                     </div>
                     )}
