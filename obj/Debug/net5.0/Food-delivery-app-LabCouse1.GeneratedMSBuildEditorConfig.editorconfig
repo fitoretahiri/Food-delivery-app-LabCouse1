@@ -7,4 +7,8 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = Food_delivery_app_LabCouse1
+<<<<<<< Updated upstream
 build_property.ProjectDir = C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\
+=======
+build_property.ProjectDir = /home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/
+>>>>>>> Stashed changes

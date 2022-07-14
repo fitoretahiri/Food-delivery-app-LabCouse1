@@ -74,10 +74,7 @@ export class ShfletoRestaurantet extends Component {
                                     <p>Gjendemi ne qytetin: {el.qyteti.emri}</p>
                                     <p className="card-text">{el.pershkrimi}</p>
                                 </div>
-
-                                <Link to={`/order`} class="btn btn-secondary btn-block">
-                                    <button type="button" value="LOGIN" class="btn btn-secondary btn-block" onClick={() => { this.props.setId(el.restaurantID ) }}>Zgjedh</button>
-                                </Link>
+                                <Link to={`/order`} onClick={() => { this.props.setId(el.restaurantID ) }} class="btn btn-secondary btn-block"> Zgjedh </Link>
                                 <div className="card-footer">
                                     <small className="text-muted">{el.data_regjistrimit}</small>
                                 </div>

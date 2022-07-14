@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "tOHbimXaPZlDgrxW3wSqkiJ6pEM0Cdbqxv2CphcTOgQb9D/iT1wB82jDSxWsImkH8Kilqzpy/LsPO0EyQR+D4g==",
   "success": true,
   "projectFilePath": "C:\\Users\\fitor\\OneDrive\\Documents\\GitHub\\Food-Delivery-App\\Food-delivery-app-LabCouse1\\Food-delivery-app-LabCouse1.csproj",
+=======
+  "dgSpecHash": "KJAdrbDOzLBYI66Xsp3krHSX1GrN4ysoEeOmTS5Wp2no5uPOpR4hkbw3WKvBBgMTqgOoYM+oH2qEcfTjuQsIBg==",
+  "success": true,
+  "projectFilePath": "/home/arber/Documents/GitHub/Food-delivery-app-LabCouse1/Food-delivery-app-LabCouse1.csproj",
+>>>>>>> Stashed changes
   "expectedPackageFiles": [
     "C:\\Users\\fitor\\.nuget\\packages\\entityframework\\5.0.0\\entityframework.5.0.0.nupkg.sha512",
     "C:\\Users\\fitor\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
