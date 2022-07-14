@@ -107,29 +107,6 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.ToTable("Menu");
                 });
 
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Pagesa", b =>
-                {
-                    b.Property<int>("PagesaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("PorosiaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("PagesaId");
-
-                    b.HasIndex("PorosiaId")
-                        .IsUnique();
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Pagesa");
-                });
-
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Pija", b =>
                 {
                     b.Property<int>("PijaID")
@@ -158,11 +135,17 @@ namespace Food_delivery_app_LabCouse1.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<string>("Adresa")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("CmimiTotal")
                         .HasColumnType("float");
 
                     b.Property<DateTime>("DataPorosise")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("FormaPageses")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
@@ -582,23 +565,6 @@ namespace Food_delivery_app_LabCouse1.Migrations
                     b.Navigation("Ushqimi");
                 });
 
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Pagesa", b =>
-                {
-                    b.HasOne("Food_delivery_app_LabCouse1.Models.Porosia", "Porosia")
-                        .WithOne("Pagesa")
-                        .HasForeignKey("Food_delivery_app_LabCouse1.Models.Pagesa", "PorosiaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Porosia");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Porosia", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
@@ -714,11 +680,6 @@ namespace Food_delivery_app_LabCouse1.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Food_delivery_app_LabCouse1.Models.Porosia", b =>
-                {
-                    b.Navigation("Pagesa");
                 });
 #pragma warning restore 612, 618
         }

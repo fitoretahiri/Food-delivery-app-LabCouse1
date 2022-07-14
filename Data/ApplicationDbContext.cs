@@ -41,7 +41,6 @@ namespace Food_delivery_app_LabCouse1.Data
         public DbSet<Pija> Pija { get; set; }
         public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
         public virtual DbSet<Cart> Cart { get; set; }
-        public virtual DbSet<Pagesa> Pagesa { get; set; }
         public virtual DbSet<Telefoni> Telefoni { get; set; }
         public virtual DbSet<RestFavorite> RestFavorite { get; set; }
         public virtual DbSet<Vleresimet> Vleresimet { get; set; }

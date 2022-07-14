@@ -1,6 +1,5 @@
 import AppNavbar from '../AppNavbar';
 import { Outlet } from "react-router-dom";
-import AppNavbar from "../AppNavbar";
 
 const Layout = (props) => {
     return (  

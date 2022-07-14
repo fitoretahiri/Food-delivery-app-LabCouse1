@@ -42,14 +42,38 @@ function App() {
     const [show, setShow] = useState(true);
     const [cart, setCart] = useState([]);
 
+
     
     
     const [id, setId] = useState('')
 
     const handleClick = (item) => {
-        console.log(item)
+        //  console.log(item)
+        console.log(item.menuID);
         if (cart.indexOf(item) !== -1) return;
         setCart([...cart, item]);
+
+        fetch(process.env.REACT_APP_API + 'cart', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                userId: localStorage.getItem("id"),
+                menuId: item.menuID
+            })
+        })
+            .then(res => res.json())
+            .then((result) => {
+                alert(result);
+                console.log(result);
+            },
+                (error) => {
+                    alert('Failed');
+                })
+
+
     }
 
     const handleChange = (item, d) => {
@@ -69,8 +93,8 @@ function App() {
 
                 {/*public routes */}
                 <Route path="shfletorestorantet" element={<ShfletoRestaurantet setId={setId} />} />
-                <Route path="/order" element={<OrderFood handleClick={handleClick} id={id} show={show} cart={cart} handleChange={handleChange} setCart={setCart}/> } />
-                <Route path='cart' element={<Cart cart={cart} handleChange={handleChange} setCart={setCart} show={show}/>} />
+                <Route path="/order" element={<OrderFood handleClick={handleClick} id={id} show={show} cart={cart} handleChange={handleChange} setCart={setCart} />} />
+                <Route path='cart' element={<Cart handleChange={handleChange} setCart={setCart} show={show} />} />
                 <Route path="klientiregister" element={<KlientiRegister />} />
                 <Route exact path="/" element={<LoginForm />} />
                 <Route path="transportuesiregister" element={<TransportuesiRegister />} />

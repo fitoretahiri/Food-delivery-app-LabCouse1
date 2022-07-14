@@ -28,14 +28,6 @@ export class AddRestorantModal extends Component{
 
     handleSubmit(event) {
         event.preventDefault();
-    /*    let qytetet2 = this.state.qytetet;
-        let qyteti = event.target.emri.value;
-        let qytetiID;
-        for (let i = 0; i < qytetet2.length; i++) {
-            if (qyteti === qytetet2[i].emri) {
-                qytetiID = qytetet2[i].qytetiID
-            }
-        }*/
 
         fetch(process.env.REACT_APP_API + 'restaurant', {
             method: 'POST',
