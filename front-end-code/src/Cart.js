@@ -5,9 +5,6 @@ const Cart = ({ cart, setCart, handleChange }) => {
     const [price, setPrice] = useState(0);
     //console.log(cart)
     const handleRemove = (id) => {
-       // const arr = cart.filter((item) => item.menuID !== id)
-        //setCart(arr)
-        //handlePrice()
         if (window.confirm('A doni ta largoni produktin nga shporta?')) {
             fetch(process.env.REACT_APP_API + 'cart/' + id, {
                 method: 'DELETE',

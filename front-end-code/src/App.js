@@ -36,6 +36,8 @@ import DashboardKlienti from './DashboardKlienti';
 import RestorantetFavorite from './RestorantetFavorite';
 import Cart from './Cart';
 import Kontakto from './Kontakto'
+import {Favorites} from './Favorites';
+import { Mesazhet } from './Kontakto/Mesazhet';
 
 function App() {
 
@@ -72,8 +74,6 @@ function App() {
                 (error) => {
                     alert('Failed');
                 })
-
-
     }
 
     const handleChange = (item, d) => {
@@ -115,6 +115,8 @@ function App() {
                 <Route path="restorantidashboard" element={<DashboardRestoranti />} />
                 <Route path="menu" element={<Menu />} />
                 <Route path="kontakto" element={<Kontakto />} />
+                <Route path="favorites" element={<Favorites />} />
+                <Route path="mesazhet" element={<Mesazhet />} />
 
 
 

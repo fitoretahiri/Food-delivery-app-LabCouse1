@@ -8,8 +8,6 @@ export class AddPijaModal extends Component {
     }
 
     handleSubmit(event) {
-        //const dt = new Date();
-        //let date = dt.getFullYear()+'-'+(dt.getMonth()+1)+'-'+dt.getDate();
         event.preventDefault();
         fetch(process.env.REACT_APP_API + 'pija', {
             method: 'POST',
