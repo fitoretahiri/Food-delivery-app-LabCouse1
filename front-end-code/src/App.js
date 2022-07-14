@@ -36,6 +36,7 @@ import DashboardKlienti from './DashboardKlienti';
 import RestorantetFavorite from './RestorantetFavorite';
 import Cart from './Cart';
 import Kontakto from './Kontakto'
+import Porosit from './Porosit';
 
 function App() {
 
@@ -115,6 +116,7 @@ function App() {
                 <Route path="restorantidashboard" element={<DashboardRestoranti />} />
                 <Route path="menu" element={<Menu />} />
                 <Route path="kontakto" element={<Kontakto />} />
+                <Route path="porosit" element={<Porosit />} />
 
 
 

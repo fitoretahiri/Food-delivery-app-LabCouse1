@@ -219,6 +219,8 @@ namespace Food_delivery_app_LabCouse1.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DataPorosise = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CmimiTotal = table.Column<double>(type: "float", nullable: false),
+                    Adresa = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FormaPageses = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
@@ -299,32 +301,6 @@ namespace Food_delivery_app_LabCouse1.Migrations
                         column: x => x.QytetiID,
                         principalTable: "Qyteti",
                         principalColumn: "QytetiID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Pagesa",
-                columns: table => new
-                {
-                    PagesaId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    PorosiaId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Pagesa", x => x.PagesaId);
-                    table.ForeignKey(
-                        name: "FK_Pagesa_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Pagesa_Porosia_PorosiaId",
-                        column: x => x.PorosiaId,
-                        principalTable: "Porosia",
-                        principalColumn: "PorosiaId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -503,17 +479,6 @@ namespace Food_delivery_app_LabCouse1.Migrations
                 column: "UshqimiID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Pagesa_PorosiaId",
-                table: "Pagesa",
-                column: "PorosiaId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Pagesa_UserId",
-                table: "Pagesa",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Porosia_UserId",
                 table: "Porosia",
                 column: "UserId");
@@ -573,7 +538,7 @@ namespace Food_delivery_app_LabCouse1.Migrations
                 name: "ContactUs");
 
             migrationBuilder.DropTable(
-                name: "Pagesa");
+                name: "Porosia");
 
             migrationBuilder.DropTable(
                 name: "RefreshTokens");
@@ -591,13 +556,10 @@ namespace Food_delivery_app_LabCouse1.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Porosia");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Menu");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Pija");
