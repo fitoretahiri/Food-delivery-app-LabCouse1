@@ -32,7 +32,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
                 setCartData(data);
                 setCart(data);
             });
-
+        localStorage.setItem('cartPrice', price)
     }, [cartData]       
     )
 
