@@ -12,7 +12,6 @@ export class ShfletoRestaurantet extends Component {
     constructor(props) {
         super(props);
         this.state = { restorantet: [], addModalShow: false, editModalShow: false, restaurantID: "" }
-        //this.state = { qytetet: [], addModalShow: false, editModalShow: false }
     }
 
     //marrja e te dhenave nga API
@@ -24,14 +23,6 @@ export class ShfletoRestaurantet extends Component {
             });
     }
 
-    /* refreshList() {
-         fetch(process.env.REACT_APP_API + 'qyteti')
-             .then(response => response.json())
-             .then(data => {
-                 this.setState({ qytetet: data });
-             });
-     }*/
-
     componentDidMount() {
         this.refreshList();
     }
@@ -40,10 +31,30 @@ export class ShfletoRestaurantet extends Component {
         this.refreshList();
     }
 
+    handleClick(id) {
+
+        fetch(process.env.REACT_APP_API + 'restfavorite', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                userId: localStorage.getItem("id"),
+                restId: id
+            })
+        })
+            .then(res => res.json())
+            .then((result) => {
+                alert(result);
+            },
+                (error) => {
+                    alert('Failed');
+                })
+    }
 
     render() {
         const { restorantet, restaurantID, emri, data_regjistrimit, nrYjeve, foto, pershkrimi } = this.state;
-        const { qytetet, qytetiID, emer } = this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
         return (
             <>
@@ -74,7 +85,14 @@ export class ShfletoRestaurantet extends Component {
                                     <p>Gjendemi ne qytetin: {el.qyteti.emri}</p>
                                     <p className="card-text">{el.pershkrimi}</p>
                                 </div>
-                                <Link to={`/order`} onClick={() => { this.props.setId(el.restaurantID ) }} class="btn btn-secondary btn-block"> Zgjedh </Link>
+
+                                <Link to={`/order`} class="btn btn-secondary btn-block">
+                                    <button type="button" value="LOGIN" class="btn btn-secondary btn-block" onClick={() => { this.props.setId(el.restaurantID) }}>Zgjedh</button>
+                                    
+                                </Link>
+                                <button type="button" value="LOGIN" class="btn btn-secondary btn-block" onClick={this.handleClick(el.restaurantID)}>
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
                                 <div className="card-footer">
                                     <small className="text-muted">{el.data_regjistrimit}</small>
                                 </div>
@@ -82,7 +100,6 @@ export class ShfletoRestaurantet extends Component {
                         </div>
                         )}
                     </div>
-                    <Footer></Footer>
                 </div></>
         );
     }

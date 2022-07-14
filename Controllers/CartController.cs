@@ -34,6 +34,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
             return await _db.Cart.FindAsync(id);
         }*/
 
+        //get cart items by user id
         [HttpGet("{id}")]
         public async Task<ActionResult<List<Cart>>> GetCartAsync(string id)
         {

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Food_delivery_app_LabCouse1.Controllers
@@ -28,11 +29,22 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<RestFavorite>> GetRestFavorit(int id)
+        public async Task<ActionResult<List<RestFavorite>>> GetFavsAsync(string id)
         {
-            return await _db.RestFavorite.FindAsync(id);
+            var favs = await _db.RestFavorite
+                .Include("Restauranti")
+                .Include("User")
+            .Where(x => x.UserId.Equals(id)).ToListAsync();
+            return favs;
         }
 
+
+        /*   [HttpGet("{id}")]
+           public async Task<ActionResult<RestFavorite>> GetRestFavorit(int id)
+           {
+               return await _db.RestFavorite.FindAsync(id);
+           }
+        */
         [HttpPost]
         public JsonResult addRestFavorit(RestFavorite restFavorite)
         {

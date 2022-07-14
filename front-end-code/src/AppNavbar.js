@@ -18,6 +18,7 @@ const AppNavbar = (props) => {
 
   let menu = '';
 
+
   if (roles !== null) {
     if (roles.includes('Klient')) {
       menu = (

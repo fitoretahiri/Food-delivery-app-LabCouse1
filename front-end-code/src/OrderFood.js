@@ -1,6 +1,5 @@
 ﻿import { Link, useParams } from "react-router-dom";
 import React, { Component } from "react";
-import { Navigation } from './Navigation';
 import AppNavbar from "./AppNavbar";
 import Cart from "./Cart";
 
