@@ -22,8 +22,9 @@ export class Navigation extends Component {
                         <Link to="/pija" className="d-inline p-2 bg-dark text-white">Pijet</Link>
                         <Link to="/ushqimi" className="d-inline p-2 bg-dark text-white">Ushqimet</Link>
                         <Link to="/pagesaDashboard" className="d-inline p-2 bg-dark text-white">Pagesa</Link>
+                        <Link to="/lagje" className="d-inline p-2 bg-dark text-white">Lagjet</Link>
                         <Link to="/" className="d-inline p-2 bg-dark text-white">Porosite</Link>
-                        <Link to="/" className="d-inline p-2 bg-dark text-white">Kontaktet</Link>
+                        <Link to="/mesazhet" className="d-inline p-2 bg-dark text-white">Kontaktet</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

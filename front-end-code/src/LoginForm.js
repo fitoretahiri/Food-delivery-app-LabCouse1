@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import useAuth from './hooks/useAuth';
 
+import './styles/login.css';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import axios, { axiosPrivate } from './api/axios';
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
@@ -120,14 +121,14 @@ function LoginForm(props) {
 
   return (
     <>
-      <div className="d-flex justify-content-center align-content-center">
+      <div className="d-flex justify-content-center align-content-center external">
         {
           isLoading
             ? <div class="spinner-border text-primary" role="status">
               <span class="visually-hidden">Loading...</span>
             </div>
             : <form onSubmit={handleSubmit} autoComplete="off">
-              <div className="w-90">
+              <div className="w-300">
                 {/*Alert Box*/}
                 <div ref={errRef} className={errMsg ? "alert alert-danger" : "collapse"} role="alert" aria-live="assertive">
                   {errMsg}
@@ -190,8 +191,8 @@ function LoginForm(props) {
                 <Link to='/klientiRegister'><button className='btn btn-info'>Regjistrohu</button></Link>
               </div>
             </form>
-        }
-      </div>
+              }
+          </div>
     </>
   )
 

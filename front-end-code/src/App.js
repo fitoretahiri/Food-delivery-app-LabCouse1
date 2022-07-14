@@ -39,12 +39,16 @@ import Kontakto from './Kontakto'
 
 function App() {
 
-    const [name, setName] = useState('');
     const [show, setShow] = useState(true);
     const [cart, setCart] = useState([]);
 
+
+
+    const [id, setId] = useState('')
+
     const handleClick = (item) => {
-        if(cart.indexOf(item) !== -1) return;
+        console.log(item)
+        if (cart.indexOf(item) !== -1) return;
         setCart([...cart, item]);
     }
 
@@ -54,18 +58,19 @@ function App() {
 
         arr[ind].amount += d;
 
-        if(arr[ind].amount === 0) arr[ind].amount = 1;
+        if (arr[ind].amount === 0) arr[ind].amount = 1;
         setCart([...arr]);
     };
 
     return (
         <Routes>
-            <Route path="/" element={<Layout />}>
+
+            <Route path="/" element={<Layout show={show} setShow={setShow} cart={cart} />}>
 
                 {/*public routes */}
-                <Route path="shfletorestorantet" element={<ShfletoRestaurantet />} />
-                <Route path="/order" element={<OrderFood handleClick={handleClick} /> } />
-                <Route path='cart' element={<Cart cart={cart} handleChange={handleChange} setCart={setCart} />} />
+                <Route path="shfletorestorantet" element={<ShfletoRestaurantet setId={setId} />} />
+                <Route path="/order" element={<OrderFood handleClick={handleClick} id={id} show={show} cart={cart} handleChange={handleChange} setCart={setCart} />} />
+                <Route path='cart' element={<Cart cart={cart} handleChange={handleChange} setCart={setCart} show={show} />} />
                 <Route path="klientiregister" element={<KlientiRegister />} />
                 <Route exact path="/" element={<LoginForm />} />
                 <Route path="transportuesiregister" element={<TransportuesiRegister />} />

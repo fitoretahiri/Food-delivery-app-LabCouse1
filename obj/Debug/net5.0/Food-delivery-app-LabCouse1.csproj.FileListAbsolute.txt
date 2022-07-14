@@ -188,3 +188,5 @@ C:\Users\Arber\Documents\GitHub\Food-delivery-app-LabCouse1\Food-delivery-app-La
 C:\Users\Arber\Documents\GitHub\Food-delivery-app-LabCouse1\Food-delivery-app-LabCouse1\obj\Debug\net5.0\staticwebassets\Food-delivery-app-LabCouse1.StaticWebAssets.xml
 C:\Users\Arber\Documents\GitHub\Food-delivery-app-LabCouse1\Food-delivery-app-LabCouse1\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
 C:\Users\Arber\Documents\GitHub\Food-delivery-app-LabCouse1\Food-delivery-app-LabCouse1\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\fitor\OneDrive\Documents\GitHub\Food-Delivery-App\Food-delivery-app-LabCouse1\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll

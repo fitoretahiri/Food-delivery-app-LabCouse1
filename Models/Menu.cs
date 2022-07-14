@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,11 +18,14 @@ namespace Food_delivery_app_LabCouse1.Models
         public int RestaurantID { get; set; }
         [ForeignKey("RestaurantID")]
         public Restauranti Restauranti { get; set; }
+        //lidhja e menu me pije
         public int PijaID { get; set; }
         [ForeignKey("PijaID")]
         public Pija Pija { get; set; }
+        //lidhja e menu me ushqim
         public int UshqimiID { get; set; }
         [ForeignKey("UshqimiID")]
         public Ushqimi Ushqimi { get; set; }
+
     }
 }

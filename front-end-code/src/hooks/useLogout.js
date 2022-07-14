@@ -9,6 +9,7 @@ const UseLogout = () => {
         try{
             localStorage.removeItem('roles');
             localStorage.removeItem('username');
+            localStorage.removeItem('email');
             const response = await axios.post('/api/authmanagement/logout', {}, {
                 withCredentials: true
             });

@@ -114,8 +114,8 @@ namespace TodoApp.Controllers
             return BadRequest(new {error = "Role already exist"});
         }
 
-        [Authorize]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        //[Authorize]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet]
         [Route("GetAllUsers")]
         public async Task<IActionResult> GetAllUsers()

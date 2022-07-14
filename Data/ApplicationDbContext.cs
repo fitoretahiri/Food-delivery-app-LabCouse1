@@ -18,25 +18,32 @@ namespace Food_delivery_app_LabCouse1.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            //builder.Entity<Restaurant_Qyteti>().HasKey(x => new { x.QytetiID, x.RestaurantID });
+
+            /*builder.Entity<CartMenu>().HasKey(x => new { x.MenuID, x.CartID });
+            builder.Entity<CartMenu>()
+                .HasOne(pt => pt.Menu)
+                .WithMany(p => p.CartMenus)
+                .HasForeignKey(pt => pt.MenuID);
+
+            builder.Entity<CartMenu>()
+                .HasOne(pt => pt.Cart)
+                .WithMany(t => t.CartMenus)
+                .HasForeignKey(pt => pt.CartID);*/
         }
         public DbSet<Restauranti> Restauranti { get; set; }
-
         public DbSet<Qyteti> Qyteti { get; set; }
-
+        public DbSet<Porosia> Porosia { get; set; }
+        public DbSet<ContactUs> ContactUs { get; set; }
         public DbSet<Menu> Menu { get; set; }
-
-        public DbSet<Roli> Roli { get; set; }
-
-        public DbSet<Perdoruesi> Perdoruesi { get; set; }
-
-        public DbSet<Klienti> Klienti { get; set; }
-
-        //public DbSet<Restaurant_Qyteti> restaurant_Qyteti { get; set; }
-
-        public DbSet<Transportuesi> Transportuesi { get; set; }
+       // public DbSet<CartItem> Cart { get; set; } 
         public DbSet<Ushqimi> Ushqimi { get; set; }
+       // public DbSet<CartMenu> CartItemMenu { get; set; } 
         public DbSet<Pija> Pija { get; set; }
         public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
+        public virtual DbSet<Cart> Cart { get; set; }
+        public virtual DbSet<Pagesa> Pagesa { get; set; }
+        public virtual DbSet<Telefoni> Telefoni { get; set; }
+        public virtual DbSet<RestFavorite> RestFavorite { get; set; }
+        public virtual DbSet<Vleresimet> Vleresimet { get; set; }
     }
 }
