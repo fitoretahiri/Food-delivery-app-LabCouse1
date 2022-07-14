@@ -14,6 +14,8 @@ namespace Food_delivery_app_LabCouse1.Models
         public int PorosiaId { get; set; }
         public DateTime DataPorosise { get; set; }
         public double CmimiTotal { get; set; }
+        public string Adresa { get; set; }
+        public string FormaPageses { get; set; }
         //public int CartId { get; set; }
         public string UserId { get; set; }
 
@@ -23,8 +25,6 @@ namespace Food_delivery_app_LabCouse1.Models
 
        // [ForeignKey(nameof(CartId))]
        // public Cart Cart { get; set; }
-
-        public Pagesa Pagesa { get; set; }
 
     }
 }
