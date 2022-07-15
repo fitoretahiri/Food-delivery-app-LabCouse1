@@ -37,6 +37,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
         
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult addQytetin(Qyteti qyteti){
                 _db.Qyteti.Add(qyteti);
                 _db.SaveChanges();
@@ -44,6 +45,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult updateQytetin(Qyteti qyteti)
         {
             _db.Qyteti.Update(qyteti);
@@ -53,6 +55,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult deleteQytetin(int id)
         {
            var qyteti = _db.Qyteti.Find(id);

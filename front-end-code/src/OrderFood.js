@@ -39,29 +39,6 @@ export class OrderFood extends Component {
             </form>
 
             <div className="row row-cols-1 row-cols-md-3 g-4">
-                <div className="w-25 p-3 g-5">
-                    <ul className="list-group">
-                        <li className="list-group-item">
-                            Filtro sipas cmimi
-                        </li>
-                        <li className="list-group-item">
-                            <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> deri ne 10 €
-                        </li>
-                        <li className="list-group-item">
-                            <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> me shume se 10 €
-                        </li>
-                        <li className="list-group-item">
-                            Filtro sipas produkteve
-                        </li>
-                        <li className="list-group-item">
-                            <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> Pije
-                        </li>
-                        <li className="list-group-item">
-                            <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> Ushqim
-                        </li>
-
-                    </ul>
-                </div>
                 <div className="w-75 row row-cols-1 row-cols-md-3 g-3">
 
                     {menus.map((el, i) => <div className="col">
@@ -73,6 +50,7 @@ export class OrderFood extends Component {
                                 <p className="card-text">{el.pershkrimi}</p>
                             </div>
                             <button type="button" className="btn btn-secondary btn-block" onClick={() => this.props.handleClick(el)}>Shto ne shporte</button>
+                            <button type="button" className="btn btn-info btn-block mt-2">Vlereso Menu-ne</button>
                         </div>
                     </div>
                     )}

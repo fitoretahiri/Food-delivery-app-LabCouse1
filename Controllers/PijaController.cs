@@ -35,6 +35,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult addPija(Pija pija)
         {
             _db.Pija.Add(pija);
@@ -43,6 +44,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult updatePija(Pija pija)
         {
             _db.Pija.Update(pija);
@@ -52,6 +54,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult deletePija(int id)
         {
             var pija = _db.Pija.Find(id);

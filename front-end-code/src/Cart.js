@@ -1,5 +1,6 @@
 ﻿import React from 'react'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const Cart = ({ cart, setCart, handleChange }) => {
     const [price, setPrice] = useState(0);
@@ -42,7 +43,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
 
     if (cart.length !== 0) {
         button = (
-            <button className='btn btn-primary w-25'><h5>Porosit</h5></button>
+            <Link to='/porosit' className='btn btn-primary w-25'><h5>Porosit</h5></Link>
         )
     }
 

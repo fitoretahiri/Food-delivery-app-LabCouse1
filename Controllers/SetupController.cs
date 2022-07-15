@@ -81,7 +81,8 @@ namespace TodoApp.Controllers
             }
         }*/
 
-        [HttpPost]
+        [HttpPost]  
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public async Task<IActionResult> CreateRole([FromBody] Role value)
         {
             // Check if the role exist
@@ -127,6 +128,7 @@ namespace TodoApp.Controllers
 
         //metoda per me i fshi te gjithe userat
         [HttpDelete("deleteUser/{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public async Task<JsonResult> deleteUserAsync(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -144,6 +146,7 @@ namespace TodoApp.Controllers
 
         [HttpPost]
         [Route("AddUserToRole")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public async Task<IActionResult> AddUserToRole(string email, string roleName)
         {
             // Check if the user exist
@@ -190,7 +193,7 @@ namespace TodoApp.Controllers
 
         //kthen rolin e userit ne baze te emailit te tij
         [HttpGet]
-        [Route("GetUserRoles")]
+        [Route("GetUserRoles")] 
         public async Task<IActionResult> GetUserRoles(string email)
         {
             // check if the email is valid
@@ -211,6 +214,7 @@ namespace TodoApp.Controllers
 
         [HttpPost]
         [Route("RemoveUserFromRole")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public async Task<IActionResult> RemoveUserFromRole(string email, string roleName)
         {
             // Check if the user exist

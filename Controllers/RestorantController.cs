@@ -28,12 +28,6 @@ namespace Food_delivery_app_LabCouse1.Controllers
             _db = db;
 
         }
-/*
-        [HttpGet]
-        public async Task<ActionResult<List<Restauranti>>> GetRestorantet2()
-        {
-            return await _db.Restauranti.Include("perdoruesi").ToListAsync();
-        }*/
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Restauranti>> GetRestoranti(int id)
@@ -42,54 +36,19 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult addRestoranti(Restauranti restoranti){
                 _db.Restauranti.Add(restoranti);
             
                 _db.SaveChanges();
                 return new JsonResult("Restoranti u shtua me sukses");
-           /* path = Environment.CurrentDirectory;
-            path = path.Replace(@"\API", @"\Photos\");*/
         }
-
-
-       /* [HttpGet]
-
-        public async Task<List<Restauranti>> getRestaurants()
-        {
-
-            var restaurants = _db.Restauranti;
-
-            foreach (var rest in restaurants)
-            {
-                rest.Foto = getImage(rest.RestaurantID.ToString());
-            }
-            return await restaurants.ToListAsync();
-        }
-
-        [HttpGet("getImage")]
-        public string getImage(string id)
-        {
-            try
-            {
-                byte[] test = System.IO.File.ReadAllBytes(path + id + ".png");
-                return Convert.ToBase64String(test);
-            }
-
-            catch (Exception)
-            {
-                return placeholder;
-            }
-        }*/
-
-
-
 
          [HttpGet]
          public async Task<ActionResult<List<Restauranti>>> GetRestorantet()
          {
              return await _db.Restauranti.Include("Qyteti").ToListAsync();
          }
-
 
         //metoda per kerkim te restauranteve nga search bar
         [HttpGet("search/{str}")]
@@ -111,10 +70,8 @@ namespace Food_delivery_app_LabCouse1.Controllers
             return result;
         }
 
-
-
-
         [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult updateRestoranti(Restauranti restoranti)
         {
             _db.Restauranti.Update(restoranti);
@@ -124,6 +81,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult deleteRestoranti(int id)
         {
            var restoranti = _db.Restauranti.Find(id);

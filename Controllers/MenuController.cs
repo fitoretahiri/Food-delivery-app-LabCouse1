@@ -17,7 +17,6 @@ namespace Food_delivery_app_LabCouse1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class MenuController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
@@ -34,13 +33,6 @@ namespace Food_delivery_app_LabCouse1.Controllers
         {
             return await _db.Menu.Include("Restauranti").ToListAsync();
         }
-
-       /* [HttpGet("{id}")]
-        public async Task<ActionResult<Menu>> GetMenu(int id)
-        {
-            return await _db.Menu.FindAsync(id);
-        }
-       */
 
         //Kjo metode kthen krejt menute qe i takojne ni restaurantit
         [HttpGet("{id}")]
@@ -63,6 +55,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
 
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult addMenu(Menu menu){
                 _db.Menu.Add(menu);
                 _db.SaveChanges();
@@ -70,6 +63,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult updateMenu(Menu menu)
         {
             _db.Menu.Update(menu);
@@ -79,6 +73,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult deleteMenu(int id)
         {
            var menu = _db.Menu.Find(id);

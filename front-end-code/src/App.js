@@ -38,6 +38,7 @@ import Cart from './Cart';
 import Kontakto from './Kontakto'
 import {Favorites} from './Favorites';
 import { Mesazhet } from './Kontakto/Mesazhet';
+import Porosit from './Porosit';
 
 function App() {
 
@@ -117,13 +118,16 @@ function App() {
                 <Route path="kontakto" element={<Kontakto />} />
                 <Route path="favorites" element={<Favorites />} />
                 <Route path="mesazhet" element={<Mesazhet />} />
+                <Route path="porosit" element={<Porosit />} />
+
+                
 
 
 
                 {/*we want to protext these routes */}
                 <Route element={<PersistLogin />}>
                     <Route element={<RequireAuth allowedRoles={['Klient']} />}>
-
+                        
                     </Route>
 
                     <Route element={<RequireAuth allowedRoles={['Restorant']} />}>

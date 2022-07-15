@@ -17,7 +17,6 @@ namespace Food_delivery_app_LabCouse1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ContactController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
@@ -30,6 +29,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public async Task<ActionResult<List<ContactUs>>> GetKontaktet()
         {
             return await _db.ContactUs.ToListAsync();
@@ -50,6 +50,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult deleteKontakti(int id)
         {
             var kontakti = _db.ContactUs.Find(id);

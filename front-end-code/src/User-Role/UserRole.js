@@ -23,6 +23,7 @@ export class UserRole extends Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({ users: data });
+                console.log(data)
             });
     }
 

@@ -66,14 +66,6 @@ export class ShfletoRestaurantet extends Component {
                 </form>
 
                 <div className="row row-cols-1 row-cols-md-2 g-3">
-                    <div className="w-25 p-3 g-5">
-                        <ul className="list-group">
-                            <li className="list-group-item">
-                                <input className="form-check-input me-1" type="checkbox" value="" aria-label="..." /> emri
-                            </li>
-
-                        </ul>
-                    </div>
                     <div className="w-75 row row-cols-1 row-cols-md-3 g-3">
 
                         {restorantet.map(el => <div className="col">
@@ -86,12 +78,11 @@ export class ShfletoRestaurantet extends Component {
                                     <p className="card-text">{el.pershkrimi}</p>
                                 </div>
 
-                                <Link to={`/order`} class="btn btn-secondary btn-block">
-                                    <button type="button" value="LOGIN" class="btn btn-secondary btn-block" onClick={() => { this.props.setId(el.restaurantID) }}>Zgjedh</button>
-                                    
+                                <Link to={`/order`} class="btn btn-secondary btn-block" onClick={() => { this.props.setId(el.restaurantID) }}>
+                                    Zgjedh  
                                 </Link>
-                                <button type="button" value="LOGIN" class="btn btn-secondary btn-block" onClick={this.handleClick(el.restaurantID)}>
-                                    <i class="fa-regular fa-heart"></i>
+                                <button type="button" value="LOGIN" class="btn btn-secondary btn-block mt-2" onClick={()=>{this.handleClick(el.restaurantID)}}>
+                                    <i class="fa-solid fa-heart"></i>
                                 </button>
                                 <div className="card-footer">
                                     <small className="text-muted">{el.data_regjistrimit}</small>

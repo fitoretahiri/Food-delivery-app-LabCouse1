@@ -36,6 +36,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Klient")] 
         public JsonResult addPorosia(Porosia porosia)
         {
             _db.Porosia.Add(porosia);

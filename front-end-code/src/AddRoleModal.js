@@ -9,19 +9,19 @@ export class AddRoleModal extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        fetch(process.env.REACT_APP_API + 'role', {
+        fetch(process.env.REACT_APP_API + 'setup', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                role: event.target.role.value
+                name: event.target.role.value
             })
         })
             .then(res => res.json())
             .then((result) => {
-                alert(result);
+                alert(result.result);
             },
                 (error) => {
                     alert('Failed');

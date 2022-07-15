@@ -35,6 +35,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult addUshqimi(Ushqimi ushqimi)
         {
             _db.Ushqimi.Add(ushqimi);
@@ -43,6 +44,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult updateUshqimi(Ushqimi ushqimi)
         {
             _db.Ushqimi.Update(ushqimi);
@@ -52,6 +54,7 @@ namespace Food_delivery_app_LabCouse1.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles="Administrator")] 
         public JsonResult deleteUshqimi(int id)
         {
             var ushqimi = _db.Ushqimi.Find(id);
